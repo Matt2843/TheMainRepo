@@ -6,9 +6,10 @@
              xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
              xmlns:m="clr-namespace:TrustedActivityCreator.Model"
              mc:Ignorable="d" 
+             Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="50" d:DesignWidth="100">
     <Grid>
-        <Rectangle Width="{Binding Path=Width}" Height="{Binding Path=Height}" RadiusX="10" RadiusY="10" Fill="White" Stroke="Black" StrokeThickness="2"/>
+        <Rectangle RadiusX="7" RadiusY="7" Fill="White" Stroke="Black" />
         <TextBox Text="{Binding Path=ActivityDescription}" Margin="7"/>
     </Grid>
 </UserControl>
