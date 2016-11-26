@@ -1,12 +1,20 @@
-﻿<Window x:Class="TrustedActivityCreator.MainWindow"
+﻿<Window DataContext="{x:Type vm:ActivityVM}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TrustedActivityCreator"
+        xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>
+        <DockPanel Grid.Row="1" Margin="20" Background="Purple">
+
+        </DockPanel>
+        <ContentControl Margin="10" Content="{Binding CurrentActivity}"/>
     </Grid>
 </Window>

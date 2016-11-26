@@ -33,10 +33,21 @@ namespace TrustedActivityCreator.ViewModel {
             }
         }
 
-
+        public Activity CurrentActivity {
+            get { return currentActivity; }
+            set {
+                if(value != currentActivity) {
+                    currentActivity = value;
+                    RaisePropertyChanged("CurrentActivity");
+                }
+            }
+        }
 
         private void getCurrentActivity() {
             // TODO - GET ACTIVITY WITH CURRENT ID FROM ACTIVITY MAP
+            Activity stupidActivity = new Activity();
+            stupidActivity.ActivityDescription = "Hello i'm a random activity";
+            CurrentActivity = stupidActivity;
         }
     }
 }
