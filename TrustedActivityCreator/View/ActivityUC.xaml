@@ -1,0 +1,14 @@
+﻿<UserControl DataContext="{x:Type m:Activity}"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
+             xmlns:m="clr-namespace:TrustedActivityCreator.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="100">
+    <Grid>
+        <Rectangle Width="{Binding Path=Width}" Height="{Binding Path=Height}" RadiusX="10" RadiusY="10" Fill="White" Stroke="Black" StrokeThickness="2"/>
+        <TextBox Text="{Binding Path=ActivityDescription}" Margin="7"/>
+    </Grid>
+</UserControl>
