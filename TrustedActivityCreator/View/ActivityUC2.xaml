@@ -14,7 +14,9 @@
 	</UserControl.DataContext>
 
 	<Grid>
-		<Rectangle RadiusX="7" RadiusY="7" Fill="White" Stroke="Black" />
-		<TextBox Text="{Binding Path=ActivityDescription}" Margin="5" />
+		<!--<Canvas>-->
+			<Rectangle RadiusX="7" RadiusY="7" Fill="White" Stroke="Black" />
+			<TextBox Text="{Binding Path=ActivityDescription}" Margin="5" />
+		<!--</Canvas>-->
 	</Grid>
 </UserControl>
