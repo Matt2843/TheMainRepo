@@ -47,8 +47,7 @@ namespace TrustedActivityCreator.ViewModel {
             // TODO - GET ACTIVITY WITH CURRENT ID FROM ACTIVITY MAP
             Activity stupidActivity = new Activity();
             stupidActivity.ActivityDescription = "Hello i'm a random activity";
-            stupidActivity.Width = 200;
-            CurrentActivity = stupidActivity;
+			CurrentActivity = stupidActivity;
         }
     }
 }
