@@ -17,9 +17,10 @@ namespace TrustedActivityCreator.View {
 	/// <summary>
 	/// Interaction logic for ActivityUC2.xaml
 	/// </summary>
-	public partial class ActivityUC2 : UserControl {
-		public ActivityUC2() {
+	public partial class ActivityUC : UserControl {
+		public ActivityUC() {
 			InitializeComponent();
+            
 		}
 	}
 }

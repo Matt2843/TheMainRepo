@@ -1,20 +1,15 @@
 ﻿using GalaSoft.MvvmLight;
+using System;
 namespace TrustedActivityCreator.Model {
     class Activity : ObservableObject {
 
         private int activityId;
-        private string activityDescription;
+        private string activityDescription = "Activity";
 
-        private int width;
-        private int height;
+        private int width = 100;
+        private int height = 50;
         private int x;
         private int y;
-
-        public Activity() {
-            width = 100;
-            height = 50;
-            activityDescription = "Activity";
-        }
 
         public int ActivityId {
             get { return activityId; }

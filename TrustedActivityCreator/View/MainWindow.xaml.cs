@@ -16,9 +16,9 @@ namespace TrustedActivityCreator.View {
     /// <summary>
     /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MainView : Window {
-        public MainView() {
-            //InitializeComponent();
+    public partial class MainWindow : Window {
+        public MainWindow() {
+            InitializeComponent();
         }
     }
 }
