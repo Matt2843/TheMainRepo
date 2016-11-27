@@ -16,7 +16,7 @@
 	<Grid>
 		<!--<Canvas>-->
 			<Rectangle RadiusX="7" RadiusY="7" Fill="White" Stroke="Black" />
-			<TextBox Text="{Binding Path=ActivityDescription}" Margin="5" />
-		<!--</Canvas>-->
+            <TextBox Text="{Binding Path=ActivityDescription}" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" IsReadOnly="True" BorderThickness="0"/>
+        <!--</Canvas>-->
 	</Grid>
 </UserControl>
