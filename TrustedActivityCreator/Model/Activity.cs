@@ -69,9 +69,5 @@ namespace TrustedActivityCreator.Model {
                 }
             }
         }
-
-
-
-
     }
 }
