@@ -38,7 +38,7 @@ namespace TrustedActivityCreator.ViewModel {
             set {
                 if(value != currentActivity) {
                     currentActivity = value;
-                    RaisePropertyChanged("CurrentActivity");
+                    RaisePropertyChanged();
                 }
             }
         }

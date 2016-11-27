@@ -20,7 +20,6 @@ namespace TrustedActivityCreator.View {
 	public partial class ActivityUC : UserControl {
 		public ActivityUC() {
 			InitializeComponent();
-            
 		}
 	}
 }

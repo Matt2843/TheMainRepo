@@ -8,15 +8,10 @@
              mc:Ignorable="d"
 			 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="50" d:DesignWidth="100">
-	
-	<UserControl.DataContext>
-		<m:Activity />
-	</UserControl.DataContext>
-
-	<Grid>
+    <Grid>
 		<!--<Canvas>-->
 			<Rectangle RadiusX="7" RadiusY="7" Fill="White" Stroke="Black" />
-            <TextBox Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" IsReadOnly="True" BorderThickness="0" />
+            <TextBox Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" IsReadOnly="True" BorderThickness="0" />
         <!--</Canvas>-->
 	</Grid>
 </UserControl>

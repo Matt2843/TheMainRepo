@@ -16,7 +16,7 @@ namespace TrustedActivityCreator.Model {
             set {
                 if(value != activityId) {
                     activityId = value;
-                    RaisePropertyChanged("ActivityId");
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -26,7 +26,7 @@ namespace TrustedActivityCreator.Model {
             set {
                 if(value != activityDescription) {
                     activityDescription = value;
-                    RaisePropertyChanged("ActivityDescription");
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -36,7 +36,7 @@ namespace TrustedActivityCreator.Model {
             set {
                 if (value != width) {
                     width = value;
-                    RaisePropertyChanged("Width");
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace TrustedActivityCreator.Model {
             set {
                 if (value != height) {
                     height = value;
-                    RaisePropertyChanged("Height");
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace TrustedActivityCreator.Model {
             set {
                 if (value != x) {
                     x = value;
-                    RaisePropertyChanged("X");
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace TrustedActivityCreator.Model {
             set {
                 if (value != y) {
                     y = value;
-                    RaisePropertyChanged("Y");
+                    RaisePropertyChanged();
                 }
             }
         }
