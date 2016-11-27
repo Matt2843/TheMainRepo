@@ -7,7 +7,7 @@
     <Application.Resources>
 		<DataTemplate DataType="{x:Type m:Activity}">
 			<Canvas>
-				<local:ActivityUC2/>
+				<local:ActivityUC/>
 			</Canvas>
 		</DataTemplate>
 	</Application.Resources>
