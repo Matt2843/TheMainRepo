@@ -5,10 +5,16 @@ namespace TrustedActivityCreator.Model {
         private int activityId;
         private string activityDescription;
 
-        private int width = 100;
-        private int height = 50;
+        private int width;
+        private int height;
         private int x;
         private int y;
+
+        public Activity() {
+            width = 100;
+            height = 50;
+            activityDescription = "Activity";
+        }
 
         public int ActivityId {
             get { return activityId; }
