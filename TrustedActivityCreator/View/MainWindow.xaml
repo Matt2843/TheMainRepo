@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
+        xmlns:gui="clr-namespace:TrustedActivityCreator.GUI"
         xmlns:local="clr-namespace:TrustedActivityCreator.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
@@ -18,8 +19,9 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>
-        <DockPanel Grid.Row="1" Margin="20" Background="Purple">
+        <DockPanel Grid.Row="1" Margin="20" >
             <ContentControl Margin="10" Content="{Binding CurrentActivity}"/>
+            
         </DockPanel>
     </Grid>
 </Window>
