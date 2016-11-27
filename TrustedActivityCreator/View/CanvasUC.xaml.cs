@@ -14,12 +14,18 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TrustedActivityCreator.View {
+
+    
     /// <summary>
     /// Interaction logic for Canvas.xaml
     /// </summary>
     public partial class CanvasUC : UserControl {
+
         public CanvasUC() {
             InitializeComponent();
         }
+
+        
+
     }
 }

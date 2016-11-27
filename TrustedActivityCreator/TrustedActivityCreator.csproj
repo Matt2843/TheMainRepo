@@ -78,7 +78,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Canvas.cs" />
+    <Compile Include=".GUI\TrustedCanvas.cs" />
+    <Compile Include="Model\CanvasM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">
       <DependentUpon>ActivityUC.xaml</DependentUpon>
     </Compile>

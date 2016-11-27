@@ -11,6 +11,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Canvas Grid.Row="0" Background="White"/>
+        <Canvas Name="CAS" Grid.Row="0" Background="White"/>
     </Grid>
 </UserControl>
