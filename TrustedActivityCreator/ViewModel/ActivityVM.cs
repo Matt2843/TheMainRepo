@@ -26,7 +26,7 @@ namespace TrustedActivityCreator.ViewModel {
         /// </summary>
         public ICommand CurrentActivityCommand {
             get {
-                if(currentActivity == null) {
+                if(currentActivityCommand == null) {
                     currentActivityCommand = new RelayCommand(getCurrentActivity);
                 }
                 return currentActivityCommand;
