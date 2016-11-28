@@ -21,5 +21,23 @@ namespace TrustedActivityCreator.View {
 		public ActivityUC() {
 			InitializeComponent();
 		}
+
+		private void ActivityDescription_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			ActivityDescription.Cursor = ActivityDescription.Focusable ? Cursors.IBeam : Cursors.Arrow;
+		}
+
+		private void ActivityDescription_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+			ActivityDescription.BorderThickness = new Thickness(1,1,1,1);
+			ActivityDescription.IsReadOnly = false;
+			ActivityDescription.Focusable = true;
+			ActivityDescription.Focus();
+			ActivityDescription.CaretIndex = ActivityDescription.Text.Length;
+		}
+
+		private void ActivityDescription_LostFocus(object sender, RoutedEventArgs e) {
+			ActivityDescription.BorderThickness = new Thickness(0,0,0,0);
+			ActivityDescription.Focusable = false;
+			ActivityDescription.IsReadOnly = true;
+		}
 	}
 }
