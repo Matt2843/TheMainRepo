@@ -33,7 +33,7 @@ namespace TrustedActivityCreator.GUI {
 			CellHeight = ActualHeight / NumOfVerticalLines;
 			CellWidth = ActualWidth / NumOfHorizontalLines;
 
-            double vOffset = 0, hOffset = 0;
+            double vOffset = CellWidth, hOffset = CellHeight;
 
 			Brush brush = new SolidColorBrush(Colors.Black);
 
@@ -41,12 +41,12 @@ namespace TrustedActivityCreator.GUI {
             pen.DashStyle = DashStyles.Dash;
 
 			for(int i = 0; i < NumOfVerticalLines - 1; i++) {
-				dc.DrawLine(pen, new Point(vOffset, 0), new Point(vOffset, ActualWidth));
+				dc.DrawLine(pen, new Point(vOffset, 0), new Point(vOffset, ActualHeight));
 				vOffset += CellWidth;
 			}
 
 			for(int i = 0; i < NumOfHorizontalLines - 1; i++) {
-				dc.DrawLine(pen, new Point(0, hOffset), new Point(ActualHeight, hOffset));
+				dc.DrawLine(pen, new Point(0, hOffset), new Point(ActualWidth, hOffset));
 				hOffset += CellHeight;
 			}
 		}
