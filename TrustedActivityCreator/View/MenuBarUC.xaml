@@ -8,7 +8,7 @@
    d:DesignHeight="50"
    d:DesignWidth="300"
    mc:Ignorable="d">
-	<Menu>
+	<Menu VerticalAlignment="Center">
 		<MenuItem Header="_File">
 				<MenuItem Header="_New" InputGestureText="Ctrl+N"/>
 				<MenuItem Header="_Load" InputGestureText="Ctrl+O"/>
