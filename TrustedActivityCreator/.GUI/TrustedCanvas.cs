@@ -39,7 +39,7 @@ namespace TrustedActivityCreator.GUI {
             double vOffset = CellWidth, hOffset = CellHeight;
 
 			Brush brush = new SolidColorBrush(Colors.Black);
-			brush.Opacity = 0.3;
+			brush.Opacity = 0.1;
 
             Pen pen = new Pen(brush, LineThickness);
 			pen.DashStyle = DashStyles.DashDot;
