@@ -3,8 +3,10 @@ using GalaSoft.MvvmLight.Command;
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Media;
+using System.Collections.ObjectModel;
 using TrustedActivityCreator.Model;
 using System.Windows.Controls;
+using TrustedActivityCreator.Command;
 
 namespace TrustedActivityCreator.ViewModel {
 	class ActivityVM : ObservableObject {
@@ -12,8 +14,13 @@ namespace TrustedActivityCreator.ViewModel {
 		/// <summary>
 		/// The current activity information.
 		/// </summary>
+		/// 
+
+		private UndoRedoController undoRedoController = UndoRedoController.Instance;
+
 		private int activityId;
 		private ActivityM currentActivity;
+		public ObservableCollection<ShapeM> Shapes { get; set; }
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
@@ -56,11 +63,15 @@ namespace TrustedActivityCreator.ViewModel {
 			CurrentActivity = stupidActivity;
 		}
 
-		public ICommand DownCurrentActivityCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
+		private void AddShape() {
+			undoRedoController.AddAndExecute(new AddShapeCommand(Shapes, new ActivityM()));
+		}
 
-		public ICommand MoveCurrentActivityCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
+		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
 
-		public ICommand UpCurrentActivityCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
+		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
+
+		public ICommand UpShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
 			var shape = TargetShape(e);
@@ -87,15 +98,15 @@ namespace TrustedActivityCreator.ViewModel {
 			shape.X = (int)initialShapePosition.X;
 			shape.Y = (int)initialShapePosition.Y;
 
-			//undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+			undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
 			e.MouseDevice.Target.ReleaseMouseCapture();
 		}
 
 
-		private ActivityM TargetShape(MouseEventArgs e) {
+		private ShapeM TargetShape(MouseEventArgs e) {
 			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
-			return (ActivityM)shapeVisualElement.DataContext;
+			return (ShapeM)shapeVisualElement.DataContext;
 		}
 
 		private Point RelativeMousePosition(MouseEventArgs e) {

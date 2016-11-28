@@ -14,13 +14,13 @@
 		<Rectangle RadiusX="7" RadiusY="7" Fill="White" Stroke="Black">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
-					<cmd:EventToCommand Command="{Binding DataContext.DownCurrentActivityCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding DataContext.DownShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 				<i:EventTrigger EventName="MouseMove">
-					<cmd:EventToCommand Command="{Binding DataContext.MoveCurrentActivityCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding DataContext.MoveShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 				<i:EventTrigger EventName="MouseUp">
-					<cmd:EventToCommand Command="{Binding DataContext.UpCurrentActivityCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding DataContext.UpShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 			</i:Interaction.Triggers>
 		</Rectangle>

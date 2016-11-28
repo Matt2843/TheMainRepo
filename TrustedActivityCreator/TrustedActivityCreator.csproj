@@ -81,6 +81,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include=".GUI\TrustedCanvas.cs" />
+    <Compile Include="Command\MoveShapeCommand.cs" />
     <Compile Include="Model\CanvasM.cs" />
     <Compile Include="Model\ShapeM.cs" />
     <Compile Include="ViewModel\CanvasVM.cs" />
@@ -111,7 +112,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="Command\AddActivityCommand.cs" />
+    <Compile Include="Command\AddShapeCommand.cs" />
     <Compile Include="Command\IUndoRedoCommand.cs" />
     <Compile Include="Command\RemoveActivityCommand.cs" />
     <Compile Include="Command\UndoRedoController.cs" />
