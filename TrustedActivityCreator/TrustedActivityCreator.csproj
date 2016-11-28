@@ -86,6 +86,7 @@
     <Compile Include="Model\Connections.cs" />
     <Compile Include="Model\Shape.cs" />
     <Compile Include="ViewModel\CanvasVM.cs" />
+    <Compile Include="ViewModel\QuickPanelVM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">
       <DependentUpon>ActivityUC.xaml</DependentUpon>
     </Compile>
@@ -115,7 +116,7 @@
     </Page>
     <Compile Include="Command\AddShapeCommand.cs" />
     <Compile Include="Command\IUndoRedoCommand.cs" />
-    <Compile Include="Command\RemoveActivityCommand.cs" />
+    <Compile Include="Command\RemoveShapesCommand.cs" />
     <Compile Include="Command\UndoRedoController.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="ViewModel\ActivityVM.cs" />

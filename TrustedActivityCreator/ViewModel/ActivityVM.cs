@@ -18,9 +18,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
-		private int activityId;
-		private Activity currentActivity;
-		public ObservableCollection<Shape> Shapes { get; set; }
+		private Activity activity;
+		private int id, width, height, x, y;
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
@@ -37,34 +36,25 @@ namespace TrustedActivityCreator.ViewModel {
 		/// <summary>
 		/// The command properties
 		/// </summary>
-		public ICommand CurrentActivityCommand {
-			get {
-				if(currentActivityCommand == null) {
-					currentActivityCommand = new RelayCommand(getCurrentActivity);
-				}
-				return currentActivityCommand;
-			}
+
+		public ActivityVM() {
+			activity = new Activity();
 		}
 
-		public Activity CurrentActivity {
-			get { return currentActivity; }
+		public int Id { get { return Activity.Id; } }
+		public int Width { get { return Activity.Width; } set { Activity.Width = value; RaisePropertyChanged(); } }
+		public int Height { get { return Activity.Height; } set { Activity.Height = value; RaisePropertyChanged(); } }
+		public int X { get { return Activity.X; } set { Activity.X = value; RaisePropertyChanged(); } }
+		public int Y { get { return Activity.Y; } set { Activity.Y = value; RaisePropertyChanged(); } }
+
+		public Activity Activity {
+			get { return activity; }
 			set {
-				if(value != currentActivity) {
-					currentActivity = value;
+				if(value != activity) {
+					activity = value;
 					RaisePropertyChanged();
 				}
 			}
-		}
-
-		private void getCurrentActivity() {
-			// TODO - GET ACTIVITY WITH CURRENT ID FROM ACTIVITY MAP
-			Activity stupidActivity = new Activity();
-			stupidActivity.ActivityDescription = "Hello i'm a random activity";
-			CurrentActivity = stupidActivity;
-		}
-
-		private void AddShape() {
-			undoRedoController.AddAndExecute(new AddShapeCommand(Shapes, new Activity()));
 		}
 
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }

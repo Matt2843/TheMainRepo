@@ -8,10 +8,13 @@
              xmlns:gui="clr-namespace:TrustedActivityCreator.GUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Width="{Binding Width}" Height="{Binding Height}">
+    
+	<Grid Width="{Binding Width}" Height="{Binding Height}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <gui:TrustedCanvas Grid.Row="0" Background="White"/>
+        <gui:TrustedCanvas Grid.Row="0" Background="White">
+			<ContentControl Margin="10" Content="{Binding Shapes}"/>
+		</gui:TrustedCanvas>
     </Grid>
 </UserControl>

@@ -8,7 +8,7 @@ using TrustedActivityCreator.GUI;
 using System.Collections.ObjectModel;
 using System.Collections;
 using System.Windows.Media;
-
+using System.Linq;
 
 namespace TrustedActivityCreator.ViewModel {
 	public class CanvasVM : ObservableObject {
@@ -101,7 +101,7 @@ namespace TrustedActivityCreator.ViewModel {
 			shape.X = (int)initialShapePosition.X;
 			shape.Y = (int)initialShapePosition.Y;
 
-			//undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+			undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
 			e.MouseDevice.Target.ReleaseMouseCapture();
 		}
@@ -109,11 +109,11 @@ namespace TrustedActivityCreator.ViewModel {
 
 
 		private void AddShape() {
-			
+			undoRedoController.AddAndExecute(new AddShapeCommand(Shapes, new Activity()));
 		}
 
 		private void RemoveShape(IList shapes) {
-
+			undoRedoController.AddAndExecute(new RemoveShapesCommand(Shapes, Connections, shapes.Cast<Shape>().ToList()));
 		}
 
 		private bool CanRemoveShape(IList shapes) => shapes.Count == 1;

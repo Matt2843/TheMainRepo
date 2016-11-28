@@ -3,18 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:v="clr-namespace:TrustedActivityCreator.View"
 			 xmlns:m="clr-namespace:TrustedActivityCreator.Model"
+			 xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type m:Activity}">
+		<DataTemplate DataType="{x:Type vm:ActivityVM}">
             <Canvas>
                 <v:ActivityUC/>
             </Canvas>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type m:Canvas}">
-            <Canvas>
-                <v:CanvasUC/>
-            </Canvas>
-        </DataTemplate>
+		<DataTemplate DataType="{x:Type vm:QuickPanelVM}">
+			<v:TrustedQuickPanelUC/>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type m:Canvas}">
+			<v:CanvasUC/>
+		</DataTemplate>
     </Application.Resources>
 </Application>
