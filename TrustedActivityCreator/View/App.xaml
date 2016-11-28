@@ -5,7 +5,7 @@
 			 xmlns:m="clr-namespace:TrustedActivityCreator.Model"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type m:Activity}">
+        <DataTemplate DataType="{x:Type m:ActivityM}">
             <Canvas>
                 <v:ActivityUC/>
             </Canvas>

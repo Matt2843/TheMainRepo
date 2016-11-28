@@ -1,7 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using System;
 namespace TrustedActivityCreator.Model {
-    class Activity : ObservableObject {
+    class ActivityM : ObservableObject {
 
         private int activityId;
         private string activityDescription = "Activity";

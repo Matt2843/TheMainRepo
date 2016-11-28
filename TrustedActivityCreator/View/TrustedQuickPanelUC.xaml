@@ -10,7 +10,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
 	<UserControl.DataContext>
-		<m:Activity/>
+		<m:ActivityM/>
 	</UserControl.DataContext>
 
 	<Grid Background="#343638">

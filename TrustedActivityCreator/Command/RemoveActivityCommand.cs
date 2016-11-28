@@ -9,11 +9,11 @@ using TrustedActivityCreator.Model;
 namespace TrustedActivityCreator.Command {
     class RemoveActivityCommand : IUndoRedoCommand {
 
-        private ObservableCollection<Activity> activities;
+        private ObservableCollection<ActivityM> activities;
 
-        private List<Activity> activitiesToRemove;
+        private List<ActivityM> activitiesToRemove;
 
-        public RemoveActivityCommand(ObservableCollection<Activity> activities, List<Activity> activitiesToRemove) {
+        public RemoveActivityCommand(ObservableCollection<ActivityM> activities, List<ActivityM> activitiesToRemove) {
             this.activities = activities;
             this.activitiesToRemove = activitiesToRemove;
         }

@@ -13,7 +13,7 @@ namespace TrustedActivityCreator.ViewModel {
 		/// The current activity information.
 		/// </summary>
 		private int activityId;
-		private Activity currentActivity;
+		private ActivityM currentActivity;
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
@@ -39,7 +39,7 @@ namespace TrustedActivityCreator.ViewModel {
 			}
 		}
 
-		public Activity CurrentActivity {
+		public ActivityM CurrentActivity {
 			get { return currentActivity; }
 			set {
 				if(value != currentActivity) {
@@ -51,7 +51,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void getCurrentActivity() {
 			// TODO - GET ACTIVITY WITH CURRENT ID FROM ACTIVITY MAP
-			Activity stupidActivity = new Activity();
+			ActivityM stupidActivity = new ActivityM();
 			stupidActivity.ActivityDescription = "Hello i'm a random activity";
 			CurrentActivity = stupidActivity;
 		}
@@ -93,9 +93,9 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 
-		private Activity TargetShape(MouseEventArgs e) {
+		private ActivityM TargetShape(MouseEventArgs e) {
 			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
-			return (Activity)shapeVisualElement.DataContext;
+			return (ActivityM)shapeVisualElement.DataContext;
 		}
 
 		private Point RelativeMousePosition(MouseEventArgs e) {

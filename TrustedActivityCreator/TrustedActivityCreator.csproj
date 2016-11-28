@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include=".GUI\TrustedCanvas.cs" />
     <Compile Include="Model\CanvasM.cs" />
+    <Compile Include="Model\ShapeM.cs" />
     <Compile Include="ViewModel\CanvasVM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">
       <DependentUpon>ActivityUC.xaml</DependentUpon>
@@ -114,7 +115,7 @@
     <Compile Include="Command\IUndoRedoCommand.cs" />
     <Compile Include="Command\RemoveActivityCommand.cs" />
     <Compile Include="Command\UndoRedoController.cs" />
-    <Compile Include="Model\Activity.cs" />
+    <Compile Include="Model\ActivityM.cs" />
     <Compile Include="ViewModel\ActivityVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\App.xaml.cs">

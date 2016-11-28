@@ -5,10 +5,10 @@ using TrustedActivityCreator.Model;
 namespace TrustedActivityCreator.Command {
     class AddActivityCommand : IUndoRedoCommand {
 
-        ObservableCollection<Activity> activities;
-        private Activity activity;
+        ObservableCollection<ActivityM> activities;
+        private ActivityM activity;
 
-        public AddActivityCommand(ObservableCollection<Activity> activities, Activity activity) {
+        public AddActivityCommand(ObservableCollection<ActivityM> activities, ActivityM activity) {
             this.activities = activities;
             this.activity = activity;
         }
