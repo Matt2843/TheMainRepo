@@ -8,15 +8,10 @@
    d:DesignHeight="50"
    d:DesignWidth="300"
    mc:Ignorable="d">
-	<DockPanel>
-		<Menu
-         Background="#202123"
-         BorderBrush="Black"
-         DockPanel.Dock="Top"
-         Foreground="White">
+	<Menu>
 			<Menu.Resources>
 				<SolidColorBrush x:Key="HighlightedBackgroundBrush" Color="#FF797878"/>
-				<SolidColorBrush x:Key="MenuBackgroundBrush" Color="#FF505050"/>
+			<SolidColorBrush x:Key="MenuBackgroundBrush" Color="#1f2021"/>
 				<SolidColorBrush x:Key="NormalBorderBrush" Color="#FFFFFFFF"/>
 				<SolidColorBrush x:Key="SolidMenuFontBrush" Color="#FFFFFFFF"/>
 				<SolidColorBrush x:Key="HighlightedText" Color="#FFFFFFFF"/>
@@ -207,5 +202,4 @@
 				<MenuItem Header="_Present" InputGestureText="F11"/>
 			</MenuItem>
 		</Menu>
-	</DockPanel>
 </UserControl>

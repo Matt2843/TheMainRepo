@@ -15,10 +15,11 @@
 	
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-		<Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>
+		<local:MenuBarUC />
+		<!--<Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>-->
 		<DockPanel Grid.Row="1" Margin="20" >
 			<gui:TrustedCanvas Grid.Row="1" Background="Aqua">
 				<ContentControl Margin="10" Content="{Binding CurrentActivity}"/>
