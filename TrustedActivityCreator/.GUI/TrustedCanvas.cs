@@ -34,12 +34,11 @@ namespace TrustedActivityCreator.GUI {
             CellWidth = (int)ActualWidth / NumOfHorizontalLines;
 
             double vOffset = 0, hOffset = 0;
-            float[] dashValues = { 5, 2, 15, 4 };
 
             Brush brush = new SolidColorBrush(Colors.Black);
 
             Pen pen = new Pen(brush, LineThickness);
-            pen.DashStyle = DashStyles.Dash;
+            //pen.DashStyle = DashStyles.Dash;
 
             for (int i = 0; i < NumOfHorizontalLines; i++) {
                 for (int j = 0; j < NumOfVerticalLines; j++) {

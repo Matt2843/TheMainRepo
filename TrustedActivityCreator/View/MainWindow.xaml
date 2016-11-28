@@ -19,7 +19,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>
-        <gui:TrustedCanvas NumOfVerticalLines="2" Grid.Row="1" Width="200" Height="200" Background="Aqua" />
+        <gui:TrustedCanvas NumOfVerticalLines="8" Grid.Row="1" Width="200" Height="200" Background="Aqua" />
         <!--<DockPanel Grid.Row="1" Margin="20" >
             <ContentControl Margin="10" Content="{Binding CurrentActivity}"/>
         </DockPanel>-->
