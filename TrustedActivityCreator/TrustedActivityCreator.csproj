@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include=".GUI\TrustedCanvas.cs" />
     <Compile Include="Model\CanvasM.cs" />
+    <Compile Include="Model\Connections.cs" />
     <Compile Include="Model\ShapeM.cs" />
     <Compile Include="ViewModel\CanvasVM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">
