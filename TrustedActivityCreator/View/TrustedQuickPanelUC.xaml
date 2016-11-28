@@ -13,7 +13,7 @@
 		<m:Activity/>
 	</UserControl.DataContext>
 
-	<Grid>
+	<Grid Background="#343638">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="*"/>
@@ -24,9 +24,41 @@
 		</StackPanel>
 
 
-		<DockPanel Grid.Row="1" Background="Gray">
+		<Grid Grid.Row="1" Background="#1f2021" Margin="20">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="1.5*"/>
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Grid.Row="0" Text="Property1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBox Grid.Row="0" Grid.Column="1" Text="Stuff" Foreground="White" />
+			<TextBlock Grid.Row="1" Text="Property2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBox Grid.Row="1" Grid.Column="1" Text="Stuff" Foreground="White" />
+			<TextBlock Grid.Row="2" Text="Property3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBox Grid.Row="2" Grid.Column="1" Text="Stuff" Foreground="White" />
+			<TextBlock Grid.Row="3" Text="Property4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBox Grid.Row="3" Grid.Column="1" Text="Stuff" Foreground="White" />
+			<TextBlock Grid.Row="4" Text="Property5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBox Grid.Row="4" Grid.Column="1" Text="Stuff" Foreground="White" />
+			<TextBlock Grid.Row="5" Text="Property6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBox Grid.Row="5" Grid.Column="1" Text="Stuff" Foreground="White" />
+			<TextBlock Grid.Row="6" Text="Property7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBox Grid.Row="6" Grid.Column="1" Text="Stuff" Foreground="White" />
+			<TextBlock Grid.Row="7" Text="Property8" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBox Grid.Row="7" Grid.Column="1" Text="Stuff" Foreground="White" />
 			
-		</DockPanel>
-		
+			
+		</Grid>
+
 	</Grid>
 </UserControl>
