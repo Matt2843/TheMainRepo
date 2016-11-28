@@ -28,7 +28,7 @@
 		<local:TrustedQuickPanelUC Grid.Row="1"/>
 		<!--<Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>-->
 		<DockPanel Grid.Row="1" Grid.Column="1" Margin="5">
-			<gui:TrustedCanvas Background="Aqua">
+			<gui:TrustedCanvas Grid.Row="1" Background="Aqua">
 				<ContentControl Margin="10" Content="{Binding CurrentActivity}"/>
 			</gui:TrustedCanvas>
 		</DockPanel>
