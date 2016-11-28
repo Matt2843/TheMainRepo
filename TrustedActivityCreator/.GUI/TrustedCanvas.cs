@@ -1,24 +1,28 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace TrustedActivityCreator.GUI {
-    class TrustedCanvas : Canvas {
+    public class TrustedCanvas : Canvas {
 
-        public static readonly DependencyProperty NumOfVerticalLines = DependencyProperty.Register("NumOfVerticalLines", typeof(int), typeof(TrustedCanvas), new UIPropertyMetadata(24));
-        public static readonly DependencyProperty NumOfHorizontalLines = DependencyProperty.Register("NumOfHorizontalLines", typeof(int), typeof(TrustedCanvas), new UIPropertyMetadata(24));
-        public static readonly DependencyProperty LinesThickness = DependencyProperty.Register("LineThickness", typeof(int), typeof(TrustedCanvas), new UIPropertyMetadata(2));
-        
-        public int LINETHICKNESS {
-            get { return (int)GetValue(LinesThickness); }
+        public static readonly DependencyProperty numOfVerticalLines = DependencyProperty.Register("NumOfVerticalLines", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(8));
+        public static readonly DependencyProperty numOfHorizontalLines = DependencyProperty.Register("NumOfHorizontalLines", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(8));
+        public static readonly DependencyProperty linesThickness = DependencyProperty.Register("LineThickness", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(1));
+      
+        public int LineThickness {
+            get { return (int)GetValue(linesThickness); }
+            set { SetValue(linesThickness, value); }
         }
 
-        public int NUMBEROFVERTICALLINES {
-            get { return (int)GetValue(NumOfVerticalLines); }
+        public int NumOfVerticalLines {
+            get { return (int)GetValue(numOfVerticalLines); }
+            set { SetValue(numOfVerticalLines, value); }
         }
 
-        public int NUMBEROFHORIZONTALLINES {
-            get { return (int)GetValue(NumOfHorizontalLines); }
+        public int NumOfHorizontalLines {
+            get { return (int)GetValue(numOfHorizontalLines); }
+            set { SetValue(numOfHorizontalLines, value); }
         }
 
         private int CellHeight;
@@ -26,30 +30,31 @@ namespace TrustedActivityCreator.GUI {
 
         protected override void OnRender(DrawingContext dc) {
             base.OnRender(dc);
-            CellHeight = (int)ActualHeight / NUMBEROFVERTICALLINES;
-            CellWidth = (int)ActualWidth / NUMBEROFHORIZONTALLINES;
+            CellHeight = (int)ActualHeight / NumOfVerticalLines;
+            CellWidth = (int)ActualWidth / NumOfHorizontalLines;
 
             double vOffset = 0, hOffset = 0;
             float[] dashValues = { 5, 2, 15, 4 };
 
             Brush brush = new SolidColorBrush(Colors.Black);
 
-            Pen pen = new Pen(brush, LINETHICKNESS);
+            Pen pen = new Pen(brush, LineThickness);
             pen.DashStyle = DashStyles.Dash;
-            
-            for(int i = 0; i < NUMBEROFHORIZONTALLINES; i++) {
-                for(int j = 0; j < NUMBEROFVERTICALLINES; j++) {
+
+            for (int i = 0; i < NumOfHorizontalLines; i++) {
+                for (int j = 0; j < NumOfVerticalLines; j++) {
+
                     dc.DrawLine(pen, new Point(hOffset, vOffset), new Point(hOffset, CellHeight + vOffset));
                     vOffset += CellHeight;
                 }
                 hOffset += CellWidth;
                 vOffset = 0;
             }
-
             hOffset = 0;
+            vOffset = 0;
 
-            for(int i = 0; i < NUMBEROFVERTICALLINES; i++) {
-                for(int j = 0; j < NUMBEROFHORIZONTALLINES; i++) {
+            for (int i = 0; i < NumOfVerticalLines; i++) {
+                for (int j = 0; j < NumOfHorizontalLines; j++) {
                     dc.DrawLine(pen, new Point(hOffset, vOffset), new Point(CellWidth + hOffset, vOffset));
                     hOffset += CellWidth;
                 }
@@ -58,5 +63,6 @@ namespace TrustedActivityCreator.GUI {
             }
 
         }
+
     }
 }
