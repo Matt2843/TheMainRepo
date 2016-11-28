@@ -38,9 +38,9 @@ namespace TrustedActivityCreator.GUI {
 			Brush brush = new SolidColorBrush(Colors.Black);
 
             Pen pen = new Pen(brush, LineThickness);
-            pen.DashStyle = DashStyles.Dash;
+			pen.DashStyle = DashStyles.DashDotDot;
 
-			for(int i = 0; i < NumOfVerticalLines - 1; i++) {
+			for (int i = 0; i < NumOfVerticalLines - 1; i++) {
 				dc.DrawLine(pen, new Point(vOffset, 0), new Point(vOffset, ActualHeight));
 				vOffset += CellWidth;
 			}

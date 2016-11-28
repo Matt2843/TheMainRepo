@@ -12,10 +12,14 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<Canvas Grid.Row="0" Background="#1f2021"/>
+		<StackPanel Grid.Row="0" Background="DarkGoldenrod">
+			
+		</StackPanel>
+
 
 		<DockPanel Grid.Row="1" Background="Gray">
 			
 		</DockPanel>
+		
 	</Grid>
 </UserControl>
