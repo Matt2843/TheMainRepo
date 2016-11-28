@@ -8,28 +8,28 @@
 		xmlns:m="clr-namespace:TrustedActivityCreator.Model"
         xmlns:local="clr-namespace:TrustedActivityCreator.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-
+        Title="MainWindow" Height="700" Width="1245">
+	
 	<Window.DataContext>
 		<vm:ActivityVM />
 	</Window.DataContext>
 	
 	<Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30*" />
         </Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="125"/>
 			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="3*"/>
 		</Grid.ColumnDefinitions>
 		
-		<local:MenuBarUC Grid.Row="0" Grid.ColumnSpan="2"/>
+		<local:MenuBarUC Grid.Row="0" Grid.ColumnSpan="2" />
 		<local:TrustedQuickPanelUC Grid.Row="1"/>
 		<!--<Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>-->
-		<DockPanel Grid.Row="1" Grid.Column="1" Margin="5">
-			<gui:TrustedCanvas Grid.Row="1" Background="Aqua">
+		<DockPanel Grid.Row="1" Grid.Column="1" Margin="20">
+			<gui:TrustedCanvas Grid.Row="1" Background="Wheat">
 				<ContentControl Margin="10" Content="{Binding CurrentActivity}"/>
 			</gui:TrustedCanvas>
 		</DockPanel>

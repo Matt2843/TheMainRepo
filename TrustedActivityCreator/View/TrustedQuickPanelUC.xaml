@@ -19,12 +19,14 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<Canvas Grid.Row="0" Background="#1f2021">
-			<ContentControl Grid.ZIndex="100" Margin="10" Content="{Binding }"/>
-		</Canvas>
+		<StackPanel Grid.Row="0" Background="DarkGoldenrod">
+			
+		</StackPanel>
+
 
 		<DockPanel Grid.ZIndex="10" Grid.Row="1" Background="Gray">
 			
 		</DockPanel>
+		
 	</Grid>
 </UserControl>
