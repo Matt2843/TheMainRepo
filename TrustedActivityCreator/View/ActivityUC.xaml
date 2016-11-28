@@ -11,7 +11,6 @@
 			 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="50" d:DesignWidth="100">
 	<Grid>
-		<!--<Canvas>-->
 		<Rectangle RadiusX="7" RadiusY="7" Fill="White" Stroke="Black">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
@@ -26,6 +25,5 @@
 			</i:Interaction.Triggers>
 		</Rectangle>
 		<TextBox IsHitTestVisible="False" Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" IsReadOnly="True" BorderThickness="0" />
-		<!--</Canvas>-->
 	</Grid>
 </UserControl>

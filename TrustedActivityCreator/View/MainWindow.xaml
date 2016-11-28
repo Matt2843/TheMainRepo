@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
         xmlns:gui="clr-namespace:TrustedActivityCreator.GUI"
+		xmlns:m="clr-namespace:TrustedActivityCreator.Model"
         xmlns:local="clr-namespace:TrustedActivityCreator.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-	
+
 	<Window.DataContext>
 		<vm:ActivityVM />
 	</Window.DataContext>
 	
-    <Grid>
+	<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*" />
