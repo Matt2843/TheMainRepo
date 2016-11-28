@@ -29,6 +29,7 @@
 				 FocusableChanged="ActivityDescription_FocusableChanged" 
 				 MouseDoubleClick="ActivityDescription_MouseDoubleClick" 
 				 LostFocus="ActivityDescription_LostFocus" 
+				 KeyDown="ActivityDescription_OnKeyDown"
 				 IsReadOnly="True"
 				 VerticalAlignment="Center" 
 				 HorizontalAlignment="Center" 

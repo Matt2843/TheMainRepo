@@ -22,6 +22,12 @@ namespace TrustedActivityCreator.View {
 			InitializeComponent();
 		}
 
+		private void ActivityDescription_OnKeyDown(object sender, KeyEventArgs e) {
+			if(e.Key == Key.Return) {
+				ActivityDescription_LostFocus(sender, e);
+			}
+		}
+
 		private void ActivityDescription_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e) {
 			ActivityDescription.Cursor = ActivityDescription.Focusable ? Cursors.IBeam : Cursors.Arrow;
 		}
