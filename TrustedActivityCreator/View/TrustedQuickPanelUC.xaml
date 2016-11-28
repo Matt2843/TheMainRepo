@@ -20,7 +20,7 @@
 		</Grid.RowDefinitions>
 
 		<StackPanel Grid.Row="0" Background="DarkGoldenrod">
-			
+			<ContentControl Margin="10" Content="{Binding }"/>
 		</StackPanel>
 
 
