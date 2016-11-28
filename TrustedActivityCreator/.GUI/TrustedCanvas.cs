@@ -30,6 +30,9 @@ namespace TrustedActivityCreator.GUI {
 
 		protected override void OnRender(DrawingContext dc) {
 			base.OnRender(dc);
+
+			double Ratio = ActualHeight / ActualWidth;
+
 			CellHeight = ActualHeight / NumOfHorizontalLines;
 			CellWidth = ActualWidth / NumOfVerticalLines;
 
