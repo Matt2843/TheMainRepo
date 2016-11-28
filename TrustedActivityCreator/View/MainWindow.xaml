@@ -26,7 +26,7 @@
 		</Grid.ColumnDefinitions>
 		
 		<local:MenuBarUC Grid.Row="0" Grid.ColumnSpan="2" />
-		<local:TrustedQuickPanelUC Grid.Row="1"/>
+		<local:TrustedQuickPanelUC Panel.ZIndex="1000" Grid.Row="1"/>
 		<!--<Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>-->
 		<DockPanel Grid.Row="1" Grid.Column="1" Margin="20">
 			<gui:TrustedCanvas Grid.Row="1" Background="White">

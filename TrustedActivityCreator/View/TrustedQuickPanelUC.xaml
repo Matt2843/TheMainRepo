@@ -13,13 +13,13 @@
 		<m:ActivityM/>
 	</UserControl.DataContext>
 
-	<Grid Background="#343638">
+	<Grid Panel.ZIndex="1000" Background="#343638">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<StackPanel Grid.Row="0" Background="DarkGoldenrod">
+		<StackPanel Panel.ZIndex="1000" Grid.Row="0" Background="DarkGoldenrod">
 			<ContentControl Margin="10" Content="{Binding }"/>
 		</StackPanel>
 
