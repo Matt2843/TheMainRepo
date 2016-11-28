@@ -24,7 +24,7 @@
 		</StackPanel>
 
 
-		<DockPanel Grid.ZIndex="10" Grid.Row="1" Background="Gray">
+		<DockPanel Grid.Row="1" Background="Gray">
 			
 		</DockPanel>
 		

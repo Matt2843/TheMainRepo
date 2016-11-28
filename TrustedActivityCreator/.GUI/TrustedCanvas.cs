@@ -6,8 +6,8 @@ using System.Windows.Media;
 namespace TrustedActivityCreator.GUI {
 	public class TrustedCanvas : Canvas {
 
-		public static readonly DependencyProperty numOfVerticalLines = DependencyProperty.Register("NumOfVerticalLines", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(8));
-		public static readonly DependencyProperty numOfHorizontalLines = DependencyProperty.Register("NumOfHorizontalLines", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(8));
+		public static readonly DependencyProperty numOfVerticalLines = DependencyProperty.Register("NumOfVerticalLines", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(24));
+		public static readonly DependencyProperty numOfHorizontalLines = DependencyProperty.Register("NumOfHorizontalLines", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(24));
 		public static readonly DependencyProperty linesThickness = DependencyProperty.Register("LineThickness", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(1));
 
 		public int LineThickness {
@@ -36,9 +36,10 @@ namespace TrustedActivityCreator.GUI {
             double vOffset = CellWidth, hOffset = CellHeight;
 
 			Brush brush = new SolidColorBrush(Colors.Black);
+			brush.Opacity = 0.3;
 
             Pen pen = new Pen(brush, LineThickness);
-			pen.DashStyle = DashStyles.DashDotDot;
+			pen.DashStyle = DashStyles.DashDot;
 
 			for (int i = 0; i < NumOfVerticalLines - 1; i++) {
 				dc.DrawLine(pen, new Point(vOffset, 0), new Point(vOffset, ActualHeight));
