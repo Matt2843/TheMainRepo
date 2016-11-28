@@ -94,6 +94,9 @@
     <Compile Include="View\MenuBarUC.xaml.cs">
       <DependentUpon>MenuBarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TrustedQuickPanelUC.xaml.cs">
+      <DependentUpon>TrustedQuickPanelUC.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\ActivityUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +121,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\MenuBarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrustedQuickPanelUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

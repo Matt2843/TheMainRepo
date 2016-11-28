@@ -18,10 +18,17 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-		<local:MenuBarUC />
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="125"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		
+		<local:MenuBarUC Grid.Row="0" Grid.ColumnSpan="2"/>
+		<local:TrustedQuickPanelUC Grid.Row="1"/>
 		<!--<Button Grid.Row ="0" Content="Add Activity" Command="{Binding CurrentActivityCommand}" IsDefault="True"/>-->
-		<DockPanel Grid.Row="1" Margin="20" >
-			<gui:TrustedCanvas Grid.Row="1" Background="Aqua">
+		<DockPanel Grid.Row="1" Grid.Column="1" Margin="5">
+			<gui:TrustedCanvas Background="Aqua">
 				<ContentControl Margin="10" Content="{Binding CurrentActivity}"/>
 			</gui:TrustedCanvas>
 		</DockPanel>
