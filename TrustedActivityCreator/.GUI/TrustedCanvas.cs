@@ -33,7 +33,7 @@ namespace TrustedActivityCreator.GUI {
 			CellHeight = ActualHeight / NumOfVerticalLines;
 			CellWidth = ActualWidth / NumOfHorizontalLines;
 
-            double vOffset = 0, hOffset = 0;
+            double vOffset = CellWidth, hOffset = CellHeight;
 
 			Brush brush = new SolidColorBrush(Colors.Black);
 
