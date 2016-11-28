@@ -4,8 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TrustedActivityCreator.View"
+			 xmlns:v="clr-namespace:TrustedActivityCreator.View"
+			 xmlns:m="clr-namespace:TrustedActivityCreator.Model"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
+	<UserControl.DataContext>
+		<m:Activity/>
+	</UserControl.DataContext>
+
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
@@ -17,7 +24,7 @@
 		</StackPanel>
 
 
-		<DockPanel Grid.Row="1" Background="Gray">
+		<DockPanel Grid.ZIndex="10" Grid.Row="1" Background="Gray">
 			
 		</DockPanel>
 		
