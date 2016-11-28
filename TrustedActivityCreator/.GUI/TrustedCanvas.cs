@@ -33,8 +33,9 @@ namespace TrustedActivityCreator.GUI {
 
 			double Ratio = ActualHeight / ActualWidth;
 
-			CellHeight = ActualHeight / NumOfHorizontalLines;
-			CellWidth = ActualWidth / NumOfVerticalLines;
+			CellWidth = ActualWidth / 25;
+			CellHeight = CellWidth;
+			
 
             double vOffset = CellWidth, hOffset = CellHeight;
 
@@ -44,12 +45,12 @@ namespace TrustedActivityCreator.GUI {
             Pen pen = new Pen(brush, LineThickness);
 			pen.DashStyle = DashStyles.DashDot;
 
-			for (int i = 0; i < NumOfVerticalLines - 1; i++) {
+			while(vOffset < ActualWidth - (CellWidth / 2)) {
 				dc.DrawLine(pen, new Point(vOffset, 0), new Point(vOffset, ActualHeight));
 				vOffset += CellWidth;
 			}
 
-			for(int i = 0; i < NumOfHorizontalLines - 1; i++) {
+			while(hOffset < ActualHeight - (CellHeight / 2)) {
 				dc.DrawLine(pen, new Point(0, hOffset), new Point(ActualWidth, hOffset));
 				hOffset += CellHeight;
 			}
