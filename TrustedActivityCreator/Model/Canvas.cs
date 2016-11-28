@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 
 namespace TrustedActivityCreator.Model {
-    class CanvasM : ObservableObject{
+    class Canvas : ObservableObject{
 
         /// <summary>
         /// A4 std format.

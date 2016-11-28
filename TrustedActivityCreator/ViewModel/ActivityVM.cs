@@ -19,8 +19,8 @@ namespace TrustedActivityCreator.ViewModel {
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
 		private int activityId;
-		private ActivityM currentActivity;
-		public ObservableCollection<ShapeM> Shapes { get; set; }
+		private Activity currentActivity;
+		public ObservableCollection<Shape> Shapes { get; set; }
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
@@ -46,7 +46,7 @@ namespace TrustedActivityCreator.ViewModel {
 			}
 		}
 
-		public ActivityM CurrentActivity {
+		public Activity CurrentActivity {
 			get { return currentActivity; }
 			set {
 				if(value != currentActivity) {
@@ -58,13 +58,13 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void getCurrentActivity() {
 			// TODO - GET ACTIVITY WITH CURRENT ID FROM ACTIVITY MAP
-			ActivityM stupidActivity = new ActivityM();
+			Activity stupidActivity = new Activity();
 			stupidActivity.ActivityDescription = "Hello i'm a random activity";
 			CurrentActivity = stupidActivity;
 		}
 
 		private void AddShape() {
-			undoRedoController.AddAndExecute(new AddShapeCommand(Shapes, new ActivityM()));
+			undoRedoController.AddAndExecute(new AddShapeCommand(Shapes, new Activity()));
 		}
 
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
@@ -104,14 +104,14 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 
-		private ShapeM TargetShape(MouseEventArgs e) {
+		private Shape TargetShape(MouseEventArgs e) {
 			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
-			return (ShapeM)shapeVisualElement.DataContext;
+			return (Shape)shapeVisualElement.DataContext;
 		}
 
 		private Point RelativeMousePosition(MouseEventArgs e) {
 			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
-			var canvas = FindParentOfType<Canvas>(shapeVisualElement);
+			var canvas = FindParentOfType<System.Windows.Controls.Canvas>(shapeVisualElement);
 			return Mouse.GetPosition(canvas);
 		}
 

@@ -7,12 +7,12 @@ using TrustedActivityCreator.Model;
 
 namespace TrustedActivityCreator.Command {
 	class MoveShapeCommand : IUndoRedoCommand {
-		private ShapeM shape;
+		private Shape shape;
 
 		private double offsetX;
 		private double offsetY;
 
-		public MoveShapeCommand(ShapeM shape, double offsetX, double offsetY) {
+		public MoveShapeCommand(Shape shape, double offsetX, double offsetY) {
 			this.shape = shape;
 			this.offsetX = offsetX;
 			this.offsetY = offsetY;

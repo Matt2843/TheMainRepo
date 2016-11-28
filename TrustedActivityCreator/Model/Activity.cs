@@ -1,7 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 
 namespace TrustedActivityCreator.Model {
-    class ActivityM : ShapeM {
+    class Activity : Shape {
 
         private int activityId;
         private string activityDescription = "Activity";

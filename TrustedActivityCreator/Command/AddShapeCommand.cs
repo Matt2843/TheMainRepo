@@ -5,10 +5,10 @@ using TrustedActivityCreator.Model;
 namespace TrustedActivityCreator.Command {
     class AddShapeCommand : IUndoRedoCommand {
 
-        ObservableCollection<ShapeM> shapes;
-        private ShapeM shape;
+        ObservableCollection<Shape> shapes;
+        private Shape shape;
 
-        public AddShapeCommand(ObservableCollection<ShapeM> shapes, ShapeM shape) {
+        public AddShapeCommand(ObservableCollection<Shape> shapes, Shape shape) {
             this.shapes = shapes;
             this.shape = shape;
         }

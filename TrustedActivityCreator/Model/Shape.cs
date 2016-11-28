@@ -1,7 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 
 namespace TrustedActivityCreator.Model {
-	public abstract class ShapeM : ObservableObject {
+	public abstract class Shape : ObservableObject {
 
 		private int width = 75;
 		private int height = 75;

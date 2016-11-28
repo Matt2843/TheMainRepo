@@ -17,10 +17,10 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private bool isAddingLine = false;
 
-		private ShapeM addingLineFrom;
+		private Shape addingLineFrom;
 
 		private Point initialMousePosition;
-		private Point initialShapeMPosition;
+		private Point initialShapePosition;
 
 		private ICommand ShapeMouseDownCommand;
 		private ICommand ShapeMouseMoveCommand;
@@ -29,7 +29,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public double ModeOpacity => isAddingLine ? 0.4 : 1.0;
 
 		// Collection of shapes / lines
-		public ObservableCollection<ShapeM> Shapes { get; set; }
+		public ObservableCollection<Shape> Shapes { get; set; }
 		public ObservableCollection<Connections> Connections { get; set; }
 
 		// UI Bindable commands
@@ -42,7 +42,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand RemoveConnectionsCommand { get; }
 
 		public CanvasVM() {
-			Shapes = new ObservableCollection<ShapeM>();
+			Shapes = new ObservableCollection<Shape>();
 			Connections = new ObservableCollection<Connections>();
 
 			UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
@@ -58,11 +58,11 @@ namespace TrustedActivityCreator.ViewModel {
 			ShapeMouseUpCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
 		}
 
-		private ShapeM TargetShape(MouseEventArgs e) {
+		private Shape TargetShape(MouseEventArgs e) {
 			// Here the visual element that the mouse is captured by is retrieved.
 			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
 			// From the shapes visual element, the Shape object which is the DataContext is retrieved.
-			return (ShapeM)shapeVisualElement.DataContext;
+			return (Shape)shapeVisualElement.DataContext;
 		}
 
 		private Point RelativeMousePosition(MouseEventArgs e) {
@@ -80,7 +80,7 @@ namespace TrustedActivityCreator.ViewModel {
 			var shape = TargetShape(e);
 			var mousePosition = RelativeMousePosition(e);
 			initialMousePosition = mousePosition;
-			initialShapeMPosition = new Point(shape.X, shape.Y);
+			initialShapePosition = new Point(shape.X, shape.Y);
 			e.MouseDevice.Target.CaptureMouse();
 		}
 
@@ -88,8 +88,8 @@ namespace TrustedActivityCreator.ViewModel {
 			if (Mouse.Captured != null) {
 				var shape = TargetShape(e);
 				var mousePosition = RelativeMousePosition(e);
-				shape.X = (int)(initialShapeMPosition.X + (mousePosition.X - initialMousePosition.X));
-				shape.Y = (int)(initialShapeMPosition.Y + (mousePosition.Y - initialMousePosition.Y));
+				shape.X = (int)(initialShapePosition.X + (mousePosition.X - initialMousePosition.X));
+				shape.Y = (int)(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y));
 			}
 		}
 
@@ -98,8 +98,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 			var mousePosition = RelativeMousePosition(e);
 
-			shape.X = (int)initialShapeMPosition.X;
-			shape.Y = (int)initialShapeMPosition.Y;
+			shape.X = (int)initialShapePosition.X;
+			shape.Y = (int)initialShapePosition.Y;
 
 			//undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
