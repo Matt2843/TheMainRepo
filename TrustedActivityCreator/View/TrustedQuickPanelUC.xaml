@@ -21,7 +21,7 @@
 		</Grid.RowDefinitions>
 
 		<StackPanel Panel.ZIndex="1000" Grid.Row="0" Background="DarkGoldenrod">
-			<ContentControl Margin="10" Content="{Binding Shapes}"/>
+			<ContentControl Margin="10" Content="{Binding Shape}"/>
 			<ItemsControl ItemsSource="{Binding Shapes}"/>
 		</StackPanel>
 

@@ -13,5 +13,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public ObservableCollection<ActivityVM> Shapes = new ObservableCollection<ActivityVM>() { new ActivityVM() };
 
+		public ActivityVM Shape = new ActivityVM();
+
 	}
 }
