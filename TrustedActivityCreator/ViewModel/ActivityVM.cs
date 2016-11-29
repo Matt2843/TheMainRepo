@@ -64,7 +64,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand UpShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
-			var shape = TargetShape(e);
+			var shape = Activity;
 			var mousePosition = RelativeMousePosition(e);
 			initialMousePosition = mousePosition;
 			initialShapePosition = new Point(shape.X, shape.Y);
@@ -73,15 +73,16 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void MouseMoveShape(MouseEventArgs e) {
 			if(Mouse.Captured != null) {
-				var shape = TargetShape(e);
+				var shape = Activity;
 				var mousePosition = RelativeMousePosition(e);
 				shape.X = (int)(initialShapePosition.X + (mousePosition.X - initialMousePosition.X));
 				shape.Y = (int)(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y));
+				RaisePropertyChanged("X");
 			}
 		}
 
 		private void MouseUpShape(MouseButtonEventArgs e) {
-			var shape = TargetShape(e);
+			var shape = Activity;
 
 			var mousePosition = RelativeMousePosition(e);
 

@@ -11,25 +11,22 @@
              mc:Ignorable="d"
 			 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="50" d:DesignWidth="100">
-
-	<UserControl.DataContext>
-		<vm:ActivityVM />
-	</UserControl.DataContext>
 	
 	<Grid>
 		<Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="Black">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
-					<cmd:EventToCommand Command="{Binding DownShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding DownShapeCommand}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 				<i:EventTrigger EventName="MouseMove">
-					<cmd:EventToCommand Command="{Binding MoveShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding MoveShapeCommand}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 				<i:EventTrigger EventName="MouseUp">
-					<cmd:EventToCommand Command="{Binding UpShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding UpShapeCommand}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 			</i:Interaction.Triggers>
 		</Rectangle>
+		
 		<TextBox Name="ActivityDescription" 
 				 Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
 				 FocusableChanged="ActivityDescription_FocusableChanged" 
