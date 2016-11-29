@@ -10,26 +10,26 @@
    mc:Ignorable="d">
 	<Menu VerticalAlignment="Center">
 		<MenuItem Header="_File">
-				<MenuItem Header="_New" InputGestureText="Ctrl+N"/>
-				<MenuItem Header="_Load" InputGestureText="Ctrl+O"/>
-				<MenuItem Header="_Save" InputGestureText="Ctrl+S"/>
-				<MenuItem Header="Save as" InputGestureText="Ctrl+Alt+S"/>
-				<MenuItem Header="_Close" InputGestureText="Ctrl+W"/>
-				<MenuItem Header="_Export as" InputGestureText="Ctrl+E"/>
-				<MenuItem Header="Exit"/>
-			</MenuItem>
-			<MenuItem Header="_Edit">
-				<MenuItem Header="Undo" InputGestureText="Ctrl+Z"/>
-				<MenuItem Header="Redo" InputGestureText="Ctrl+Y"/>
-				<MenuItem Header="Copy" InputGestureText="Ctrl+C"/>
-				<MenuItem Header="Cut" InputGestureText="Ctrl+X"/>
-				<MenuItem Header="Paste" InputGestureText="Ctrl+V"/>
-				<MenuItem Header="Select All" InputGestureText="Ctrl+A"/>
-			</MenuItem>
-			<MenuItem Header="View">
-				<MenuItem Header="Zoom +" InputGestureText="Ctrl++"/>
-				<MenuItem Header="Zoom _-" InputGestureText="Ctrl+-"/>
-				<MenuItem Header="_Present" InputGestureText="F11"/>
-			</MenuItem>
-		</Menu>
+			<MenuItem Header="_New" InputGestureText="Ctrl+N"/>
+			<MenuItem Header="_Load" InputGestureText="Ctrl+O"/>
+			<MenuItem Header="_Save" InputGestureText="Ctrl+S"/>
+			<MenuItem Header="Save as" InputGestureText="Ctrl+Alt+S"/>
+			<MenuItem Header="_Close" InputGestureText="Ctrl+W"/>
+			<MenuItem Header="_Export as" InputGestureText="Ctrl+E"/>
+			<MenuItem Header="Exit"/>
+		</MenuItem>
+		<MenuItem Header="_Edit">
+			<MenuItem Header="Undo" InputGestureText="Ctrl+Z"/>
+			<MenuItem Header="Redo" InputGestureText="Ctrl+Y"/>
+			<MenuItem Header="Copy" InputGestureText="Ctrl+C"/>
+			<MenuItem Header="Cut" InputGestureText="Ctrl+X"/>
+			<MenuItem Header="Paste" InputGestureText="Ctrl+V"/>
+			<MenuItem Header="Select All" InputGestureText="Ctrl+A"/>
+		</MenuItem>
+		<MenuItem Header="View">
+			<MenuItem Header="Zoom +" InputGestureText="Ctrl++"/>
+			<MenuItem Header="Zoom _-" InputGestureText="Ctrl+-"/>
+			<MenuItem Header="_Present" InputGestureText="F11"/>
+		</MenuItem>
+	</Menu>
 </UserControl>

@@ -50,7 +50,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public Activity Activity {
 			get { return activity; }
 			set {
-				if(value != activity) {
+				if (value != activity) {
 					activity = value;
 					RaisePropertyChanged();
 				}
@@ -72,7 +72,7 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void MouseMoveShape(MouseEventArgs e) {
-			if(Mouse.Captured != null) {
+			if (Mouse.Captured != null) {
 				var shape = TargetShape(e);
 				var mousePosition = RelativeMousePosition(e);
 				shape.X = (int)(initialShapePosition.X + (mousePosition.X - initialMousePosition.X));

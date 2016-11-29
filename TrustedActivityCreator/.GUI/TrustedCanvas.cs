@@ -35,22 +35,22 @@ namespace TrustedActivityCreator.GUI {
 
 			CellWidth = ActualWidth / 25;
 			CellHeight = CellWidth;
-			
 
-            double vOffset = CellWidth, hOffset = CellHeight;
+
+			double vOffset = CellWidth, hOffset = CellHeight;
 
 			Brush brush = new SolidColorBrush(Colors.Black);
 			brush.Opacity = 0.1;
 
-            Pen pen = new Pen(brush, LineThickness);
+			Pen pen = new Pen(brush, LineThickness);
 			pen.DashStyle = DashStyles.DashDot;
 
-			while(vOffset < ActualWidth - (CellWidth / 5)) {
+			while (vOffset < ActualWidth - (CellWidth / 5)) {
 				dc.DrawLine(pen, new Point(vOffset, 0), new Point(vOffset, ActualHeight));
 				vOffset += CellWidth;
 			}
 
-			while(hOffset < ActualHeight - (CellHeight / 5)) {
+			while (hOffset < ActualHeight - (CellHeight / 5)) {
 				dc.DrawLine(pen, new Point(0, hOffset), new Point(ActualWidth, hOffset));
 				hOffset += CellHeight;
 			}

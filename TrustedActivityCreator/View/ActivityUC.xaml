@@ -15,7 +15,7 @@
 	<UserControl.DataContext>
 		<vm:ActivityVM />
 	</UserControl.DataContext>
-	
+
 	<Grid>
 		<Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="Black">
 			<i:Interaction.Triggers>

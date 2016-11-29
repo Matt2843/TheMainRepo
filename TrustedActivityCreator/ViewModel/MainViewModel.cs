@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TrustedActivityCreator.ViewModel {
-    class MainViewModel {
+	class MainViewModel {
 
 
-    }
+	}
 }

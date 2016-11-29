@@ -9,7 +9,7 @@ namespace TrustedActivityCreator.Model {
 		public int ActivityId {
 			get { return activityId; }
 			set {
-				if(value != activityId) {
+				if (value != activityId) {
 					activityId = value;
 					RaisePropertyChanged();
 				}
@@ -19,7 +19,7 @@ namespace TrustedActivityCreator.Model {
 		public string ActivityDescription {
 			get { return activityDescription; }
 			set {
-				if(value != activityDescription) {
+				if (value != activityDescription) {
 					activityDescription = value;
 					RaisePropertyChanged();
 				}
