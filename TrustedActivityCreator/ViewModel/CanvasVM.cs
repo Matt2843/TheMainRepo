@@ -101,7 +101,7 @@ namespace TrustedActivityCreator.ViewModel {
 			shape.X = (int)initialShapePosition.X;
 			shape.Y = (int)initialShapePosition.Y;
 
-			undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+			//undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
 			e.MouseDevice.Target.ReleaseMouseCapture();
 		}

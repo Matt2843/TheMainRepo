@@ -26,7 +26,8 @@ namespace TrustedActivityCreator.Command {
             if (!undoStack.Any()) throw new InvalidOperationException();
             var command = undoStack.Pop();
             redoStack.Push(command);
-        }
+			command.UnExecute();
+		}
 
         public bool CanRedo() => redoStack.Any();
 

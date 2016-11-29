@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrustedActivityCreator.Model;
+using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.Command {
 	class MoveShapeCommand : IUndoRedoCommand {
-		private Shape shape;
+		private ActivityVM shape;
 
 		private double offsetX;
 		private double offsetY;
 
-		public MoveShapeCommand(Shape shape, double offsetX, double offsetY) {
+		public MoveShapeCommand(ActivityVM shape, double offsetX, double offsetY) {
 			this.shape = shape;
 			this.offsetX = offsetX;
 			this.offsetY = offsetY;

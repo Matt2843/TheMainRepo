@@ -10,7 +10,7 @@
 			 xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
              mc:Ignorable="d"
 			 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
-             d:DesignHeight="50" d:DesignWidth="100">
+             d:DesignHeight="50" d:DesignWidth="100" KeyDown="UnDoReDo_OnKeyDown">
 	
 	<Grid>
 		<Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="Black">
