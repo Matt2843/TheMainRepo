@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Linq;
 
 namespace TrustedActivityCreator.ViewModel {
-	public class CanvasVM : ObservableObject {
+	class CanvasVM : ObservableObject {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 

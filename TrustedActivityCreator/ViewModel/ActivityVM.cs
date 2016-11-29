@@ -38,7 +38,7 @@ namespace TrustedActivityCreator.ViewModel {
 		/// </summary>
 
 		public ActivityVM() {
-			activity = new Activity();
+			Activity = new Activity();
 		}
 
 		public int Id { get { return Activity.Id; } }

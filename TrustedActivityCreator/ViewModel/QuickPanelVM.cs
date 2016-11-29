@@ -11,13 +11,12 @@ using TrustedActivityCreator.Model;
 namespace TrustedActivityCreator.ViewModel {
 	class QuickPanelVM : ObservableObject {
 
-		public ObservableCollection<ActivityVM> Shapes = new ObservableCollection<ActivityVM>() { new ActivityVM() };
+		public ObservableCollection<ActivityVM> Shapes { get; set; }
 
-		public ActivityVM Shape = new ActivityVM();
+		public Activity Shape = new Activity();
 
 		public QuickPanelVM() {
-			RaisePropertyChanged("Shape");
-			RaisePropertyChanged("Shapes");
+			Shapes = new ObservableCollection<ActivityVM>() { new ActivityVM(), new ActivityVM(), new ActivityVM() };
 		}
 	}
 }
