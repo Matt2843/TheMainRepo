@@ -73,23 +73,19 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void MouseMoveShape(MouseEventArgs e) {
 			if(Mouse.Captured != null) {
-				var shape = Activity;
 				var mousePosition = RelativeMousePosition(e);
-				shape.X = (int)(initialShapePosition.X + (mousePosition.X - initialMousePosition.X));
-				shape.Y = (int)(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y));
-				RaisePropertyChanged("X");
+				X = (int)(initialShapePosition.X + (mousePosition.X - initialMousePosition.X));
+				Y = (int)(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y));
 			}
 		}
 
 		private void MouseUpShape(MouseButtonEventArgs e) {
-			var shape = Activity;
-
 			var mousePosition = RelativeMousePosition(e);
 
-			shape.X = (int)initialShapePosition.X;
-			shape.Y = (int)initialShapePosition.Y;
+			X = (int)initialShapePosition.X;
+			Y = (int)initialShapePosition.Y;
 
-			undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+			undoRedoController.AddAndExecute(new MoveShapeCommand(Activity, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
 			e.MouseDevice.Target.ReleaseMouseCapture();
 		}
