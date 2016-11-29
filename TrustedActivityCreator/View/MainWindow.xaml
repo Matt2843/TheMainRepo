@@ -13,9 +13,14 @@
 	<Window.DataContext>
 		<vm:MainViewModel />
 	</Window.DataContext>
-
+	
+	<Window.InputBindings>
+		<KeyBinding Command="{Binding UndoCommand}" Gesture="CTRL+Z" />
+		<KeyBinding Command="{Binding RedoCommand}" Gesture="CTRL+Y" />
+	</Window.InputBindings>
+		
 	<Grid>
-        <Grid.RowDefinitions>
+		<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30*" />
         </Grid.RowDefinitions>
