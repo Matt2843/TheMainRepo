@@ -82,7 +82,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void MouseUpShape(MouseButtonEventArgs e) {
 			var shape = TargetShape(e);
-				
+
 			var mousePosition = RelativeMousePosition(e);
 
 			shape.X = (int)initialShapePosition.X;

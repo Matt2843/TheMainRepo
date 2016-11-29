@@ -15,5 +15,9 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public ActivityVM Shape = new ActivityVM();
 
+		public QuickPanelVM() {
+			RaisePropertyChanged("Shape");
+			RaisePropertyChanged("Shapes");
+		}
 	}
 }
