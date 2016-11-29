@@ -20,13 +20,13 @@
 		<Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="Black">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
-					<cmd:EventToCommand Command="{Binding DownShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding DataContext.DownShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 				<i:EventTrigger EventName="MouseMove">
-					<cmd:EventToCommand Command="{Binding MoveShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding DataContext.MoveShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 				<i:EventTrigger EventName="MouseUp">
-					<cmd:EventToCommand Command="{Binding UpShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding DataContext.UpShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 			</i:Interaction.Triggers>
 		</Rectangle>
