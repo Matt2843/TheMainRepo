@@ -19,7 +19,6 @@ namespace TrustedActivityCreator.ViewModel {
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
 		private Activity activity;
-		private int id, width, height, x, y;
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
@@ -42,6 +41,7 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		public int Id { get { return Activity.Id; } }
+		public int ActivityDescription { get { return Activity.ActivityDescription; } set { Activity.ActivityDescription = value; RaisePropertyChanged(); } }
 		public int Width { get { return Activity.Width; } set { Activity.Width = value; RaisePropertyChanged(); } }
 		public int Height { get { return Activity.Height; } set { Activity.Height = value; RaisePropertyChanged(); } }
 		public int X { get { return Activity.X; } set { Activity.X = value; RaisePropertyChanged(); } }
