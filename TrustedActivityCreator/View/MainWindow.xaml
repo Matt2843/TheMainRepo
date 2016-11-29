@@ -15,8 +15,8 @@
 	</Window.DataContext>
 	
 	<Window.InputBindings>
-		<KeyBinding Gesture="CTRL+Z" />
-		<KeyBinding Gesture="CTRL+Y" />
+		<KeyBinding Gesture="CTRL+Z" Command="{Binding UndoCommand}"/>
+		<KeyBinding Gesture="CTRL+Y" Command="{Binding RedoCommand}"/>
 	</Window.InputBindings>
 		
 	<Grid>
