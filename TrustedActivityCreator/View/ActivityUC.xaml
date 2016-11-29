@@ -27,7 +27,7 @@
 			</i:Interaction.Triggers>
 		</Rectangle>
 		
-		<TextBox Name="ActivityDescription" 
+		<TextBox Name="ActivityDescription"
 				 Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
 				 FocusableChanged="ActivityDescription_FocusableChanged" 
 				 MouseDoubleClick="ActivityDescription_MouseDoubleClick" 
