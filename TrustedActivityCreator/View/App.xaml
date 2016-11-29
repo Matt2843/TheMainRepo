@@ -6,10 +6,17 @@
 			 xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
              StartupUri="MainWindow.xaml">
 	<Application.Resources>
+
+		<DataTemplate DataType="{x:Type m:Activity}">
+			<Canvas>
+				<v:ActivityUC/>
+			</Canvas>
+		</DataTemplate>
+
 		<DataTemplate DataType="{x:Type vm:ActivityVM}">
-
-			<v:ActivityUC/>
-
+			<Canvas>
+				<v:ActivityUC/>
+			</Canvas>
 		</DataTemplate>
 
 		<DataTemplate DataType="{x:Type vm:QuickPanelVM}">

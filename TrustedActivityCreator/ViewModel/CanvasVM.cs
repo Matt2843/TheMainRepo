@@ -42,7 +42,9 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand RemoveConnectionsCommand { get; }
 
 		public CanvasVM() {
-			Shapes = new ObservableCollection<Shape>();
+
+			Shapes = new ObservableCollection<Shape>() { new Activity(), new Activity(), new Activity() };
+
 			Connections = new ObservableCollection<Connections>();
 
 			UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);

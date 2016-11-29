@@ -11,7 +11,7 @@
         Title="MainWindow" Height="700" Width="1245">
 
 	<Window.DataContext>
-		<vm:MainViewModel />
+		<vm:ActivityVM />
 	</Window.DataContext>
 
 	<Grid>

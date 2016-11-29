@@ -96,7 +96,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private Shape TargetShape(MouseEventArgs e) {
 			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
-			return (Shape)shapeVisualElement.DataContext;
+			return ((ActivityVM)shapeVisualElement.DataContext).Activity;
 		}
 
 		private Point RelativeMousePosition(MouseEventArgs e) {
