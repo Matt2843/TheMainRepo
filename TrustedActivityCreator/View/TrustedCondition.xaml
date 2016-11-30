@@ -8,11 +8,11 @@
 			 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="300" d:DesignWidth="300">
 	<Grid>
-		<Rectangle RenderTransformOrigin="0.5,0.5" x:Name="Condition" Fill="White">
+		<Rectangle Name="Condition" Stroke="Black" StrokeThickness="1" RenderTransformOrigin="0.5,0.5" Fill="White">
 			<Rectangle.RenderTransform>
 				<RotateTransform Angle="45"/>
 			</Rectangle.RenderTransform>
 		</Rectangle>
-		
+		<TextBox HorizontalAlignment="Stretch" Margin="0,100,0,100" />
 	</Grid>
 </UserControl>
