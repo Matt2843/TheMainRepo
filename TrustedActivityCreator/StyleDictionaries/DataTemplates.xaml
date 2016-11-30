@@ -11,6 +11,10 @@
 		</Canvas>
 	</DataTemplate>
 
+	<DataTemplate DataType="{x:Type vm:CanvasVM}">
+		<v:CanvasUC/>
+	</DataTemplate>
+
 	<DataTemplate DataType="{x:Type vm:QuickPanelVM}">
 		<v:TrustedQuickPanelUC/>
 	</DataTemplate>

@@ -14,7 +14,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ObservableCollection<ActivityVM> Shapes { get; set; }
 
 		public QuickPanelVM() {
-			Shapes = new ObservableCollection<ActivityVM>() { new ActivityVM(), new ActivityVM(), new ActivityVM() };
+			Shapes = new ObservableCollection<ActivityVM>() { new ActivityVM() };
 		}
 	}
 }
