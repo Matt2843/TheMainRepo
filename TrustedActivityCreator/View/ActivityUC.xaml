@@ -15,10 +15,62 @@
 	<Grid>
 
 
-		<Ellipse Name="LeftAnchor" Width="6" Height="6" VerticalAlignment="Center" HorizontalAlignment="Left" Panel.ZIndex="3000" Fill="Black"></Ellipse>
-		<Ellipse Name="Right" Width="6" Height="6" VerticalAlignment="Center" HorizontalAlignment="Right" Panel.ZIndex="3000" Fill="Black"></Ellipse>
-		<Ellipse Name="Top" Width="6" Height="6" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black"></Ellipse>
-		<Ellipse Name="Bottom" Width="6" Height="6" VerticalAlignment="Bottom" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black"></Ellipse>
+		<Ellipse Name="LeftAnchor" Width="6" Height="6" VerticalAlignment="Center" HorizontalAlignment="Left" Panel.ZIndex="3000" Fill="Black">
+			<Ellipse.Style>
+				<Style TargetType="Ellipse">
+					<Style.Setters>
+						<Setter Property="Opacity" Value="0"></Setter>
+					</Style.Setters>
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding ElementName=Me, Path=IsMouseOver}" Value="True">
+							<Setter Property="Opacity" Value="1"/>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Ellipse.Style>
+		</Ellipse>
+		<Ellipse Name="Right" Width="6" Height="6" VerticalAlignment="Center" HorizontalAlignment="Right" Panel.ZIndex="3000" Fill="Black">
+			<Ellipse.Style>
+				<Style TargetType="Ellipse">
+					<Style.Setters>
+						<Setter Property="Opacity" Value="0"></Setter>
+					</Style.Setters>
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding ElementName=Me, Path=IsMouseOver}" Value="True">
+							<Setter Property="Opacity" Value="1"/>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Ellipse.Style>
+		</Ellipse>
+		<Ellipse Name="Top" Width="6" Height="6" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black">
+			<Ellipse.Style>
+				<Style TargetType="Ellipse">
+					<Style.Setters>
+						<Setter Property="Opacity" Value="0"></Setter>
+					</Style.Setters>
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding ElementName=Me, Path=IsMouseOver}" Value="True">
+							<Setter Property="Opacity" Value="1"/>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Ellipse.Style>
+		</Ellipse>
+		<Ellipse Name="Bottom" Width="6" Height="6" VerticalAlignment="Bottom" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black">
+			<Ellipse.Style>
+				<Style TargetType="Ellipse">
+					<Style.Setters>
+						<Setter Property="Opacity" Value="0"></Setter>
+					</Style.Setters>
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding ElementName=Me, Path=IsMouseOver}" Value="True">
+							<Setter Property="Opacity" Value="1"/>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Ellipse.Style>
+		</Ellipse>
 
 		<Rectangle Name="Me" RadiusX="5" RadiusY="5" Stroke="Black" LostFocus="ActivityDescription_LostFocus" Margin="3">
 			<Rectangle.Style>
