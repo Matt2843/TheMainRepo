@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using TrustedActivityCreator.Model;
 using System.Windows.Controls;
 using TrustedActivityCreator.Command;
+using TrustedActivityCreator.GUI;
+using TrustedActivityCreator.View;
 
 namespace TrustedActivityCreator.ViewModel {
 	class ActivityVM : ObservableObject {
@@ -98,7 +100,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private Point RelativeMousePosition(MouseEventArgs e) {
 			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
-			var canvas = FindParentOfType<System.Windows.Controls.Canvas>(shapeVisualElement);
+			//var canvas = FindParentOfType<System.Windows.Controls.Canvas>(shapeVisualElement);
+			var canvas = FindParentOfType<CanvasUC>(shapeVisualElement);
 			return Mouse.GetPosition(canvas);
 		}
 

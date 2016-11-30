@@ -26,17 +26,18 @@
 				</i:EventTrigger>
 			</i:Interaction.Triggers>
 		</Rectangle>
-		
+
 		<TextBox Name="ActivityDescription"
-				 Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-				 FocusableChanged="ActivityDescription_FocusableChanged" 
-				 MouseDoubleClick="ActivityDescription_MouseDoubleClick"  
-				 KeyDown="ActivityDescription_OnKeyDown"
-				 IsReadOnly="True"
-				 VerticalAlignment="Center" 
-				 HorizontalAlignment="Center" 
-				 TextWrapping="Wrap" 
-				 BorderThickness="0" 
-				 Margin="5"/>
+					 Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+					 FocusableChanged="ActivityDescription_FocusableChanged" 
+					 MouseDoubleClick="ActivityDescription_MouseDoubleClick"  
+					 KeyDown="ActivityDescription_OnKeyDown"
+					 IsReadOnly="True"
+					 VerticalAlignment="Center" 
+					 HorizontalAlignment="Center" 
+					 TextWrapping="Wrap" 
+					 BorderThickness="0" 
+					 Margin="5">
+		</TextBox>
 	</Grid>
 </UserControl>

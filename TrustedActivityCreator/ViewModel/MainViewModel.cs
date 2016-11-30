@@ -15,9 +15,14 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
 
+		public QuickPanelVM QuickPanel { get; }
+		public CanvasVM TrustedCanvas { get; }
+
 		public MainViewModel() {
 			UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
 			RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
+			QuickPanel = new QuickPanelVM();
+			TrustedCanvas = new CanvasVM();
 		}
 	}
 }
