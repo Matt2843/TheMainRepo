@@ -11,9 +11,9 @@
              mc:Ignorable="d"
 			 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="50" d:DesignWidth="100">
-	
-	<Grid>
-		<Rectangle Name="Me" RadiusX="5" RadiusY="5" Fill="White" Stroke="Black" LostFocus="ActivityDescription_LostFocus" Style="{StaticResource hover}">
+
+	<Grid Style="{StaticResource hover}">
+		<Rectangle Name="Me" RadiusX="5" RadiusY="5" Fill="White" Stroke="Black" LostFocus="ActivityDescription_LostFocus">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
 					<cmd:EventToCommand Command="{Binding DownShapeCommand}" PassEventArgsToCommand="True"/>
