@@ -12,5 +12,7 @@ using TrustedActivityCreator.ViewModel;
 namespace TrustedActivityCreator.Model {
 	class TrustedCollection {
 		public static ObservableCollection<ShapeBaseViewModel> Shapes { get; } = new ObservableCollection<ShapeBaseViewModel>();
+
+		public static ObservableCollection<TrustedConnectionVM> Connections { get; } = new ObservableCollection<TrustedConnectionVM>();
 	}
 }

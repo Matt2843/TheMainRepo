@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System;
+using GalaSoft.MvvmLight;
 
 namespace TrustedActivityCreator.Model {
 	public class Connections : ObservableObject {
@@ -6,9 +7,14 @@ namespace TrustedActivityCreator.Model {
 		private Shape from;
 		private Shape to;
 
-		public Shape From { get { return from; } set { from = value; } }
+		public Connections(Shape from, Shape to) {
+			From = from;
+			To = to;
+		}
 
-		public Shape To { get { return to; } internal set { to = value; } }
+		public Shape From { get { return from; } set { from = value; RaisePropertyChanged(); } }
+
+		public Shape To { get { return to; } internal set { to = value; RaisePropertyChanged(); } }
 
 	}
 }

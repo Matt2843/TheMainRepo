@@ -91,6 +91,7 @@
     <Compile Include="ViewModel\QuickPanelVM.cs" />
     <Compile Include="ViewModel\ShapeBaseViewModel.cs" />
     <Compile Include="ViewModel\TrustedConditionVM.cs" />
+    <Compile Include="ViewModel\TrustedConnectionVM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">
       <DependentUpon>ActivityUC.xaml</DependentUpon>
     </Compile>
@@ -109,6 +110,10 @@
     <Compile Include="View\TrustedCondition.xaml.cs">
       <DependentUpon>TrustedCondition.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TrustedConnectionUC.xaml.cs">
+      <DependentUpon>TrustedConnectionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TrustedConnectionVM.cs" />
     <Compile Include="View\TrustedQuickPanelUC.xaml.cs">
       <DependentUpon>TrustedQuickPanelUC.xaml</DependentUpon>
     </Compile>
@@ -152,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TrustedCondition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrustedConnectionUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

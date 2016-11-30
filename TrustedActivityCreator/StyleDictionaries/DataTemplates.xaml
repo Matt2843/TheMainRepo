@@ -17,6 +17,9 @@
 		</Canvas>
 	</DataTemplate>
 
+	<DataTemplate DataType="{x:Type vm:TrustedConnectionVM}">
+		<v:TrustedConnectionUC/>
+	</DataTemplate>
 
 	<DataTemplate DataType="{x:Type vm:CanvasVM}">
 		<v:CanvasUC/>

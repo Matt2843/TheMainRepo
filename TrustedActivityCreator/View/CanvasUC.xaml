@@ -16,6 +16,7 @@
         </Grid.RowDefinitions>
 		<gui:TrustedCanvas x:Name="TrustedCanvas" Grid.Row="0" Background="White">
 			<ItemsControl ItemsSource="{Binding Shapes}" />
+			<ItemsControl ItemsSource="{Binding Connections}" />
 		</gui:TrustedCanvas>
     </Grid>
 </UserControl>
