@@ -12,6 +12,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public ICommand AddShapeCommand { get; }
 
+		private int pos = 0;
+
 		public QuickPanelVM() {
 			AddShapeCommand = new RelayCommand(AddShape);
 		}
@@ -20,8 +22,9 @@ namespace TrustedActivityCreator.ViewModel {
 			//Point point = XElement.TransformToVisual(root).Transform(new Point(50, 50));
 
 			ActivityVM shape = new ActivityVM();
-			shape.X = 500;//(int)point.X;
-			shape.Y = 500;//(int)point.Y;
+			shape.X = pos;//(int)point.X;
+			shape.Y = pos;//(int)point.Y;
+			pos += 75;
 
 			undoRedoController.AddAndExecute(new AddShapeCommand(shape));
 		}
