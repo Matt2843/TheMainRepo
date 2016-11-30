@@ -103,6 +103,9 @@
     <Compile Include="View\MenuBarUC.xaml.cs">
       <DependentUpon>MenuBarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TrustedCondition.xaml.cs">
+      <DependentUpon>TrustedCondition.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TrustedQuickPanelUC.xaml.cs">
       <DependentUpon>TrustedQuickPanelUC.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StyleDictionaries\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrustedCondition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
