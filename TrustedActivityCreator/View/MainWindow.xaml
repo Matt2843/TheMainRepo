@@ -23,7 +23,8 @@
 		<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30*" />
-        </Grid.RowDefinitions>
+			<RowDefinition Height="4*" />
+		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
@@ -35,5 +36,7 @@
 		<DockPanel Grid.Row="1" Grid.Column="1" Margin="20">
 			<ContentControl Content="{Binding TrustedCanvas}" Grid.Row="1" Background="White"/>
 		</DockPanel>
+
+		<local:ConsoleUC Grid.Row="2" Grid.ColumnSpan="2" />
 	</Grid>
 </Window>

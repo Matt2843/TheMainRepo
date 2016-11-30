@@ -93,6 +93,9 @@
     <Compile Include="View\CanvasUC.xaml.cs">
       <DependentUpon>CanvasUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ConsoleUC.xaml.cs">
+      <DependentUpon>ConsoleUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CanvasUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConsoleUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
