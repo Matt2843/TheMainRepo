@@ -13,5 +13,6 @@
 				<RotateTransform Angle="45"/>
 			</Rectangle.RenderTransform>
 		</Rectangle>
+		
 	</Grid>
 </UserControl>
