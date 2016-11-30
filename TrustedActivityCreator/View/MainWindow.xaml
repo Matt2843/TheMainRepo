@@ -31,9 +31,9 @@
 		</Grid.ColumnDefinitions>
 		
 		<local:MenuBarUC Grid.Row="0" Grid.ColumnSpan="2" />
-		<local:TrustedQuickPanelUC Panel.ZIndex="1000" Grid.Row="1"/>
+		<ContentControl Content="{Binding QuickPanel}"  Grid.Row="1" Panel.ZIndex="1000"/>
 		<DockPanel Grid.Row="1" Grid.Column="1" Margin="20">
-			<gui:TrustedCanvas Grid.Row="1" Background="White" />
+			<ContentControl Content="{Binding TrustedCanvas}" Grid.Row="1" Background="White"/>
 		</DockPanel>
 	</Grid>
 </Window>

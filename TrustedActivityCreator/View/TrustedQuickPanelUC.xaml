@@ -10,10 +10,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-	<UserControl.DataContext>
-		<vm:QuickPanelVM />
-	</UserControl.DataContext>
-	
 	<Grid Panel.ZIndex="1000" Background="#343638">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
@@ -23,7 +19,6 @@
 		<StackPanel Panel.ZIndex="1000" Grid.Row="0" Background="DarkGoldenrod">
 			<ItemsControl ItemsSource="{Binding Shapes}"/>
 		</StackPanel>
-
 
 		<Grid Grid.Row="1" Background="#1f2021" Margin="20">
 			<Grid.RowDefinitions>
@@ -41,7 +36,7 @@
 				<ColumnDefinition Width="1.5*"/>
 			</Grid.ColumnDefinitions>
 
-			<TextBlock Grid.Row="0" Text="Property1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Style="{StaticResource hover}"/>
+			<TextBlock Grid.Row="0" Text="Property1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 			<TextBox Grid.Row="0" Grid.Column="1" Text="Stuff" Foreground="White" />
 			<TextBlock Grid.Row="1" Text="Property2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 			<TextBox Grid.Row="1" Grid.Column="1" Text="Stuff" Foreground="White" />
