@@ -23,7 +23,6 @@ namespace TrustedActivityCreator.ViewModel {
 		private void AddShape() {
 			Point point = Mouse.GetPosition(canvas);
 
-			System.Console.WriteLine(canvas.ActualWidth);
 			System.Console.WriteLine("(" + point.X + ", " + point.Y + ")");
 
 			ActivityVM shape = new ActivityVM();
