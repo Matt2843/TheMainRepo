@@ -6,10 +6,10 @@ using TrustedActivityCreator.ViewModel;
 namespace TrustedActivityCreator.Command {
     class AddShapeCommand : IUndoRedoCommand {
 
-		private ObservableCollection<ActivityVM> Shapes { get; } = TrustedCollection.Shapes;
-		private ActivityVM shape;
+		private ObservableCollection<ShapeBaseViewModel> Shapes { get; } = TrustedCollection.Shapes;
+		private ShapeBaseViewModel shape;
 
-        public AddShapeCommand(ActivityVM shape) {
+        public AddShapeCommand(ShapeBaseViewModel shape) {
             this.shape = shape;
         }
 

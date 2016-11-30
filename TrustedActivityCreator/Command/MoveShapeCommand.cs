@@ -8,12 +8,12 @@ using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.Command {
 	class MoveShapeCommand : IUndoRedoCommand {
-		private ActivityVM shape;
+		private ShapeBaseViewModel shape;
 
 		private double offsetX;
 		private double offsetY;
 
-		public MoveShapeCommand(ActivityVM shape, double offsetX, double offsetY) {
+		public MoveShapeCommand(ShapeBaseViewModel shape, double offsetX, double offsetY) {
 			this.shape = shape;
 			this.offsetX = offsetX;
 			this.offsetY = offsetY;
