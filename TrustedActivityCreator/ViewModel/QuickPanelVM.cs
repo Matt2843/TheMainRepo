@@ -16,13 +16,13 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public QuickPanelVM() {
 			AddShapeCommand = new RelayCommand(AddShape);
-			//Window.GetWindow(this).FindName
-			canvas = (FrameworkElement)(new FrameworkElement()).FindName("TrustedCanvas");
 		}
 
 		private void AddShape() {
+			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
 			Point point = Mouse.GetPosition(canvas);
 
+			System.Console.WriteLine(canvas.ActualHeight);
 			System.Console.WriteLine("(" + point.X + ", " + point.Y + ")");
 
 			ActivityVM shape = new ActivityVM();
