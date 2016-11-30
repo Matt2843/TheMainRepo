@@ -12,7 +12,7 @@
 			 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="50" d:DesignWidth="100">
 
-	<Grid Style="{StaticResource hover}">
+	<Grid>
 		<Rectangle Name="Me" RadiusX="5" RadiusY="5" Fill="White" Stroke="Black" LostFocus="ActivityDescription_LostFocus">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
@@ -37,6 +37,7 @@
 				 HorizontalAlignment="Center" 
 				 TextWrapping="Wrap" 
 				 BorderThickness="0" 
-				 Margin="5"/>
+				 Margin="5"
+				 Style="{StaticResource hover}"/>
 	</Grid>
 </UserControl>
