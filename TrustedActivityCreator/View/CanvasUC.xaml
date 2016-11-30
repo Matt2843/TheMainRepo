@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-		<gui:TrustedCanvas Grid.Row="0" Background="White">
+		<gui:TrustedCanvas x:Name="TrustedCanvas" Grid.Row="0" Background="White">
 			<ItemsControl ItemsSource="{Binding Shapes}" />
 		</gui:TrustedCanvas>
     </Grid>

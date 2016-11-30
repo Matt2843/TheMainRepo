@@ -12,20 +12,20 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public ICommand AddShapeCommand { get; }
 
-		private int pos = 0;
+		private FrameworkElement canvas;
 
 		public QuickPanelVM() {
 			AddShapeCommand = new RelayCommand(AddShape);
+			canvas = (FrameworkElement)(new FrameworkElement()).FindName("TrustedCanvas");
 		}
 
 		private void AddShape() {
-			//Point point = XElement.TransformToVisual(root).Transform(new Point(50, 50));
+			Point point = Mouse.GetPosition(canvas);
 
 			ActivityVM shape = new ActivityVM();
-			shape.X = pos;//(int)point.X;
-			shape.Y = pos;//(int)point.Y;
-			pos += 75;
-
+			shape.X = (int)point.X;
+			shape.Y = (int)point.Y;
+			
 			undoRedoController.AddAndExecute(new AddShapeCommand(shape));
 		}
 	}
