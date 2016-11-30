@@ -16,7 +16,7 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<StackPanel Panel.ZIndex="1000" Grid.Row="0" Background="#1f2021">
+		<StackPanel Panel.ZIndex="1000" Grid.Row="0" Background="#343638">
 			<Button Background="White" Content="Add Activity" Command="{Binding AddActivityCommand}"/>
 			<Button Background="White" Content="Add Condition" Command="{Binding AddConditionCommand}"/>
 		</StackPanel>
