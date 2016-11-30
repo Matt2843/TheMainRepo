@@ -18,8 +18,8 @@
 
 		<StackPanel Panel.ZIndex="1000" Grid.Row="0" Background="DarkGoldenrod">
 			<Border BorderThickness="2" BorderBrush="Black">
-				<TextBlock Background="White" Text="Static Activity" TextAlignment="Center">
-					<TextBlock.Resources>
+				<Button Background="White" Content="Static Activity" Command="{Binding AddShapeCommand}">
+					<Button.Resources>
 						<Style x:Key="Testo">
 							<Style.Triggers>
 								<Trigger Property="Control.IsMouseOver" Value="True">
@@ -27,8 +27,8 @@
 								</Trigger>
 							</Style.Triggers>
 						</Style>
-					</TextBlock.Resources>
-				</TextBlock>
+					</Button.Resources>
+				</Button>
 			</Border>
 			<!--<ItemsControl ItemsSource="{Binding Shapes}"/>-->
 		</StackPanel>

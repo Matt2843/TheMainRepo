@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using TrustedActivityCreator.Model;
+using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.Command {
     class AddShapeCommand : IUndoRedoCommand {
 
-        ObservableCollection<Shape> shapes;
-        private Shape shape;
+		private ObservableCollection<ActivityVM> Shapes { get; } = TrustedCollection.Shapes;
+		private ActivityVM shape;
 
-        public AddShapeCommand(ObservableCollection<Shape> shapes, Shape shape) {
-            this.shapes = shapes;
+        public AddShapeCommand(ActivityVM shape) {
             this.shape = shape;
         }
 
         public void Execute() {
-			shapes.Add(shape);
+			Shapes.Add(shape);
         }
 
         public void UnExecute() {
-			shapes.Remove(shape);
+			Shapes.Remove(shape);
         }
     }
 }

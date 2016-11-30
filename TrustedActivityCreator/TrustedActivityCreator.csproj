@@ -85,6 +85,7 @@
     <Compile Include="Model\Canvas.cs" />
     <Compile Include="Model\Connections.cs" />
     <Compile Include="Model\Shape.cs" />
+    <Compile Include="Model\TrustedCollection.cs" />
     <Compile Include="ViewModel\CanvasVM.cs" />
     <Compile Include="ViewModel\QuickPanelVM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">

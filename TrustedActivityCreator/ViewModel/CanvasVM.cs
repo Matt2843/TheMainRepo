@@ -14,13 +14,12 @@ using System.Linq;
 namespace TrustedActivityCreator.ViewModel {
 	class CanvasVM : ObservableObject {
 
-		public ObservableCollection<ActivityVM> Shapes { get; set; }
+		public ObservableCollection<ActivityVM> Shapes { get; } = TrustedCollection.Shapes;
 
 		public double Width { get { return Canvas.Width; } set { Canvas.Width = value; RaisePropertyChanged(); } }
 		public double Height { get { return Canvas.Height; } set { Canvas.Height = value; RaisePropertyChanged(); } }
 
 		public CanvasVM() {
-			Shapes = new ObservableCollection<ActivityVM>() { new ActivityVM() };
 			Canvas = new Canvas();
 		}
 
@@ -34,7 +33,5 @@ namespace TrustedActivityCreator.ViewModel {
 				}
 			}
 		}
-
-
 	}
 }

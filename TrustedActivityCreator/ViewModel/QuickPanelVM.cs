@@ -7,14 +7,25 @@ using System.Text;
 using System.Threading.Tasks;
 using TrustedActivityCreator.ViewModel;
 using TrustedActivityCreator.Model;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using TrustedActivityCreator.Command;
 
 namespace TrustedActivityCreator.ViewModel {
 	class QuickPanelVM : ObservableObject {
 
-		public ObservableCollection<ActivityVM> Shapes { get; set; }
+		private UndoRedoController undoRedoController = UndoRedoController.Instance;
+
+		public ICommand AddShapeCommand { get; }
 
 		public QuickPanelVM() {
-			Shapes = new ObservableCollection<ActivityVM>() { new ActivityVM() };
+			AddShapeCommand = new RelayCommand(AddShape);
 		}
+
+		private void AddShape() {
+			undoRedoController.AddAndExecute(new AddShapeCommand(new ActivityVM()));
+		}
+
+
 	}
 }
