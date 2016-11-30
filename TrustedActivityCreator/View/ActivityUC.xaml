@@ -18,6 +18,10 @@
 				<Setter Property="Opacity" Value="0"/>
 				<Setter Property="Width" Value="6"/>
 				<Setter Property="Height" Value="6"/>
+				<Setter Property="Fill" Value="WhiteSmoke"/>
+				<Setter Property="Stroke" Value="Black"/>
+				<Setter Property="StrokeThickness" Value="1"/>
+				<Setter Property="Panel.ZIndex" Value="3000"/>
 			</Style.Setters>
 			<Style.Triggers>
 				<DataTrigger Binding="{Binding ElementName=Me, Path=IsMouseOver}" Value="True">
@@ -33,10 +37,10 @@
 	</UserControl.Resources>
 
 	<Grid>
-		<Ellipse Name="LeftAnchor" VerticalAlignment="Center" HorizontalAlignment="Left" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
-		<Ellipse Name="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
-		<Ellipse Name="Top" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
-		<Ellipse Name="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
+		<Ellipse Name="LeftAnchor" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource AnchorStyle}"/>
+		<Ellipse Name="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource AnchorStyle}"/>
+		<Ellipse Name="Top" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource AnchorStyle}"/>
+		<Ellipse Name="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center" Style="{StaticResource AnchorStyle}"/>
 
 		<Rectangle Name="Me" RadiusX="5" RadiusY="5" LostFocus="ActivityDescription_LostFocus" Margin="3" Fill="White" Style="{DynamicResource Border}">
 			<Rectangle.Resources>
