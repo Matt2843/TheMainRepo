@@ -4,7 +4,7 @@
 					xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
 					xmlns:m="clr-namespace:TrustedActivityCreator.Model">
 
-	<Style x:Key="BigFont" TargetType="v:ActivityUC">
+	<Style x:Key="BigFont">
 		<Style.Setters>
 			<Setter Property="Control.FontSize" Value="18" />
 		</Style.Setters>

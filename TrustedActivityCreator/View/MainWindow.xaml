@@ -33,7 +33,7 @@
 		<local:MenuBarUC Grid.Row="0" Grid.ColumnSpan="2" />
 		<local:TrustedQuickPanelUC Panel.ZIndex="1000" Grid.Row="1"/>
 		<DockPanel Grid.Row="1" Grid.Column="1" Margin="20">
-			<gui:TrustedCanvas Grid.Row="1" Background="White" />
+			<local:CanvasUC Grid.Row="1" Background="White" />
 		</DockPanel>
 	</Grid>
 </Window>
