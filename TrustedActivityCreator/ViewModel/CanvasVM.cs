@@ -14,7 +14,7 @@ using System.Linq;
 namespace TrustedActivityCreator.ViewModel {
 	class CanvasVM : ObservableObject {
 
-		public ObservableCollection<ActivityVM> Shapes { get; } = TrustedCollection.Shapes;
+		public ObservableCollection<ShapeBaseViewModel> Shapes { get; } = TrustedCollection.Shapes;
 
 		public double Width { get { return Canvas.Width; } set { Canvas.Width = value; RaisePropertyChanged(); } }
 		public double Height { get { return Canvas.Height; } set { Canvas.Height = value; RaisePropertyChanged(); } }

@@ -11,6 +11,6 @@ using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.Model {
 	class TrustedCollection {
-		public static ObservableCollection<ActivityVM> Shapes { get; } = new ObservableCollection<ActivityVM>();
+		public static ObservableCollection<ShapeBaseViewModel> Shapes { get; } = new ObservableCollection<ShapeBaseViewModel>();
 	}
 }
