@@ -89,6 +89,7 @@
     <Compile Include="ViewModel\CanvasVM.cs" />
     <Compile Include="ViewModel\QuickPanelVM.cs" />
     <Compile Include="ViewModel\ShapeBaseViewModel.cs" />
+    <Compile Include="ViewModel\TrustedConditionVM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">
       <DependentUpon>ActivityUC.xaml</DependentUpon>
     </Compile>

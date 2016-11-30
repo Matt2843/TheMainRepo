@@ -22,7 +22,6 @@ namespace TrustedActivityCreator.ViewModel {
 		/// <summary>
 		/// The command properties
 		/// </summary>
-
 		public ActivityVM() {
 			Activity = new Activity();
 		}
