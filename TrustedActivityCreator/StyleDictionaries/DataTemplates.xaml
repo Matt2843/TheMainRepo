@@ -3,14 +3,7 @@
 					xmlns:v="clr-namespace:TrustedActivityCreator.View"
 					xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
 					xmlns:m="clr-namespace:TrustedActivityCreator.Model"
-                    xmlns:local="clr-namespace:TrustedActivityCreator.View">
-
-	<Style x:Key="BigFont" TargetType="v:ActivityUC">
-		<Style.Setters>
-			<Setter Property="Control.FontSize" Value="18" />
-		</Style.Setters>
-	</Style>
-
+                    xmlns:local="clr-namespace:TrustedActivityCreator.StyleDictionaries">
 
 	<DataTemplate DataType="{x:Type vm:ActivityVM}">
 		<Canvas>
@@ -25,4 +18,5 @@
 	<DataTemplate DataType="{x:Type m:Canvas}">
 		<v:CanvasUC/>
 	</DataTemplate>
+
 </ResourceDictionary>
