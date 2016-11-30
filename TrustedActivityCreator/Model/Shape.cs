@@ -1,13 +1,13 @@
 ﻿using GalaSoft.MvvmLight;
 
 namespace TrustedActivityCreator.Model {
-	public abstract class Shape : ObservableObject {
+	public class Shape : ObservableObject {
 
 		private int id;
 		private int width = 75;
 		private int height = 75;
-		private int x;
-		private int y;
+		private int x = 0;
+		private int y = 0;
 
 		public int Id {
 			get { return id; }
