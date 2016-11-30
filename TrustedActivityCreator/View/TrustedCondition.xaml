@@ -43,7 +43,7 @@
 			<Ellipse Name="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource AnchorStyle}"/>
 			<Ellipse Name="Top" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource AnchorStyle}"/>
 			<Ellipse Name="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource AnchorStyle}"/>
-			<Rectangle Name="Condition" Stroke="Black" StrokeThickness="1"  Fill="White" Margin="2">
+			<Rectangle Name="Condition" RadiusX="5" RadiusY="5" Stroke="Black" StrokeThickness="1"  Fill="White" Margin="2">
 				<i:Interaction.Triggers>
 					<i:EventTrigger EventName="MouseDown">
 						<cmd:EventToCommand Command="{Binding DownShapeCommand}" PassEventArgsToCommand="True"/>
