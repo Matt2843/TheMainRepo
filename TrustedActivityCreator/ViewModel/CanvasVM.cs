@@ -29,7 +29,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public double ModeOpacity => isAddingLine ? 0.4 : 1.0;
 
 		// Collection of shapes / lines
-		public ObservableCollection<ActivityVM> Shapes { get; set; }
+		public ObservableCollection<Shape> Shapes { get; set; }
 		public ObservableCollection<Connections> Connections { get; set; }
 
 		// UI Bindable commands
@@ -42,7 +42,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand RemoveConnectionsCommand { get; }
 
 		public CanvasVM() {
-			Shapes = new ObservableCollection<ActivityVM>() { new ActivityVM() };
+			Shapes = new ObservableCollection<Shape>();
 			Connections = new ObservableCollection<Connections>();
 
 			UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
@@ -109,11 +109,11 @@ namespace TrustedActivityCreator.ViewModel {
 
 
 		private void AddShape() {
-			//undoRedoController.AddAndExecute(new AddShapeCommand(Shapes, new Activity()));
+			undoRedoController.AddAndExecute(new AddShapeCommand(Shapes, new Activity()));
 		}
 
 		private void RemoveShape(IList shapes) {
-			//undoRedoController.AddAndExecute(new RemoveShapesCommand(Shapes, Connections, shapes.Cast<Shape>().ToList()));
+			undoRedoController.AddAndExecute(new RemoveShapesCommand(Shapes, Connections, shapes.Cast<Shape>().ToList()));
 		}
 
 		private bool CanRemoveShape(IList shapes) => shapes.Count == 1;

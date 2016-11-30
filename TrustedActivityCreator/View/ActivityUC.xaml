@@ -12,17 +12,8 @@
 			 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="50" d:DesignWidth="100">
 
-	<UserControl.Resources>
-		<Style x:Key="RectangleStyle1" TargetType="{x:Type Rectangle}">
-			<Style.Triggers>
-				<Trigger Property="IsMouseOver" Value="True">
-					<Setter Property="Fill" Value="Red" />
-				</Trigger>
-			</Style.Triggers>
-		</Style>
-	</UserControl.Resources>
 	<Grid>
-		<Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="Black" Style="{StaticResource RectangleStyle1}">
+		<Rectangle Name="Me" RadiusX="5" RadiusY="5" Fill="White" Stroke="Black" LostFocus="ActivityDescription_LostFocus" Style="{DynamicResource hover}">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
 					<cmd:EventToCommand Command="{Binding DownShapeCommand}" PassEventArgsToCommand="True"/>
@@ -35,9 +26,12 @@
 				</i:EventTrigger>
 			</i:Interaction.Triggers>
 		</Rectangle>
-
+		
 		<TextBox Name="ActivityDescription"
 				 Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+				 FocusableChanged="ActivityDescription_FocusableChanged" 
+				 MouseDoubleClick="ActivityDescription_MouseDoubleClick"  
+				 KeyDown="ActivityDescription_OnKeyDown"
 				 IsReadOnly="True"
 				 VerticalAlignment="Center" 
 				 HorizontalAlignment="Center" 
