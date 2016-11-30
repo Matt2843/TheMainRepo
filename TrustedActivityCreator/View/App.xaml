@@ -9,8 +9,9 @@
 	<Application.Resources>
 		<Style x:Key="hover">
 			<Style.Triggers>
-				<Trigger Property="Control.IsFocused" Value="True">
+				<Trigger Property="Control.IsMouseOver" Value="True">
 					<Setter Property="Control.Background" Value="Red"/>
+					<Setter Property="Control.Height" Value="200"/>
 				</Trigger>
 			</Style.Triggers>
 		</Style>
