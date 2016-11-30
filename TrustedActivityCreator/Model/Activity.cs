@@ -1,29 +1,19 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System;
+using GalaSoft.MvvmLight;
 
 namespace TrustedActivityCreator.Model {
 	class Activity : Shape {
+		public Activity() { }
+		public Activity(int id, int width, int height, int x, int y) : base(id, width, height, x, y) { }
 
-		private int activityId;
-		private string activityDescription = "Activity";
-
-		public int ActivityId {
-			get { return activityId; }
-			set {
-				if(value != activityId) {
-					activityId = value;
-					RaisePropertyChanged();
-				}
-			}
+		public override void setProperties() {
+			Width = 100;
+			Height = 40;
+			Description = "Activity";
 		}
 
-		public string ActivityDescription {
-			get { return activityDescription; }
-			set {
-				if(value != activityDescription) {
-					activityDescription = value;
-					RaisePropertyChanged();
-				}
-			}
-		}
+
+
+
 	}
 }

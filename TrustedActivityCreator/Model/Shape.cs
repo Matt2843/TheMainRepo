@@ -1,13 +1,25 @@
 ﻿using GalaSoft.MvvmLight;
 
 namespace TrustedActivityCreator.Model {
-	public class Shape : ObservableObject {
+	public abstract class Shape : ObservableObject {
 
 		private int id;
-		private int width = 75;
-		private int height = 75;
-		private int x = 0;
-		private int y = 0;
+		private int width;
+		private int height;
+		private int x;
+		private int y;
+		private string description = "Albert";
+
+		public Shape() {
+			setProperties();
+		}
+
+		public Shape(int id, int width, int height, int x, int y) {
+			this.id = id; this.width = width; this.height = height; this.x = x; this.y = y;
+			setProperties();
+		}
+
+		public abstract void setProperties();
 
 		public int Id {
 			get { return id; }
@@ -48,6 +60,16 @@ namespace TrustedActivityCreator.Model {
 			set {
 				if (value != y) {
 					y = value;
+					RaisePropertyChanged();
+				}
+			}
+		}
+
+		public string Description {
+			get { return description; }
+			set {
+				if (value != description) {
+					description = value;
 					RaisePropertyChanged();
 				}
 			}

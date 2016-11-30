@@ -16,21 +16,9 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<StackPanel Panel.ZIndex="1000" Grid.Row="0" Background="DarkGoldenrod">
-			<Border BorderThickness="2" BorderBrush="Black">
-				<Button Background="White" Content="Static Activity" Command="{Binding AddShapeCommand}">
-					<Button.Resources>
-						<Style x:Key="Testo">
-							<Style.Triggers>
-								<Trigger Property="Control.IsMouseOver" Value="True">
-									<Setter Property="Control.Background" Value="Red"/>
-								</Trigger>
-							</Style.Triggers>
-						</Style>
-					</Button.Resources>
-				</Button>
-			</Border>
-			<!--<ItemsControl ItemsSource="{Binding Shapes}"/>-->
+		<StackPanel Panel.ZIndex="1000" Grid.Row="0" Background="#1f2021">
+			<Button Background="White" Content="Add Activity" Command="{Binding AddActivityCommand}"/>
+			<Button Background="White" Content="Add Condition" Command="{Binding AddConditionCommand}"/>
 		</StackPanel>
 
 

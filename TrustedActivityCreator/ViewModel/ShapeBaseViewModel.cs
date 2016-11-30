@@ -10,23 +10,20 @@ using System.Windows.Media;
 namespace TrustedActivityCreator.ViewModel {
 	class ShapeBaseViewModel : ObservableObject {
 
-		public ShapeBaseViewModel() {
-			shape = new Shape();
-		}
-
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
 
 		// --- 
-		public Shape shape;
+		private Shape shape;
 
 		public int Id { get { return Shape.Id; } }
 		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); } }
 		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); } }
 		public int X { get { return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); } }
 		public int Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); } }
+		public string Description { get { return Shape.Description; } set { Shape.Description = value; RaisePropertyChanged(); } }
 
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
 		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }

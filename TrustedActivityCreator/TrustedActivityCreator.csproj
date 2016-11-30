@@ -83,6 +83,7 @@
     <Compile Include=".GUI\TrustedCanvas.cs" />
     <Compile Include="Command\MoveShapeCommand.cs" />
     <Compile Include="Model\Canvas.cs" />
+    <Compile Include="Model\Condition.cs" />
     <Compile Include="Model\Connections.cs" />
     <Compile Include="Model\Shape.cs" />
     <Compile Include="Model\TrustedCollection.cs" />

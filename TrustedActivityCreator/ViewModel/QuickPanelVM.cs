@@ -10,26 +10,34 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
-		public ICommand AddShapeCommand { get; }
+		public ICommand AddActivityCommand { get; }
+		public ICommand AddConditionCommand { get; }
 
 		private FrameworkElement canvas;
 
 		public QuickPanelVM() {
-			AddShapeCommand = new RelayCommand(AddShape);
+			AddActivityCommand = new RelayCommand(AddActivity);
+			AddConditionCommand = new RelayCommand(AddCondition);
 		}
 
-		private void AddShape() {
+		private void AddActivity() {
+			ActivityVM activity = new ActivityVM();
+			AddShape(activity);
+		}
+
+		private void AddCondition() {
+			TrustedConditionVM condition = new TrustedConditionVM();
+			AddShape(condition);
+		}
+
+		private void AddShape(ShapeBaseViewModel vm) {
 			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
 			Point point = Mouse.GetPosition(canvas);
 
-			System.Console.WriteLine(canvas.ActualHeight);
-			System.Console.WriteLine("(" + point.X + ", " + point.Y + ")");
-
-			ActivityVM shape = new ActivityVM();
-			shape.X = (int)point.X;
-			shape.Y = (int)point.Y;
+			vm.X = (int)point.X;
+			vm.Y = (int)point.Y;
 			
-			undoRedoController.AddAndExecute(new AddShapeCommand(shape));
+			undoRedoController.AddAndExecute(new AddShapeCommand(vm));
 		}
 	}
 }
