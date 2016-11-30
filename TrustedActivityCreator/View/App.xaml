@@ -5,12 +5,21 @@
 			 xmlns:m="clr-namespace:TrustedActivityCreator.Model"
 			 xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
+
+	<Application.Resources>
+		<Style x:Key="hover">
+			<Style.Triggers>
+				<Trigger Property="Control.IsMouseOver" Value="True">
+					<Setter Property="Control.Foreground" Value="Red"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+
 		<DataTemplate DataType="{x:Type vm:ActivityVM}">
-            <Canvas>
-                <v:ActivityUC/>
-            </Canvas>
-        </DataTemplate>
+			<Canvas>
+				<v:ActivityUC/>
+			</Canvas>
+		</DataTemplate>
 
 		<DataTemplate DataType="{x:Type vm:QuickPanelVM}">
 			<v:TrustedQuickPanelUC/>
@@ -19,5 +28,9 @@
 		<DataTemplate DataType="{x:Type m:Canvas}">
 			<v:CanvasUC/>
 		</DataTemplate>
-    </Application.Resources>
+
+	</Application.Resources>
+
+
+
 </Application>

@@ -13,7 +13,7 @@
              d:DesignHeight="50" d:DesignWidth="100">
 	
 	<Grid>
-		<Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="Black">
+		<Rectangle Name="Me" RadiusX="5" RadiusY="5" Fill="White" Stroke="Black" LostFocus="ActivityDescription_LostFocus" Style="{StaticResource hover}">
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
 					<cmd:EventToCommand Command="{Binding DownShapeCommand}" PassEventArgsToCommand="True"/>
@@ -30,8 +30,7 @@
 		<TextBox Name="ActivityDescription"
 				 Text="{Binding ActivityDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
 				 FocusableChanged="ActivityDescription_FocusableChanged" 
-				 MouseDoubleClick="ActivityDescription_MouseDoubleClick" 
-				 LostFocus="ActivityDescription_LostFocus" 
+				 MouseDoubleClick="ActivityDescription_MouseDoubleClick"  
 				 KeyDown="ActivityDescription_OnKeyDown"
 				 IsReadOnly="True"
 				 VerticalAlignment="Center" 

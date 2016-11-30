@@ -41,7 +41,7 @@
 				<ColumnDefinition Width="1.5*"/>
 			</Grid.ColumnDefinitions>
 
-			<TextBlock Grid.Row="0" Text="Property1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+			<TextBlock Grid.Row="0" Text="Property1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Style="{StaticResource hover}"/>
 			<TextBox Grid.Row="0" Grid.Column="1" Text="Stuff" Foreground="White" />
 			<TextBlock Grid.Row="1" Text="Property2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 			<TextBox Grid.Row="1" Grid.Column="1" Text="Stuff" Foreground="White" />

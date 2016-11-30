@@ -42,9 +42,16 @@ namespace TrustedActivityCreator.View {
 		}
 
 		private void ActivityDescription_LostFocus(object sender, RoutedEventArgs e) {
+			Console.WriteLine("Focus Lost");
+			Me.Fill = Brushes.White;
 			ActivityDescription.BorderThickness = new Thickness(0,0,0,0);
 			ActivityDescription.Focusable = false;
 			ActivityDescription.IsReadOnly = true;
+		}
+
+		private void Activity_FocusGained(object sender, RoutedEventArgs e) {
+			Me.Fill = Brushes.BlueViolet;
+			
 		}
 	}
 }

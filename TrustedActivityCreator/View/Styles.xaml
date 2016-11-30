@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:v="clr-namespace:TrustedActivityCreator.View"
+					xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
+					xmlns:m="clr-namespace:TrustedActivityCreator.Model"
+                    xmlns:local="clr-namespace:TrustedActivityCreator.View">
+
+	<Style x:Key="BigFont" TargetType="v:ActivityUC">
+		<Style.Setters>
+			<Setter Property="Control.FontSize" Value="18" />
+		</Style.Setters>
+	</Style>
+
+
+	<DataTemplate DataType="{x:Type vm:ActivityVM}">
+		<Canvas>
+			<v:ActivityUC/>
+		</Canvas>
+	</DataTemplate>
+
+	<DataTemplate DataType="{x:Type vm:QuickPanelVM}">
+		<v:TrustedQuickPanelUC/>
+	</DataTemplate>
+
+	<DataTemplate DataType="{x:Type m:Canvas}">
+		<v:CanvasUC/>
+	</DataTemplate>
+</ResourceDictionary>
