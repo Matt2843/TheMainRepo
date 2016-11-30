@@ -1,15 +1,9 @@
 ﻿using GalaSoft.MvvmLight;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrustedActivityCreator.ViewModel;
-using TrustedActivityCreator.Model;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using TrustedActivityCreator.Command;
+using System.Windows;
+using System.Xml.Linq;
 
 namespace TrustedActivityCreator.ViewModel {
 	class QuickPanelVM : ObservableObject {
@@ -23,7 +17,13 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void AddShape() {
-			undoRedoController.AddAndExecute(new AddShapeCommand(new ActivityVM()));
+			//Point point = XElement.TransformToVisual(root).Transform(new Point(50, 50));
+
+			ActivityVM shape = new ActivityVM();
+			shape.X = 500;//(int)point.X;
+			shape.Y = 500;//(int)point.Y;
+
+			undoRedoController.AddAndExecute(new AddShapeCommand(shape));
 		}
 	}
 }

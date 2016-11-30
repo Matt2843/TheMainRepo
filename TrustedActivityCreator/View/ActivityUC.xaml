@@ -16,22 +16,29 @@
 		<Style x:Key="AnchorStyle" TargetType="Ellipse">
 			<Style.Setters>
 				<Setter Property="Opacity" Value="0"/>
+				<Setter Property="Width" Value="6"/>
+				<Setter Property="Height" Value="6"/>
 			</Style.Setters>
 			<Style.Triggers>
 				<DataTrigger Binding="{Binding ElementName=Me, Path=IsMouseOver}" Value="True">
 					<Setter Property="Opacity" Value="1"></Setter>
 				</DataTrigger>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Opacity" Value="1"/>
+					<Setter Property="Width" Value="8"/>
+					<Setter Property="Height" Value="8"/>
+				</Trigger>
 			</Style.Triggers>
 		</Style>
 	</UserControl.Resources>
 
 	<Grid>
-		<Ellipse Name="LeftAnchor" Width="6" Height="6" VerticalAlignment="Center" HorizontalAlignment="Left" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
-		<Ellipse Name="Right" Width="6" Height="6" VerticalAlignment="Center" HorizontalAlignment="Right" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
-		<Ellipse Name="Top" Width="6" Height="6" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
-		<Ellipse Name="Bottom" Width="6" Height="6" VerticalAlignment="Bottom" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
+		<Ellipse Name="LeftAnchor" VerticalAlignment="Center" HorizontalAlignment="Left" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
+		<Ellipse Name="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
+		<Ellipse Name="Top" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
+		<Ellipse Name="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center" Panel.ZIndex="3000" Fill="Black" Style="{StaticResource AnchorStyle}"/>
 
-		<Rectangle Name="Me" RadiusX="5" RadiusY="5" LostFocus="ActivityDescription_LostFocus" Margin="3" Fill="White">
+		<Rectangle Name="Me" RadiusX="5" RadiusY="5" LostFocus="ActivityDescription_LostFocus" Margin="3" Fill="White" Style="{DynamicResource Border}">
 			<Rectangle.Resources>
 				<Style x:Key="Border" TargetType="Rectangle">
 					<Style.Setters>
