@@ -25,7 +25,5 @@ namespace TrustedActivityCreator.ViewModel {
 		private void AddShape() {
 			undoRedoController.AddAndExecute(new AddShapeCommand(new ActivityVM()));
 		}
-
-
 	}
 }
