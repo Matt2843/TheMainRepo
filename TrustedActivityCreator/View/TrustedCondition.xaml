@@ -53,9 +53,17 @@
 				</i:Interaction.Triggers>
 			</Rectangle>
 		</Grid>
-		<TextBox HorizontalAlignment="Stretch"
-				 Margin="0,100,0,100" 
-				 Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+		<TextBox Name="ActivityDescription"
+					 Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+					 FocusableChanged="ActivityDescription_FocusableChanged" 
+					 MouseDoubleClick="ActivityDescription_MouseDoubleClick"  
+					 KeyDown="ActivityDescription_OnKeyDown"
+					 IsReadOnly="True"
+					 VerticalAlignment="Center" 
+					 HorizontalAlignment="Center" 
+					 TextWrapping="Wrap" 
+					 BorderThickness="0" 
+					 Margin="5">
 		</TextBox>
 	</Grid>
 </UserControl>
