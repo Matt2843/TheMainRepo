@@ -13,7 +13,7 @@
 	
 	<DataTemplate DataType="{x:Type vm:TrustedConditionVM}">
 		<Canvas>
-			<v:TrustedCondition/>
+			<v:ConditionUC/>
 		</Canvas>
 	</DataTemplate>
 
