@@ -15,12 +15,15 @@ namespace TrustedActivityCreator.ViewModel {
 	class CanvasVM : ObservableObject {
 
 		public ObservableCollection<ShapeBaseViewModel> Shapes { get; } = TrustedCollection.Shapes;
+		public ObservableCollection<TrustedConnectionVM> Connections { get; } = TrustedCollection.Connections;
 
 		public double Width { get { return Canvas.Width; } set { Canvas.Width = value; RaisePropertyChanged(); } }
 		public double Height { get { return Canvas.Height; } set { Canvas.Height = value; RaisePropertyChanged(); } }
 
 		public CanvasVM() {
 			Canvas = new Canvas();
+			new TrustedConnectionVM();
+
 		}
 
 		private Canvas canvas;
