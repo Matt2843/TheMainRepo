@@ -21,12 +21,6 @@
 				<Setter Property="StrokeThickness" Value="1"/>
 				<Setter Property="Panel.ZIndex" Value="3000"/>
 			</Style.Setters>
-			<Style.Triggers>
-				<Trigger Property="IsMouseOver" Value="True">
-					<Setter Property="Width" Value="12"/>
-					<Setter Property="Height" Value="12"/>
-				</Trigger>
-			</Style.Triggers>
 		</Style>
 	</UserControl.Resources>
 
@@ -39,7 +33,7 @@
 			<Ellipse Name="LeftAnchor" VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource AnchorStyle}" />
 			<Ellipse Name="RightAnchor" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource AnchorStyle}" />
 			<Ellipse Name="TopAnchor" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource AnchorStyle}" />
-			<Rectangle Name="Condition" RadiusX="5" RadiusY="5" Stroke="Black" StrokeThickness="1"  Fill="White" Margin="3" Panel.ZIndex="1000">
+			<Rectangle Name="Condition" Stroke="Black" StrokeThickness="1"  Fill="White" Margin="3" Panel.ZIndex="1000">
 				<i:Interaction.Triggers>
 					<i:EventTrigger EventName="MouseDown">
 						<cmd:EventToCommand Command="{Binding DownShapeCommand}" PassEventArgsToCommand="True"/>
@@ -55,9 +49,9 @@
 		</Grid>
 		<TextBox Name="ActivityDescription"
 					 Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-					 FocusableChanged="ActivityDescription_FocusableChanged" 
-					 MouseDoubleClick="ActivityDescription_MouseDoubleClick"  
-					 KeyDown="ActivityDescription_OnKeyDown"
+					 FocusableChanged="Condition_FocusableChanged" 
+					 MouseDoubleClick="Condition_MouseDoubleClick"  
+					 KeyDown="Condition_OnKeyDown"
 					 IsReadOnly="True"
 					 VerticalAlignment="Center" 
 					 HorizontalAlignment="Center" 

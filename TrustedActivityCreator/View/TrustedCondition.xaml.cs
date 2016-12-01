@@ -18,14 +18,18 @@ namespace TrustedActivityCreator.View {
 	/// Interaction logic for TrustedCondition.xaml
 	/// </summary>
 	public partial class TrustedCondition : UserControl {
+
+		private static Ellipse[] ellipses = new Ellipse[4];
+
 		public TrustedCondition() {
 			InitializeComponent();
-
+			ellipses[0] = LeftAnchor; ellipses[1] = RightAnchor; ellipses[2] = TopAnchor; ellipses[3] = BottomAnchor;
 			// Ellipse Handlers
-			LeftAnchor.MouseDown += Ellipse_MouseDown;
-			RightAnchor.MouseDown += Ellipse_MouseDown;
-			TopAnchor.MouseDown += Ellipse_MouseDown;
-			BottomAnchor.MouseDown += Ellipse_MouseDown;
+			for (int i = 0; i < ellipses.Length; i++) {
+				ellipses[i].MouseDown += Ellipse_MouseDown;
+				ellipses[i].MouseEnter += Ellipse_MouseEnter;
+				ellipses[i].MouseLeave += Ellipse_MouseLeave; 
+			}
 
 			// Condition Handlers
 			Condition.MouseEnter += Condition_MouseEnter;
@@ -33,42 +37,57 @@ namespace TrustedActivityCreator.View {
 
 		}
 
+		private void Ellipse_MouseEnter(object sender, MouseEventArgs e) {
+			Ellipse enteredEllipse = (Ellipse)sender;
+			enteredEllipse.Width = 12;
+			enteredEllipse.Height = 12;
+		}
+
+		private void Ellipse_MouseLeave(object sender, MouseEventArgs e) {
+			Ellipse enteredEllipse = (Ellipse)sender;
+			enteredEllipse.Width = 8;
+			enteredEllipse.Height = 8;
+		}
+
 		private void Ellipse_MouseDown(object sender, MouseButtonEventArgs e) {
-			Ellipse loco = (Ellipse)sender;
-			if (loco.Stroke == Brushes.Black) {
-				loco.Stroke = Brushes.Blue;
-				loco.Visibility = Visibility.Visible;
-			} else {
-				loco.Stroke = Brushes.Black;
-				loco.Visibility = Visibility.Hidden;
+			for(int i = 0; i < ellipses.Length; i++) {
+				if(ellipses[i].Stroke == Brushes.Red) {
+					ellipses[i].Stroke = Brushes.Black;
+				}
+			}
+			((Ellipse)sender).Stroke = Brushes.Red;
+		}
+
+		private void Condition_MouseEnter(object sender, MouseEventArgs e) {
+			Condition.Stroke = Brushes.Blue;
+			for (int i = 0; i < ellipses.Length; i++) {
+				ellipses[i].Visibility = Visibility.Visible;
 			}
 		}
 
-		private void Condition_MouseEnter(Object sender, MouseEventArgs e) {
-			Ellipse[] anchorPoints = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			for (int i = 0; i < anchorPoints.Length; i++) {
-				anchorPoints[i].Visibility = Visibility.Visible;
+		private void Condition_MouseLeave(object sender, MouseEventArgs e) {
+			
+			for (int i = 0; i < ellipses.Length; i++) {
+				if(ellipses[i].Stroke != Brushes.Red && !ellipses[i].IsMouseOver) {
+					ellipses[i].Visibility = Visibility.Hidden;
+					Condition.Stroke = Brushes.Black;
+				}
+						
 			}
 		}
 
-		private void Condition_MouseLeave(Object sender, MouseEventArgs e) {
-			Ellipse[] anchorPoints = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			for (int i = 0; i < anchorPoints.Length; i++) {
-				anchorPoints[i].Visibility = Visibility.Hidden;
-			}
-		}
 
-		private void ActivityDescription_OnKeyDown(object sender, KeyEventArgs e) {
+		private void Condition_OnKeyDown(object sender, KeyEventArgs e) {
 			if(e.Key == Key.Return) {
 				ActivityDescription_LostFocus(sender, e);
 			}
 		}
 
-		private void ActivityDescription_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e) {
+		private void Condition_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e) {
 			ActivityDescription.Cursor = ActivityDescription.Focusable ? Cursors.IBeam : Cursors.Arrow;
 		}
 
-		private void ActivityDescription_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+		private void Condition_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
 			ActivityDescription.BorderThickness = new Thickness(1, 1, 1, 1);
 			ActivityDescription.IsReadOnly = false;
 			ActivityDescription.Focusable = true;
@@ -82,11 +101,6 @@ namespace TrustedActivityCreator.View {
 			ActivityDescription.BorderThickness = new Thickness(0, 0, 0, 0);
 			ActivityDescription.Focusable = false;
 			ActivityDescription.IsReadOnly = true;
-		}
-
-		private void Activity_FocusGained(object sender, RoutedEventArgs e) {
-			Condition.Fill = Brushes.BlueViolet;
-
 		}
 	}
 }
