@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,12 +29,18 @@ namespace TrustedActivityCreator.ViewModel {
 			undoRedoController.AddAndExecute(new AddShapeCommand(vm2));
 
 			connection = new Connection(vm1, vm2);
-
+			
 			Path = new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) };
 
-			//Path += new vm1.PropertyChangedHandler(ListChanged);
+			vm1.PropertyChanged += new PropertyChangedEventHandler(raise);
+
+			vm2.PropertyChanged += new PropertyChangedEventHandler(raise);
 
 			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
+		}
+
+		public void raise(object sender, PropertyChangedEventArgs e){
+			Console.WriteLine("hej");
 			RaisePropertyChanged("Path");
 		}
 
@@ -41,6 +48,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ShapeBaseViewModel To { get { return connection.To; } internal set { connection.To = value; RaisePropertyChanged(); } }
 
 		public PointCollection Path { get { return path; } set { path = value; RaisePropertyChanged(); } }
+
 	}
 }
 
