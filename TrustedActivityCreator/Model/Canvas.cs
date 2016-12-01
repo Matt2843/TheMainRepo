@@ -15,7 +15,7 @@ namespace TrustedActivityCreator.Model {
 		private double height;
 
 		public Canvas() {
-			width = 1000;
+			width = 500;
 			height = width * Math.Sqrt(2);
 		}
         

@@ -14,7 +14,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-		<gui:TrustedCanvas x:Name="TrustedCanvas" Grid.Row="0" Background="White">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<gui:TrustedCanvas x:Name="TrustedCanvas" Grid.Row="0" Grid.Column="0" Background="White">
 			<ItemsControl Panel.ZIndex="1000" ItemsSource="{Binding Shapes}" />
 			<ItemsControl Panel.ZIndex="500" ItemsSource="{Binding Connections}" />
 		</gui:TrustedCanvas>

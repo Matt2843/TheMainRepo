@@ -46,15 +46,14 @@
 			<ContentControl Content="{Binding QuickPanel}"  Width="250"/>
 
 			<Grid>
-				<Button Name="hideProps" Width="20" Click="HideProps" Content="&lt;&lt;" Style="{StaticResource Std}" />
-				<Button Name="showProps" Width="20" Click="ShowProps" Content="&gt;&gt;" Style="{StaticResource Std}" Visibility="Hidden"/>
+				<Button Name="hideProps" Width="20" Height="50" Click="HideProps" Content="&lt;&lt;" Style="{StaticResource Std}" />
+				<Button Name="showProps" Width="20" Height="50" Click="ShowProps" Content="&gt;&gt;" Style="{StaticResource Std}" Visibility="Hidden"/>
 			</Grid>
 		</StackPanel>
 
-
-		<StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"  Background="WhiteSmoke">
+		<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Background="WhiteSmoke">
 			<ContentControl  Margin="20" Name="TrustedCanvas" Content="{Binding TrustedCanvas}" Background="White"/>
-		</StackPanel>
+		</Grid>
 
 		<local:ConsoleUC Grid.Row="2" Grid.ColumnSpan="2" />
 	</Grid>
