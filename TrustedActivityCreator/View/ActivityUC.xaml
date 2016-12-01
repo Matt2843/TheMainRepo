@@ -59,6 +59,7 @@
 			<i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseDown">
 					<cmd:EventToCommand Command="{Binding DownShapeCommand}" PassEventArgsToCommand="True"/>
+					<cmd:EventToCommand Command="{Binding SelectShapeCommand}" PassEventArgsToCommand="True"/>
 				</i:EventTrigger>
 				<i:EventTrigger EventName="MouseMove">
 					<cmd:EventToCommand Command="{Binding MoveShapeCommand}" PassEventArgsToCommand="True"/>

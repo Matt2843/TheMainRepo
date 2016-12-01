@@ -11,6 +11,7 @@ namespace TrustedActivityCreator.ViewModel {
 	class ShapeBaseViewModel : ObservableObject {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
+		private TrustedSelectedShapeControllerCommand tsscc = TrustedSelectedShapeControllerCommand.Instance;
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
@@ -30,6 +31,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public int XMiddle { get { return Shape.XMiddle; } }
 		public int YMiddle { get { return Shape.YMiddle; } }
 
+		public ICommand SelectShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(SelectShape); } }
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
 		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
 		public ICommand UpShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
@@ -42,6 +44,10 @@ namespace TrustedActivityCreator.ViewModel {
 					RaisePropertyChanged();
 				}
 			}
+		}
+
+		private void SelectShape(MouseButtonEventArgs e) {
+			tsscc.selectedShape = Shape;
 		}
 
 		/*public Point Get() {
