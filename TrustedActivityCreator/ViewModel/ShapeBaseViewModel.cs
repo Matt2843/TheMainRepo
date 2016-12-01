@@ -39,10 +39,11 @@ namespace TrustedActivityCreator.ViewModel {
 			}
 		}
 
-		public Point Get() {
+		/*public Point Get() {
 			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
 
 		}
+		*/
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
 			var shape = Shape;
