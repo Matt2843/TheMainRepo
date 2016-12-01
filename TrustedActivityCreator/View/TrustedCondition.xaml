@@ -33,31 +33,15 @@
 			<Ellipse Name="LeftAnchor" VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource AnchorStyle}" />
 			<Ellipse Name="RightAnchor" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource AnchorStyle}" />
 			<Ellipse Name="TopAnchor" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource AnchorStyle}" />
-			<Rectangle Name="Condition" Stroke="Black" StrokeThickness="1"  Fill="White" Margin="3" Panel.ZIndex="1000">
-				<i:Interaction.Triggers>
-					<i:EventTrigger EventName="MouseDown">
-						<cmd:EventToCommand Command="{Binding DownShapeCommand}" PassEventArgsToCommand="True"/>
-					</i:EventTrigger>
-					<i:EventTrigger EventName="MouseMove">
-						<cmd:EventToCommand Command="{Binding MoveShapeCommand}" PassEventArgsToCommand="True"/>
-					</i:EventTrigger>
-					<i:EventTrigger EventName="MouseUp">
-						<cmd:EventToCommand Command="{Binding UpShapeCommand}" PassEventArgsToCommand="True"/>
-					</i:EventTrigger>
-				</i:Interaction.Triggers>
-			</Rectangle>
+			<Rectangle Name="Condition" Stroke="Black" StrokeThickness="1"  Fill="White" Margin="3" Panel.ZIndex="1000"/>
 		</Grid>
-		<TextBox Name="ActivityDescription"
-					 Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-					 FocusableChanged="Condition_FocusableChanged" 
-					 MouseDoubleClick="Condition_MouseDoubleClick"  
-					 KeyDown="Condition_OnKeyDown"
-					 IsReadOnly="True"
-					 VerticalAlignment="Center" 
-					 HorizontalAlignment="Center" 
-					 TextWrapping="Wrap" 
-					 BorderThickness="0" 
-					 Margin="10">
-		</TextBox>
+		<TextBlock Name="ConditionDescription"				 
+				 Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+				 VerticalAlignment="Center" 
+				 HorizontalAlignment="Center" 
+				 TextWrapping="Wrap"
+				 Margin="10">
+			
+		</TextBlock>
 	</Grid>
 </UserControl>
