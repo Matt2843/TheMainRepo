@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.View {
 	/// <summary>
@@ -32,7 +25,34 @@ namespace TrustedActivityCreator.View {
 			// Condition Handlers
 			Condition.MouseEnter += Condition_MouseEnter;
 			Condition.MouseLeave += Condition_MouseLeave;
+
+			Condition.MouseDown += Condition_MouseDown;
+			Condition.MouseUp += Condition_MouseUp;
+			Condition.MouseMove += Condition_MoveMouse;
+
+			// TextBlock Handler
+			ConditionDescription.MouseEnter += Condition_MouseEnter;
+			ConditionDescription.MouseLeave += Condition_MouseLeave;
+
+			ConditionDescription.MouseDown += Condition_MouseDown;
+			ConditionDescription.MouseUp += Condition_MouseUp;
+			ConditionDescription.MouseMove += Condition_MoveMouse;
+
+
 		}
+
+		private void Condition_MouseDown(object sender, MouseEventArgs e) {
+			((ShapeBaseViewModel)DataContext).DownShapeCommand.Execute(e);
+		}
+
+		private void Condition_MouseUp(object sender, MouseEventArgs e) {
+			((ShapeBaseViewModel)DataContext).UpShapeCommand.Execute(e);
+		}
+
+		private void Condition_MoveMouse(object sender, MouseEventArgs e) {
+			((ShapeBaseViewModel)DataContext).MoveShapeCommand.Execute(e);
+		}
+
 
 		private void Ellipse_MouseEnter(object sender, MouseEventArgs e) {
 			Ellipse enteredEllipse = (Ellipse)sender;
@@ -41,6 +61,7 @@ namespace TrustedActivityCreator.View {
 		}
 
 		private void Ellipse_MouseLeave(object sender, MouseEventArgs e) {
+			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
 			Ellipse enteredEllipse = (Ellipse)sender;
 			enteredEllipse.Width = 8;
 			enteredEllipse.Height = 8;
@@ -48,12 +69,20 @@ namespace TrustedActivityCreator.View {
 
 		private void Ellipse_MouseDown(object sender, MouseButtonEventArgs e) {
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			for(int i = 0; i < ellipses.Length; i++) {
-				if(ellipses[i].Stroke == Brushes.Red) {
-					ellipses[i].Stroke = Brushes.Black;
-				}
+			Ellipse senderEllipse = (Ellipse)sender;
+
+			bool isRed = senderEllipse.Stroke == Brushes.Red;
+
+			foreach (Ellipse ellipsus in ellipses) {
+				ellipsus.Stroke = Brushes.Black;
+				if (senderEllipse != ellipsus)
+					ellipsus.Visibility = Visibility.Hidden; 
 			}
-			((Ellipse)sender).Stroke = Brushes.Red;
+
+			if(!isRed) {
+				senderEllipse.Stroke = Brushes.Red;
+			}
+			
 		}
 
 		private void Condition_MouseEnter(object sender, MouseEventArgs e) {
@@ -72,32 +101,6 @@ namespace TrustedActivityCreator.View {
 					Condition.Stroke = Brushes.Black;
 				}
 			}
-		}
-
-		private void Condition_OnKeyDown(object sender, KeyEventArgs e) {
-			if(e.Key == Key.Return) {
-				ActivityDescription_LostFocus(sender, e);
-			}
-		}
-
-		private void Condition_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e) {
-			ActivityDescription.Cursor = ActivityDescription.Focusable ? Cursors.IBeam : Cursors.Arrow;
-		}
-
-		private void Condition_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
-			ActivityDescription.BorderThickness = new Thickness(1, 1, 1, 1);
-			ActivityDescription.IsReadOnly = false;
-			ActivityDescription.Focusable = true;
-			ActivityDescription.Focus();
-			ActivityDescription.CaretIndex = ActivityDescription.Text.Length;
-		}
-
-		private void ActivityDescription_LostFocus(object sender, RoutedEventArgs e) {
-			Console.WriteLine("Focus Lost");
-			Condition.Fill = Brushes.White;
-			ActivityDescription.BorderThickness = new Thickness(0, 0, 0, 0);
-			ActivityDescription.Focusable = false;
-			ActivityDescription.IsReadOnly = true;
 		}
 	}
 }
