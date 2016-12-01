@@ -28,7 +28,7 @@ namespace TrustedActivityCreator.View {
 			for (int i = 0; i < ellipses.Length; i++) {
 				ellipses[i].MouseDown += Ellipse_MouseDown;
 				ellipses[i].MouseEnter += Ellipse_MouseEnter;
-				ellipses[i].MouseLeave += Ellipse_MouseLeave; 
+				ellipses[i].MouseLeave += Ellipse_MouseLeave;
 			}
 
 			// Condition Handlers
