@@ -117,6 +117,9 @@
     <Compile Include="View\TrustedQuickPanelUC.xaml.cs">
       <DependentUpon>TrustedQuickPanelUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UntrustedQuickPanelUC.xaml.cs">
+      <DependentUpon>UntrustedQuickPanelUC.xaml</DependentUpon>
+    </Compile>
     <Page Include="StyleDictionaries\DataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TrustedQuickPanelUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UntrustedQuickPanelUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
