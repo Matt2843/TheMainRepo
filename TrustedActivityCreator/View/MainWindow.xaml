@@ -52,9 +52,9 @@
 		</StackPanel>
 
 
-		<DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="20">
-			<ContentControl Name="TrustedCanvas" Content="{Binding TrustedCanvas}" Background="White"/>
-		</DockPanel>
+		<StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"  Background="WhiteSmoke">
+			<ContentControl  Margin="20" Name="TrustedCanvas" Content="{Binding TrustedCanvas}" Background="White"/>
+		</StackPanel>
 
 		<local:ConsoleUC Grid.Row="2" Grid.ColumnSpan="2" />
 	</Grid>
