@@ -11,7 +11,7 @@ namespace TrustedActivityCreator.ViewModel {
 	class ShapeBaseViewModel : ObservableObject {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
-		private TrustedSelectedShapeControllerCommand tsscc = TrustedSelectedShapeControllerCommand.Instance;
+		//private TrustedSelectedShapeControllerCommand tsscc = TrustedSelectedShapeControllerCommand.Instance;
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
@@ -47,14 +47,13 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void SelectShape(MouseButtonEventArgs e) {
-			tsscc.selectedShape = Shape;
+			//tsscc.selectedShape = Shape;
 		}
 
 		/*public Point Get() {
 			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
 
-		}
-		*/
+		}*/
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
 			var shape = Shape;
