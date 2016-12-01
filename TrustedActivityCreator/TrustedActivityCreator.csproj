@@ -86,6 +86,7 @@
     <Compile Include=".GUI\PolyConnector.cs" />
     <Compile Include=".GUI\TrustedCanvas.cs" />
     <Compile Include="Command\AddConnectionCommand.cs" />
+    <Compile Include="Command\ConnectionController.cs" />
     <Compile Include="Command\MoveShapeCommand.cs" />
     <Compile Include="Model\Canvas.cs" />
     <Compile Include="Model\Condition.cs" />

@@ -31,8 +31,8 @@ namespace TrustedActivityCreator.ViewModel {
 		public ShapeBaseViewModel From { get { return connection.From; } set { connection.From = value; RaisePropertyChanged(); } }
 		public ShapeBaseViewModel To { get { return connection.To; } internal set { connection.To = value; RaisePropertyChanged(); } }
 
-		public PointCollection Path { get { return path; } set { path = value; RaisePropertyChanged(); } }
-		//return new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) }
+		public PointCollection Path { get { return new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) }; } set { path = value; RaisePropertyChanged(); } }
+
 
 		public void Connect(ShapeBaseViewModel from, ShapeBaseViewModel to) {
 			From = from;
@@ -41,8 +41,6 @@ namespace TrustedActivityCreator.ViewModel {
 			To.PropertyChanged += new PropertyChangedEventHandler(raise);
 			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
 		}
-
-
 	}
 }
 
