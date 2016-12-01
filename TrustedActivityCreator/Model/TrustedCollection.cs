@@ -15,6 +15,6 @@ namespace TrustedActivityCreator.Model {
 		public static ObservableCollection<ShapeBaseViewModel> Shapes { get; } = new ObservableCollection<ShapeBaseViewModel>();
 		public static ObservableCollection<TrustedConnectionVM> Connections { get; } = new ObservableCollection<TrustedConnectionVM>();
 
-		public static ShapeBaseViewModel SelectedShape { get; set; }
+		public static Shape SelectedShape { get; set; }
 	}
 }

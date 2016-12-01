@@ -20,7 +20,44 @@ namespace TrustedActivityCreator.View {
 	public partial class TrustedCondition : UserControl {
 		public TrustedCondition() {
 			InitializeComponent();
+
+			// Ellipse Handlers
+			LeftAnchor.MouseDown += Ellipse_MouseDown;
+			RightAnchor.MouseDown += Ellipse_MouseDown;
+			TopAnchor.MouseDown += Ellipse_MouseDown;
+			BottomAnchor.MouseDown += Ellipse_MouseDown;
+
+			// Condition Handlers
+			Condition.MouseEnter += Condition_MouseEnter;
+			Condition.MouseLeave += Condition_MouseLeave;
+
 		}
+
+		private void Ellipse_MouseDown(object sender, MouseButtonEventArgs e) {
+			Ellipse loco = (Ellipse)sender;
+			if (loco.Stroke == Brushes.Black) {
+				loco.Stroke = Brushes.Blue;
+				loco.Visibility = Visibility.Visible;
+			} else {
+				loco.Stroke = Brushes.Black;
+				loco.Visibility = Visibility.Hidden;
+			}
+		}
+
+		private void Condition_MouseEnter(Object sender, MouseEventArgs e) {
+			Ellipse[] anchorPoints = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
+			for (int i = 0; i < anchorPoints.Length; i++) {
+				anchorPoints[i].Visibility = Visibility.Visible;
+			}
+		}
+
+		private void Condition_MouseLeave(Object sender, MouseEventArgs e) {
+			Ellipse[] anchorPoints = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
+			for (int i = 0; i < anchorPoints.Length; i++) {
+				anchorPoints[i].Visibility = Visibility.Hidden;
+			}
+		}
+
 		private void ActivityDescription_OnKeyDown(object sender, KeyEventArgs e) {
 			if(e.Key == Key.Return) {
 				ActivityDescription_LostFocus(sender, e);
