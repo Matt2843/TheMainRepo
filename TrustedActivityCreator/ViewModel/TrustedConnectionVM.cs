@@ -29,8 +29,6 @@ namespace TrustedActivityCreator.ViewModel {
 			undoRedoController.AddAndExecute(new AddShapeCommand(vm2));
 
 			connection = new Connection(vm1, vm2);
-			
-			Path = new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) };
 
 			vm1.PropertyChanged += new PropertyChangedEventHandler(raise);
 
@@ -40,14 +38,14 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		public void raise(object sender, PropertyChangedEventArgs e){
-			Console.WriteLine("hej");
-			RaisePropertyChanged("Path");
+			Console.WriteLine(Path.ToString());
+			this.RaisePropertyChanged("Path");
 		}
 
 		public ShapeBaseViewModel From { get { return connection.From; } set { connection.From = value; RaisePropertyChanged(); } }
 		public ShapeBaseViewModel To { get { return connection.To; } internal set { connection.To = value; RaisePropertyChanged(); } }
 
-		public PointCollection Path { get { return path; } set { path = value; RaisePropertyChanged(); } }
+		public PointCollection Path { get { return new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) }; } set { path = value; RaisePropertyChanged(); } }
 
 	}
 }
