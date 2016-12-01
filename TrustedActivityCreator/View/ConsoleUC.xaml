@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
 		<Border BorderThickness="1" BorderBrush="Black">
-			<TextBox Background="#343638" Foreground="White">
+			<TextBox Style="{StaticResource Std}">
 
 			</TextBox>
 		</Border>

@@ -17,12 +17,7 @@
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="20*"/>
-			<ColumnDefinition Width="auto"/>
 		</Grid.ColumnDefinitions>
-
-		<Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="#1f2021">
-			<TextBlock Text="&lt;" Foreground="White"></TextBlock>
-		</Button>
 
 		<StackPanel Grid.Row ="0" Panel.ZIndex="1000" Background="#343638">
 			<Button Background="White" Content="Add Activity" Command="{Binding AddActivityCommand}"/>
