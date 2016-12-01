@@ -6,5 +6,5 @@
              xmlns:local="clr-namespace:TrustedActivityCreator.View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-	<Line Stroke="Red" X1="{Binding From.X}" Y1="{Binding From.Height}" X2="{Binding To.X}" Y2="{Binding To.Height}" StrokeThickness="10"/>
+	<Line Stroke="Red" X1="{Binding From.X}" Y1="{Binding From.Y}" X2="{Binding To.X}" Y2="{Binding To.Y}" StrokeThickness="10"/>
 </UserControl>

@@ -81,6 +81,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include=".GUI\TrustedCanvas.cs" />
+    <Compile Include="Command\AddConnectionCommand.cs" />
     <Compile Include="Command\MoveShapeCommand.cs" />
     <Compile Include="Model\Canvas.cs" />
     <Compile Include="Model\Condition.cs" />
@@ -113,7 +114,6 @@
     <Compile Include="View\TrustedConnectionUC.xaml.cs">
       <DependentUpon>TrustedConnectionUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TrustedConnectionVM.cs" />
     <Compile Include="View\TrustedQuickPanelUC.xaml.cs">
       <DependentUpon>TrustedQuickPanelUC.xaml</DependentUpon>
     </Compile>

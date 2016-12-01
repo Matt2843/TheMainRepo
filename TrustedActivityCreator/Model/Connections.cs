@@ -1,20 +1,21 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
+using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.Model {
-	public class Connections : ObservableObject {
+	class Connection : ObservableObject {
 
-		private Shape from;
-		private Shape to;
+		private ShapeBaseViewModel from;
+		private ShapeBaseViewModel to;
 
-		public Connections(Shape from, Shape to) {
+		public Connection(ShapeBaseViewModel from, ShapeBaseViewModel to) {
 			From = from;
 			To = to;
 		}
 
-		public Shape From { get { return from; } set { from = value; RaisePropertyChanged(); } }
+		public ShapeBaseViewModel From { get { return from; } set { from = value; RaisePropertyChanged(); } }
 
-		public Shape To { get { return to; } internal set { to = value; RaisePropertyChanged(); } }
+		public ShapeBaseViewModel To { get { return to; } internal set { to = value; RaisePropertyChanged(); } }
 
 	}
 }

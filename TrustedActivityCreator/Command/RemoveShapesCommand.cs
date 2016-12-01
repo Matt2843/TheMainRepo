@@ -13,9 +13,9 @@ namespace TrustedActivityCreator.Command {
 
         private List<Shape> shapesToRemove;
 
-		private List<Connections> connectionsToRemove;
+		private List<Connection> connectionsToRemove;
 
-		public RemoveShapesCommand(ObservableCollection<Shape> shapes, ObservableCollection<Connections> connections, List<Shape> shapesToRemove) {
+		public RemoveShapesCommand(ObservableCollection<Shape> shapes, ObservableCollection<Connection> connections, List<Shape> shapesToRemove) {
             this.shapes = shapes;
             this.shapesToRemove = shapesToRemove;
 			this.connectionsToRemove = connections.Where(x => shapesToRemove.Any(y => y.Id == x.From.Id || y.Id == x.To.Id)).ToList();
