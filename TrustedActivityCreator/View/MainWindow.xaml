@@ -52,7 +52,7 @@
 		</StackPanel>
 
 
-		<StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"  Background="WhiteSmoke">
+		<StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Background="WhiteSmoke">
 			<ContentControl  Margin="20" Name="TrustedCanvas" Content="{Binding TrustedCanvas}" Background="White"/>
 		</StackPanel>
 
