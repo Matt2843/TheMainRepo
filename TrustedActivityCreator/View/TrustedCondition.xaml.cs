@@ -19,11 +19,9 @@ namespace TrustedActivityCreator.View {
 	/// </summary>
 	public partial class TrustedCondition : UserControl {
 
-		private static Ellipse[] ellipses = new Ellipse[4];
-
 		public TrustedCondition() {
 			InitializeComponent();
-			ellipses[0] = LeftAnchor; ellipses[1] = RightAnchor; ellipses[2] = TopAnchor; ellipses[3] = BottomAnchor;
+			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
 			// Ellipse Handlers
 			for (int i = 0; i < ellipses.Length; i++) {
 				ellipses[i].MouseDown += Ellipse_MouseDown;
@@ -34,7 +32,6 @@ namespace TrustedActivityCreator.View {
 			// Condition Handlers
 			Condition.MouseEnter += Condition_MouseEnter;
 			Condition.MouseLeave += Condition_MouseLeave;
-
 		}
 
 		private void Ellipse_MouseEnter(object sender, MouseEventArgs e) {
@@ -50,6 +47,7 @@ namespace TrustedActivityCreator.View {
 		}
 
 		private void Ellipse_MouseDown(object sender, MouseButtonEventArgs e) {
+			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
 			for(int i = 0; i < ellipses.Length; i++) {
 				if(ellipses[i].Stroke == Brushes.Red) {
 					ellipses[i].Stroke = Brushes.Black;
@@ -59,6 +57,7 @@ namespace TrustedActivityCreator.View {
 		}
 
 		private void Condition_MouseEnter(object sender, MouseEventArgs e) {
+			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
 			Condition.Stroke = Brushes.Blue;
 			for (int i = 0; i < ellipses.Length; i++) {
 				ellipses[i].Visibility = Visibility.Visible;
@@ -66,7 +65,7 @@ namespace TrustedActivityCreator.View {
 		}
 
 		private void Condition_MouseLeave(object sender, MouseEventArgs e) {
-			
+			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
 			for (int i = 0; i < ellipses.Length; i++) {
 				if(ellipses[i].Stroke != Brushes.Red && !ellipses[i].IsMouseOver) {
 					ellipses[i].Visibility = Visibility.Hidden;
@@ -75,7 +74,6 @@ namespace TrustedActivityCreator.View {
 						
 			}
 		}
-
 
 		private void Condition_OnKeyDown(object sender, KeyEventArgs e) {
 			if(e.Key == Key.Return) {
