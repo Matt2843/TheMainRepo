@@ -16,4 +16,11 @@
 		</Style.Setters>
 	</Style>
 
+	<Style x:Key="Std">
+		<Style.Setters>
+			<Setter Property="Control.Background" Value="#343638"/>
+			<Setter Property="Control.Foreground" Value="White"/>
+		</Style.Setters>
+	</Style>
+
 </ResourceDictionary>
