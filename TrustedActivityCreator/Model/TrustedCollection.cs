@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrustedActivityCreator.ViewModel;
+using TrustedActivityCreator.Model;
 
 namespace TrustedActivityCreator.Model {
 	class TrustedCollection {
 		public static ObservableCollection<ShapeBaseViewModel> Shapes { get; } = new ObservableCollection<ShapeBaseViewModel>();
-
 		public static ObservableCollection<TrustedConnectionVM> Connections { get; } = new ObservableCollection<TrustedConnectionVM>();
+
+		public static ShapeBaseViewModel SelectedShape { get; set; }
 	}
 }
