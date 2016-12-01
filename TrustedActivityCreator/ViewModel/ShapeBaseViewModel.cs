@@ -46,14 +46,13 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void SelectShape(MouseButtonEventArgs e) {
-			TrustedCollection.SelectedShape = Shape;
+			//tsscc.selectedShape = Shape;
 		}
 
 		/*public Point Get() {
 			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
 
-		}
-		*/
+		}*/
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
 			var shape = Shape;
