@@ -25,23 +25,9 @@
 		</StackPanel>
 
 		<Grid Grid.Row="1" Background="#1f2021" Margin="20">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="1.5*"/>
-			</Grid.ColumnDefinitions>
-
-			<TextBlock Grid.Row="0" Text="Property1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Style="{StaticResource BigFont}"/>
-			<TextBox Grid.Row="0" Grid.Column="1" Text="Stuff" Foreground="White" />
+			<DataGrid ItemsSource="{Binding Properties}">
+				
+			</DataGrid>
 		</Grid>
 	</Grid>
 </UserControl>

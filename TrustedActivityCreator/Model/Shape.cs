@@ -10,6 +10,8 @@ namespace TrustedActivityCreator.Model {
 		private int y;
 		private string description = "Albert";
 
+		public object[] properties { get { return new object[] { id, width, height, description }; } }
+
 		public Shape() {
 			setProperties();
 		}

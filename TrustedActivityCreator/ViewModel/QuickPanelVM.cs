@@ -15,6 +15,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private FrameworkElement canvas;
 
+		private ShapeBaseViewModel selectedShape;
+
 		public QuickPanelVM() {
 			AddActivityCommand = new RelayCommand(AddActivity);
 			AddConditionCommand = new RelayCommand(AddCondition);
