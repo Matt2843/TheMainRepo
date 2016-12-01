@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
 using TrustedActivityCreator.Command;
 using TrustedActivityCreator.Model;
 
@@ -13,6 +15,8 @@ namespace TrustedActivityCreator.ViewModel {
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
 		private Connection connection;
+
+		private PointCollection path;
 
 		public TrustedConnectionVM() {
 
@@ -25,12 +29,18 @@ namespace TrustedActivityCreator.ViewModel {
 
 			connection = new Connection(vm1, vm2);
 
-			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
+			Path = new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) };
 
+			//Path += new vm1.PropertyChangedHandler(ListChanged);
+
+			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
+			RaisePropertyChanged("Path");
 		}
 
 		public ShapeBaseViewModel From { get { return connection.From; } set { connection.From = value; RaisePropertyChanged(); } }
 		public ShapeBaseViewModel To { get { return connection.To; } internal set { connection.To = value; RaisePropertyChanged(); } }
 
+		public PointCollection Path { get { return path; } set { path = value; RaisePropertyChanged(); } }
 	}
 }
+
