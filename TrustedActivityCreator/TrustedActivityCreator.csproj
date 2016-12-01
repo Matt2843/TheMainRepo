@@ -80,6 +80,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include=".GUI\Connector.cs" />
+    <Compile Include=".GUI\ConnectorBase.cs" />
+    <Compile Include=".GUI\ConnectorEnds.cs" />
+    <Compile Include=".GUI\PolyConnector.cs" />
     <Compile Include=".GUI\TrustedCanvas.cs" />
     <Compile Include="Command\AddConnectionCommand.cs" />
     <Compile Include="Command\MoveShapeCommand.cs" />
