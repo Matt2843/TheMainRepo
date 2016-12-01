@@ -71,7 +71,6 @@ namespace TrustedActivityCreator.View {
 					ellipses[i].Visibility = Visibility.Hidden;
 					Condition.Stroke = Brushes.Black;
 				}
-						
 			}
 		}
 
