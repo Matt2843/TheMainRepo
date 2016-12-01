@@ -16,8 +16,8 @@
 		<Style x:Key="AnchorStyle" TargetType="Ellipse">
 			<Style.Setters>
 				<Setter Property="Opacity" Value="0"/>
-				<Setter Property="Width" Value="6"/>
-				<Setter Property="Height" Value="6"/>
+				<Setter Property="Width" Value="8"/>
+				<Setter Property="Height" Value="8"/>
 				<Setter Property="Fill" Value="WhiteSmoke"/>
 				<Setter Property="Stroke" Value="Black"/>
 				<Setter Property="StrokeThickness" Value="1"/>
@@ -29,8 +29,8 @@
 				</DataTrigger>
 				<Trigger Property="IsMouseOver" Value="True">
 					<Setter Property="Opacity" Value="1"/>
-					<Setter Property="Width" Value="8"/>
-					<Setter Property="Height" Value="8"/>
+					<Setter Property="Width" Value="14"/>
+					<Setter Property="Height" Value="14"/>
 				</Trigger>
 			</Style.Triggers>
 		</Style>
