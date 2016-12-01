@@ -6,5 +6,5 @@
              xmlns:local="clr-namespace:TrustedActivityCreator.View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-	<Polyline Points="{Binding Path}" Stroke="Black" StrokeThickness="2" />
+	<Polyline Points="{Binding Path}" Stroke="Black" StrokeThickness="2" StrokeLineJoin="Round" StrokeEndLineCap="Triangle"/>
 </UserControl>
