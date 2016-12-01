@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using TrustedActivityCreator.Command;
 using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.View {
@@ -11,6 +12,8 @@ namespace TrustedActivityCreator.View {
 	/// Interaction logic for TrustedCondition.xaml
 	/// </summary>
 	public partial class TrustedCondition : UserControl {
+
+		private ConnectionController Connecter = ConnectionController.Connecter;
 
 		public TrustedCondition() {
 			InitializeComponent();
@@ -79,6 +82,9 @@ namespace TrustedActivityCreator.View {
 
 			if(!isRed) {
 				senderEllipse.Stroke = Brushes.Red;
+				Connecter.From = (ShapeBaseViewModel)DataContext;
+			} else {
+				Connecter.From = null;
 			}
 			
 		}
