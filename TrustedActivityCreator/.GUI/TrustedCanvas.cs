@@ -43,7 +43,7 @@ namespace TrustedActivityCreator.GUI {
 			brush.Opacity = 0.1;
 
             Pen pen = new Pen(brush, LineThickness);
-			pen.DashStyle = DashStyles.DashDot;
+			pen.DashStyle = DashStyles.Dash;
 
 			while(vOffset < ActualWidth - (CellWidth / 5)) {
 				dc.DrawLine(pen, new Point(vOffset, 0), new Point(vOffset, ActualHeight));

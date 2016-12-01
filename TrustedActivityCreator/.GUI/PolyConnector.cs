@@ -4,16 +4,16 @@ using System.Windows.Media;
 namespace TrustedActivityCreator.GUI {
 	class PolyConnector : ConnectorBase {
 
-		public static readonly DependencyProperty PointsProperty = DependencyProperty.Register("Points", typeof(PointCollection), typeof(PolyConnector), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsMeasure));
+		public static readonly DependencyProperty PointsProperty = DependencyProperty.Register("Points", typeof(PointCollection), typeof(PolyConnector), new FrameworkPropertyMetadata(new PointCollection(), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
 		public PointCollection Points {
 			get { return (PointCollection)GetValue(PointsProperty); }
 			set { SetValue(PointsProperty, value); }
 		}
 
-		public PolyConnector() {
-			Points = new PointCollection();
-		}
+		//public PolyConnector() {
+		//	Points = new PointCollection();
+		//}
 
 		protected override Geometry DefiningGeometry {
 			get {

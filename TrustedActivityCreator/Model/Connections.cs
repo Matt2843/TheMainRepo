@@ -8,6 +8,8 @@ namespace TrustedActivityCreator.Model {
 		private ShapeBaseViewModel from;
 		private ShapeBaseViewModel to;
 
+		public Connection() { }
+
 		public Connection(ShapeBaseViewModel from, ShapeBaseViewModel to) {
 			From = from;
 			To = to;

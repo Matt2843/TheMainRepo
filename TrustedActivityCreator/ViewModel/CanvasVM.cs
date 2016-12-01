@@ -22,8 +22,6 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public CanvasVM() {
 			Canvas = new Canvas();
-			new TrustedConnectionVM();
-
 		}
 
 		private Canvas canvas;
