@@ -37,8 +37,6 @@ namespace TrustedActivityCreator.View {
 			ConditionDescription.MouseDown += Condition_MouseDown;
 			ConditionDescription.MouseUp += Condition_MouseUp;
 			ConditionDescription.MouseMove += Condition_MoveMouse;
-
-
 		}
 
 		private void Condition_MouseDown(object sender, MouseEventArgs e) {
