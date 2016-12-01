@@ -75,5 +75,12 @@ namespace TrustedActivityCreator.Model {
 			}
 		}
 
+		public int XMiddle {
+			get { return (int) (X + Width / 2); }
+		}
+
+		public int YMiddle {
+			get { return (int) (Y + Height / 2); }
+		}
 	}
 }

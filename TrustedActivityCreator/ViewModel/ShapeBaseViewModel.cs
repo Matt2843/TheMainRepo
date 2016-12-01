@@ -19,11 +19,14 @@ namespace TrustedActivityCreator.ViewModel {
 		private Shape shape;
 
 		public int Id { get { return Shape.Id; } }
-		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); } }
-		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); } }
-		public int X { get { return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); } }
-		public int Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); } }
+		public int Width { get { return Shape.Width; } set { Shape.Width = value; XMiddle = 0; RaisePropertyChanged(); } }
+		public int Height { get { return Shape.Height; } set { Shape.Height = value; YMiddle = 0; RaisePropertyChanged(); } }
+		public int X { get { return Shape.X; } set { Shape.X = value; XMiddle = 0; RaisePropertyChanged(); } }
+		public int Y { get { return Shape.Y; } set { Shape.Y = value; YMiddle = 0; RaisePropertyChanged(); } }
 		public string Description { get { return Shape.Description; } set { Shape.Description = value; RaisePropertyChanged(); } }
+
+		public int XMiddle { get { return Shape.XMiddle; } set { RaisePropertyChanged(); } }
+		public int YMiddle { get { return Shape.YMiddle; } set { RaisePropertyChanged(); } }
 
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
 		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
@@ -39,10 +42,10 @@ namespace TrustedActivityCreator.ViewModel {
 			}
 		}
 
-		public Point Get() {
-			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
+		//public Point Get() {
+			//canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
 
-		}
+		//}
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
 			var shape = Shape;
