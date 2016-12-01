@@ -49,11 +49,10 @@
 				<Button Name="hideProps" Width="20" Click="HideProps" Content="&lt;&lt;" Style="{StaticResource Std}" />
 				<Button Name="showProps" Width="20" Click="ShowProps" Content="&gt;&gt;" Style="{StaticResource Std}" Visibility="Hidden"/>
 			</Grid>
-			
 		</StackPanel>
 
 
-		<DockPanel Grid.Row="1" Grid.Column="2" Margin="20">
+		<DockPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="20">
 			<ContentControl Name="TrustedCanvas" Content="{Binding TrustedCanvas}" Background="White"/>
 		</DockPanel>
 
