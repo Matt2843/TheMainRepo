@@ -80,6 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include=".GUI\Condition.cs" />
     <Compile Include=".GUI\Connector.cs" />
     <Compile Include=".GUI\ConnectorBase.cs" />
     <Compile Include=".GUI\ConnectorEnds.cs" />
