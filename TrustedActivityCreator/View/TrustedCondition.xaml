@@ -35,7 +35,7 @@
 			<Ellipse Name="TopAnchor" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource AnchorStyle}" />
 			<Rectangle Name="Condition" Stroke="Black" StrokeThickness="1"  Fill="White" Margin="3" Panel.ZIndex="1000"/>
 		</Grid>
-		<TextBlock Name="ConditionDescription"				 
+		<TextBlock Name="ConditionDescription"		
 				 Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 				 VerticalAlignment="Center" 
 				 HorizontalAlignment="Center" 

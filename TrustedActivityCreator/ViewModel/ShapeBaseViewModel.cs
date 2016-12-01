@@ -6,6 +6,7 @@ using TrustedActivityCreator.Command;
 using TrustedActivityCreator.Model;
 using TrustedActivityCreator.View;
 using System.Windows.Media;
+using System;
 
 namespace TrustedActivityCreator.ViewModel {
 	class ShapeBaseViewModel : ObservableObject {
@@ -21,7 +22,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public int Id { get { return Shape.Id; } }
 		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
 		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
-		public int X { get { return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
+		public int X { get { Console.WriteLine("Hello World"); return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
 		public int Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
 		public string Description { get { return Shape.Description; } set { Shape.Description = value; RaisePropertyChanged(); } }
 
