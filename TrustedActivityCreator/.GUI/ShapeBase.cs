@@ -66,6 +66,7 @@ namespace TrustedActivityCreator.GUI {
 			Description.TextWrapping = TextWrapping.Wrap;			
 
 			Binding descriptionBinding = new Binding("Description");
+			descriptionBinding.Mode = BindingMode.TwoWay;
 			BindingOperations.SetBinding(Description, TextBlock.TextProperty, descriptionBinding);
 
 			ShapeGeometry.Stroke = Brushes.Black;

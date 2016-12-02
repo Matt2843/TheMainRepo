@@ -27,19 +27,27 @@
 		<Grid Name="Table" Grid.Row="1" Margin="20">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="3*"/>
+				<ColumnDefinition Width="2*"/>
 			</Grid.ColumnDefinitions>
-			
-			<DockPanel Grid.Column="0">
-				<TextBlock DockPanel.Dock="Top" Style="{StaticResource EvenRow}">Description</TextBlock>
-				<TextBlock DockPanel.Dock="Top" Style="{StaticResource UnevenRow}"></TextBlock>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="5*" />
+			</Grid.RowDefinitions>
+
+			<TextBlock Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Std}">Properties</TextBlock>
+
+			<DockPanel Grid.Row="1" Grid.Column="0">
+				<TextBox IsReadOnly="True" DockPanel.Dock="Top" Style="{StaticResource EvenRow}">Description</TextBox>
+				<TextBox IsReadOnly="True" DockPanel.Dock="Top" Style="{StaticResource UnevenRow}">X</TextBox>
+				<TextBox IsReadOnly="True" DockPanel.Dock="Top" Style="{StaticResource EvenRow}">Y</TextBox>
 				<TextBlock Style="{StaticResource Std}" />
 				</DockPanel>
 
 
-			<DockPanel Grid.Column="1" >
-				<TextBlock DockPanel.Dock="Top" Style="{StaticResource EvenRow}" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-				<TextBlock DockPanel.Dock="Top" Style="{StaticResource UnevenRow}"></TextBlock>
+			<DockPanel Grid.Row="1" Grid.Column="1" >
+				<TextBox Name="HandleDescription" DockPanel.Dock="Top" Style="{StaticResource EvenRow}" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+				<TextBox DockPanel.Dock="Top" Style="{StaticResource UnevenRow}" Text="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+				<TextBox DockPanel.Dock="Top" Style="{StaticResource EvenRow}" Text="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 				<TextBlock Style="{StaticResource Std}" />
 			</DockPanel>
 

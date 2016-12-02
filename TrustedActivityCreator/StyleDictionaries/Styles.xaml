@@ -23,7 +23,7 @@
 		</Style.Setters>
 	</Style>
 
-	<Style x:Key="EvenRow" TargetType="TextBlock">
+	<Style x:Key="EvenRow" TargetType="TextBox">
 		<Style.Setters>
 			<Setter Property="Background" Value="White"/>
 			<Setter Property="Foreground" Value="Black"/>
@@ -31,7 +31,7 @@
 		</Style.Setters>
 	</Style>
 
-	<Style x:Key="UnevenRow" TargetType="TextBlock">
+	<Style x:Key="UnevenRow" TargetType="TextBox">
 		<Style.Setters>
 			<Setter Property="Background" Value="Gray"/>
 			<Setter Property="Foreground" Value="Black"/>

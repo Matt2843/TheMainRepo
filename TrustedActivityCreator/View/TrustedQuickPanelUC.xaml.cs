@@ -20,6 +20,12 @@ namespace TrustedActivityCreator.View {
 	public partial class TrustedQuickPanelUC : UserControl {
 		public TrustedQuickPanelUC() {
 			InitializeComponent();
+
+			HandleDescription.MouseDown += Description_MouseDown;
+		}
+
+		private void Description_MouseDown(object sender, MouseButtonEventArgs e) {
+			
 		}
 	}
 }

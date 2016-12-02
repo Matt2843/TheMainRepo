@@ -13,6 +13,7 @@ namespace TrustedActivityCreator.ViewModel {
 	class ShapeBaseViewModel : ObservableObject {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
+		private SelectedShapeController selectedShapeController = SelectedShapeController.Instance;
 
 		private Point initialMousePosition;
 		private Point initialShapePosition;
@@ -66,8 +67,7 @@ namespace TrustedActivityCreator.ViewModel {
 			initialMousePosition = mousePosition;
 			initialShapePosition = new Point(shape.X, shape.Y);
 			e.MouseDevice.Target.CaptureMouse();
-
-			TrustedCollection.SelectedShape = shape;
+			selectedShapeController.SelectedShape = this;
 		}
 
 		private void MouseMoveShape(MouseEventArgs e) {
@@ -76,6 +76,7 @@ namespace TrustedActivityCreator.ViewModel {
 				X = (int)(initialShapePosition.X + (mousePosition.X - initialMousePosition.X));
 				Y = (int)(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y));
 			}
+			selectedShapeController.SelectedShape = this;
 		}
 
 		private void MouseUpShape(MouseButtonEventArgs e) {
