@@ -24,19 +24,20 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		public void raise(object sender, PropertyChangedEventArgs e){
-			Console.WriteLine(Path.ToString());
+			//Console.WriteLine(Path.ToString());
 			this.RaisePropertyChanged("Path");
 		}
 
 		public ShapeBaseViewModel From { get { return connection.From; } set { connection.From = value; RaisePropertyChanged(); } }
-		public ShapeBaseViewModel To { get { return connection.To; } internal set { connection.To = value; RaisePropertyChanged(); } }
+		public ShapeBaseViewModel To { get { return connection.To; } set { connection.To = value; RaisePropertyChanged(); } }
 
-		public PointCollection Path { get { return new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) }; } set { path = value; RaisePropertyChanged(); } }
+		public PointCollection Path { get { return new PointCollection() { new Point(connection.From.XMiddle, connection.From.YMiddle), new Point(connection.To.XMiddle, connection.To.YMiddle) }; } set { path = value; RaisePropertyChanged(); } }
 
 
 		public void Connect(ShapeBaseViewModel from, ShapeBaseViewModel to) {
 			From = from;
 			To = to;
+			Console.WriteLine(Path.ToString());
 			From.PropertyChanged += new PropertyChangedEventHandler(raise);
 			To.PropertyChanged += new PropertyChangedEventHandler(raise);
 			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
