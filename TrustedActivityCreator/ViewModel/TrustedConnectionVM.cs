@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Shapes;
 using TrustedActivityCreator.Command;
 using TrustedActivityCreator.Model;
 
@@ -16,6 +17,10 @@ namespace TrustedActivityCreator.ViewModel {
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
 		private Connection connection;
+
+		public Ellipse FromAnchor { get; set; }
+		public Ellipse ToAnchor { get; set; }
+
 
 		private PointCollection path = new PointCollection();
 
@@ -31,7 +36,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ShapeBaseViewModel From { get { return connection.From; } set { connection.From = value; RaisePropertyChanged(); } }
 		public ShapeBaseViewModel To { get { return connection.To; } set { connection.To = value; RaisePropertyChanged(); } }
 
-		public PointCollection Path { get { return new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) }; } set { path = value; RaisePropertyChanged(); } }
+		public PointCollection Path { get { return new PointCollection() { connection.From.BottomAnchor, connection.To.TopAnchor }; } set { path = value; RaisePropertyChanged(); } }
 
 
 		public void Connect(ShapeBaseViewModel from, ShapeBaseViewModel to) {

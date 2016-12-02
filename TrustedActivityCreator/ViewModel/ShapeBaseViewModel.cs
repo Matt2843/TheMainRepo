@@ -7,6 +7,7 @@ using TrustedActivityCreator.Model;
 using TrustedActivityCreator.View;
 using System.Windows.Media;
 using System;
+using System.Windows.Shapes;
 
 namespace TrustedActivityCreator.ViewModel {
 	class ShapeBaseViewModel : ObservableObject {
@@ -17,7 +18,10 @@ namespace TrustedActivityCreator.ViewModel {
 		private Point initialShapePosition;
 
 		// --- 
-		private Shape shape;
+		private Model.Shape shape;
+
+		private Ellipse leftAnchor, rightAnchor, topAnchor, bottomAnchor;
+		private FrameworkElement Canvas;
 
 		public int Id { get { return Shape.Id; } }
 		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
@@ -31,12 +35,20 @@ namespace TrustedActivityCreator.ViewModel {
 		public int XMiddle { get { return Shape.XMiddle; } }
 		public int YMiddle { get { return Shape.YMiddle; } }
 
-		public ICommand SelectShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(SelectShape); } }
+
+		public Point LeftAnchor { get { return leftAnchor.TranslatePoint(new Point(leftAnchor.Width / 2, leftAnchor.Height / 2), Canvas); } }
+		public Point RightAnchor { get { return rightAnchor.TranslatePoint(new Point(rightAnchor.Width / 2, rightAnchor.Height / 2), Canvas); } }
+		public Point TopAnchor { get { return topAnchor.TranslatePoint(new Point(topAnchor.Width / 2, topAnchor.Height / 2), Canvas); } }
+		public Point BottomAnchor { get { return bottomAnchor.TranslatePoint(new Point(bottomAnchor.Width / 2, bottomAnchor.Height / 2), Canvas); } }
+
+
+
+		//public ICommand SelectShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(SelectShape); } }
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
 		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
 		public ICommand UpShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
 
-		public Shape Shape {
+		public Model.Shape Shape {
 			get { return shape; }
 			set {
 				if (value != shape) {
@@ -46,14 +58,9 @@ namespace TrustedActivityCreator.ViewModel {
 			}
 		}
 
-		private void SelectShape(MouseButtonEventArgs e) {
-			//tsscc.selectedShape = Shape;
+		public void SetAnchors(Ellipse LeftAnchor, Ellipse RightAnchor, Ellipse TopAnchor, Ellipse BottomAnchor, FrameworkElement Canvas) {
+			this.leftAnchor = LeftAnchor; this.rightAnchor = RightAnchor; this.topAnchor = TopAnchor; this.bottomAnchor = BottomAnchor; this.Canvas = Canvas;
 		}
-
-		/*public Point Get() {
-			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
-
-		}*/
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
 			TrustedCollection.SelectedShape = Shape;
@@ -86,13 +93,13 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 
-		private Shape TargetShape(MouseEventArgs e) {
-			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
-			return (Shape)shapeVisualElement.DataContext;
+		private Model.Shape TargetShape(MouseEventArgs e) {
+			var shapeVisualElement = (System.Windows.FrameworkElement)e.MouseDevice.Target;
+			return (Model.Shape)shapeVisualElement.DataContext;
 		}
 
 		private Point RelativeMousePosition(MouseEventArgs e) {
-			var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
+			var shapeVisualElement = (System.Windows.FrameworkElement)e.MouseDevice.Target;
 			//var canvas = FindParentOfType<System.Windows.Controls.Canvas>(shapeVisualElement);
 			var canvas = FindParentOfType<CanvasUC>(shapeVisualElement);
 			return Mouse.GetPosition(canvas);
