@@ -96,9 +96,7 @@ namespace TrustedActivityCreator.GUI {
 
 			Description.MouseDown += Description_MouseDown;
 			Description.MouseUp += Shape_MouseUp;
-			Description.MouseMove += Shape_MouseMove;
-
-			TrustedCollection.GUIBases.Add(this);		
+			Description.MouseMove += Shape_MouseMove;	
 		}
 
 		public void tryHandles(Ellipse s) {
@@ -140,9 +138,6 @@ namespace TrustedActivityCreator.GUI {
 			System.Windows.Shapes.Shape senderShape = (System.Windows.Shapes.Shape)sender;
 			bool isBlue = senderShape.Stroke == Brushes.Blue;
 			selected = !selected;
-			foreach (ShapeBase s in TrustedCollection.GUIBases) {
-				s.ShapeGeometry.Stroke = Brushes.Black;
-			}
 			if (!isBlue) {
 				senderShape.Stroke = Brushes.Blue;
 			}
