@@ -13,7 +13,7 @@ namespace TrustedActivityCreator.Command {
 
 		public static ConnectionController Connecter { get; } = new ConnectionController();
 
-		public Boolean Inprogress { get { return From != null; } }
+		public bool Inprogress { get { return From != null; } }
 
 		public ShapeBaseViewModel From {
 			get { return from; }
