@@ -91,6 +91,7 @@
     <Compile Include="Command\AddConnectionCommand.cs" />
     <Compile Include="Command\ConnectionController.cs" />
     <Compile Include="Command\MoveShapeCommand.cs" />
+    <Compile Include="Command\SelectedShapeController.cs" />
     <Compile Include="Model\CanvasM.cs" />
     <Compile Include="Model\ConditionM.cs" />
     <Compile Include="Model\Connections.cs" />
@@ -124,9 +125,6 @@
     </Compile>
     <Compile Include="View\TrustedQuickPanelUC.xaml.cs">
       <DependentUpon>TrustedQuickPanelUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UntrustedQuickPanelUC.xaml.cs">
-      <DependentUpon>UntrustedQuickPanelUC.xaml</DependentUpon>
     </Compile>
     <Page Include="StyleDictionaries\DataTemplates.xaml">
       <SubType>Designer</SubType>
@@ -176,10 +174,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TrustedQuickPanelUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UntrustedQuickPanelUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

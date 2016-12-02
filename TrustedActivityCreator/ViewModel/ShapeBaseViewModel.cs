@@ -45,7 +45,7 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void SelectShape(MouseButtonEventArgs e) {
-			//tsscc.selectedShape = Shape;
+			//TrustedCollection.SelectedShape = Shape;
 		}
 
 		/*public Point Get() {
@@ -54,14 +54,13 @@ namespace TrustedActivityCreator.ViewModel {
 		}*/
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
-			TrustedCollection.SelectedShape = Shape;
-			Console.WriteLine("Selected Shape most likely set.");
-
 			var shape = Shape;
 			var mousePosition = RelativeMousePosition(e);
 			initialMousePosition = mousePosition;
 			initialShapePosition = new Point(shape.X, shape.Y);
 			e.MouseDevice.Target.CaptureMouse();
+
+			TrustedCollection.SelectedShape = shape;
 		}
 
 		private void MouseMoveShape(MouseEventArgs e) {

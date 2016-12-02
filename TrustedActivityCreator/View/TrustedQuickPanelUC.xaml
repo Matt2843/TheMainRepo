@@ -38,7 +38,7 @@
 
 
 			<DockPanel Grid.Column="1" >
-				<TextBlock DockPanel.Dock="Top" Style="{StaticResource EvenRow}" Text="{Binding Description}"></TextBlock>
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource EvenRow}" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
 				<TextBlock DockPanel.Dock="Top" Style="{StaticResource UnevenRow}"></TextBlock>
 				<TextBlock Style="{StaticResource Std}" />
 			</DockPanel>
