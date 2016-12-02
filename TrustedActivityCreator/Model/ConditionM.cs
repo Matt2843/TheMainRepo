@@ -11,8 +11,8 @@ namespace TrustedActivityCreator.Model {
 		public ConditionM(int id, int width, int height, int x, int y) : base(id, width, height, x, y) { }
 
 		public override void setProperties() {
-			Width = 50;
-			Height = 50;
+			Width = 35;
+			Height = 35;
 			Description = "Condition";
 		}
 	}

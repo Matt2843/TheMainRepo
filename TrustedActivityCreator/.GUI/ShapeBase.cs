@@ -95,11 +95,6 @@ namespace TrustedActivityCreator.GUI {
 			
 		}
 
-		protected override void OnInitialized(EventArgs e) {
-			base.OnInitialized(e);
-			((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
-		}
-
 		private Brush enteredBrush;
 
 		private void Shape_MouseEnter(object sender, MouseEventArgs e) {
@@ -163,6 +158,7 @@ namespace TrustedActivityCreator.GUI {
 					ellipsus.Visibility = Visibility.Hidden;
 			}
 			if (!isRed) {
+				((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
 				senderEllipse.Stroke = Brushes.Red;
 				if(Connecter.From != null) {
 					Connecter.ToAnchor = senderEllipse.Name;
