@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TrustedActivityCreator.Command;
 using TrustedActivityCreator.Model;
+using TrustedActivityCreator.View;
 
 namespace TrustedActivityCreator.ViewModel {
     class MainViewModel {
@@ -19,6 +20,8 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand SaveAsFile { get; }
 		public ICommand LoadCommand { get; }
 		public ICommand SaveCommand { get; }
+		public ICommand Shutdown { get; }
+		public ICommand NewDocument { get; }
 
 
 		public QuickPanelVM QuickPanel { get; }
@@ -31,6 +34,8 @@ namespace TrustedActivityCreator.ViewModel {
 			SaveAsFile = new RelayCommand(SaveAsFileFunction);
 			LoadCommand = new RelayCommand(LoadFile);
 			SaveCommand = new RelayCommand(Save);
+			Shutdown = new RelayCommand(Shutd);
+			NewDocument = new RelayCommand(NewDocumentF);
 			QuickPanel = new QuickPanelVM();
 			TrustedCanvas = new CanvasVM();
 		}
@@ -45,6 +50,15 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void Save() {
 			TrustedCollection.save();
+		}
+
+		private void Shutd() {
+			App.ShutdownNow();
+		}
+
+		private void NewDocumentF() {
+			TrustedCollection.Shapes.Clear();
+			TrustedCollection.Connections.Clear();
 		}
 
 		private void AddShape() {
