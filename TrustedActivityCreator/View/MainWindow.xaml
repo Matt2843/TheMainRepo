@@ -51,7 +51,7 @@
 		</StackPanel>
 
 		<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Background="WhiteSmoke">
-			<ContentControl  Margin="20" Name="TrustedCanvas" Content="{Binding TrustedCanvas}" Background="White"/>
+			<ContentControl Name="TrustedCanvasCC" Margin="20" Content="{Binding TrustedCanvas}" Background="White"/>
 		</Grid>
 	</Grid>
 </Window>

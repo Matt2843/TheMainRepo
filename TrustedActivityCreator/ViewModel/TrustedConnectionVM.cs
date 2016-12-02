@@ -18,8 +18,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private Connection connection;
 
-		public Ellipse FromAnchor { get; set; }
-		public Ellipse ToAnchor { get; set; }
+		public String FromAnchor { get; set; }
+		public String ToAnchor { get; set; }
 
 
 		private PointCollection path = new PointCollection();
@@ -36,8 +36,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ShapeBaseViewModel From { get { return connection.From; } set { connection.From = value; RaisePropertyChanged(); } }
 		public ShapeBaseViewModel To { get { return connection.To; } set { connection.To = value; RaisePropertyChanged(); } }
 
-		public PointCollection Path { get { return new PointCollection() { connection.From.BottomAnchor, connection.To.TopAnchor }; } set { path = value; RaisePropertyChanged(); } }
-
+		public PointCollection Path { get { return new PointCollection() { (Point) typeof(ShapeBaseViewModel).GetProperty(FromAnchor).GetValue(connection.From), (Point)typeof(ShapeBaseViewModel).GetProperty(ToAnchor).GetValue(connection.To) }; } set { path = value; RaisePropertyChanged(); } }
 
 		public void Connect(ShapeBaseViewModel from, ShapeBaseViewModel to) {
 			From = from;

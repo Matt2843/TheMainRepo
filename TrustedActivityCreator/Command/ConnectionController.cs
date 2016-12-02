@@ -11,6 +11,9 @@ namespace TrustedActivityCreator.Command {
 
 		private ShapeBaseViewModel from;
 
+		public String FromAnchor { get; set; }
+		public String ToAnchor { get; set; }
+
 		public static ConnectionController Connecter { get; } = new ConnectionController();
 
 		public bool Inprogress { get { return From != null; } }
@@ -21,6 +24,8 @@ namespace TrustedActivityCreator.Command {
 				if(from != null && value != null) {
 					Console.WriteLine("something");
 					TrustedConnectionVM connection = new TrustedConnectionVM();
+					connection.FromAnchor = FromAnchor;
+					connection.ToAnchor = ToAnchor;
 					connection.Connect(from, value);
 					from = null;
 					RaisePropertyChanged("Inprogress");
