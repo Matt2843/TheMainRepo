@@ -4,11 +4,13 @@ using System.IO;
 using System.Xml.Serialization;
 using System;
 using System.Windows.Forms;
+using TrustedActivityCreator.GUI;
 
 namespace TrustedActivityCreator.Model {
 	public class TrustedCollection {
 		public static ObservableCollection<ShapeBaseViewModel> Shapes { get; } = new ObservableCollection<ShapeBaseViewModel>();
 		public static ObservableCollection<TrustedConnectionVM> Connections { get; } = new ObservableCollection<TrustedConnectionVM>();
+		public static ObservableCollection<ShapeBase> GUIBases { get; } = new ObservableCollection<ShapeBase>();
 
 		public static int idCounter = 0;
 		public static string gotFileName = "";

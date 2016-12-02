@@ -8,6 +8,7 @@ using TrustedActivityCreator.ViewModel;
 using TrustedActivityCreator.Command;
 using System.ComponentModel;
 using System;
+using TrustedActivityCreator.Model;
 
 namespace TrustedActivityCreator.GUI {
 	/// <summary>
@@ -25,8 +26,9 @@ namespace TrustedActivityCreator.GUI {
 		public int enterWidth { get; set; } = 12;
 		public int exitWidth { get; set; } = 8;
 
-		public ShapeBase() {
+		public bool selected = false;
 
+		public ShapeBase() {
 			Connecter.PropertyChanged += Ellipse_Reset;
 
 			Binding XBind = new Binding("X");
@@ -92,9 +94,11 @@ namespace TrustedActivityCreator.GUI {
 			Description.MouseEnter += Shape_MouseEnter;
 			Description.MouseLeave += Shape_MouseLeave;
 
-			Description.MouseDown += Shape_MouseDown; ;
+			Description.MouseDown += Description_MouseDown;
 			Description.MouseUp += Shape_MouseUp;
-			Description.MouseMove += Shape_MouseMove;			
+			Description.MouseMove += Shape_MouseMove;
+
+			TrustedCollection.GUIBases.Add(this);		
 		}
 
 		public void tryHandles(Ellipse s) {
@@ -110,32 +114,42 @@ namespace TrustedActivityCreator.GUI {
 			((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
 		}
 
-		private Brush enteredBrush;
-
 		private void Shape_MouseEnter(object sender, MouseEventArgs e) {
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			enteredBrush = ShapeGeometry.Stroke;
-			ShapeGeometry.Stroke = ShapeGeometry.Stroke == Brushes.Purple ? Brushes.Purple : Brushes.Blue;
-			for (int i = 0; i < ellipses.Length; i++) {
-				ellipses[i].Visibility = Visibility.Visible;
+			ShapeGeometry.Stroke = Brushes.Blue;
+			foreach (Ellipse ellipsus in ellipses) {
+				ellipsus.Visibility = Visibility.Visible;
 			}
 		}
 
 		private void Shape_MouseLeave(object sender, MouseEventArgs e) {
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			for (int i = 0; i < ellipses.Length; i++) {
-				if (ellipses[i].Stroke != Brushes.Red && !ellipses[i].IsMouseOver) {
-					ellipses[i].Visibility = Visibility.Hidden;
-					ShapeGeometry.Stroke = enteredBrush;
-				}
+			if(!selected)
+				ShapeGeometry.Stroke = Brushes.Black;
+			foreach(Ellipse ellipsus in ellipses) {
+				if(ellipsus.Stroke != Brushes.Red && !ellipsus.IsMouseOver)
+					ellipsus.Visibility = Visibility.Hidden;
 			}
 		}
 
-		private void Shape_MouseDown(object sender, MouseEventArgs e) {
-			ShapeGeometry.Stroke = ShapeGeometry.Stroke == Brushes.Blue ? Brushes.Purple : Brushes.Black;
-			enteredBrush = ShapeGeometry.Stroke;
+		private void Description_MouseDown(object sender, MouseButtonEventArgs e) {
 			((ShapeBaseViewModel)DataContext).DownShapeCommand.Execute(e);
 		}
+
+		private void Shape_MouseDown(object sender, MouseEventArgs e) {
+			System.Windows.Shapes.Shape senderShape = (System.Windows.Shapes.Shape)sender;
+			bool isBlue = senderShape.Stroke == Brushes.Blue;
+			selected = !selected;
+			foreach (ShapeBase s in TrustedCollection.GUIBases) {
+				s.ShapeGeometry.Stroke = Brushes.Black;
+			}
+			if (!isBlue) {
+				senderShape.Stroke = Brushes.Blue;
+			}
+
+			((ShapeBaseViewModel)DataContext).DownShapeCommand.Execute(e);
+		}
+
 
 		private void Shape_MouseUp(object sender, MouseEventArgs e) {
 			((ShapeBaseViewModel)DataContext).UpShapeCommand.Execute(e);
