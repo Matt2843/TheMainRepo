@@ -13,8 +13,6 @@ using System.Xml.Serialization;
 
 namespace TrustedActivityCreator.ViewModel {
 
-	[Serializable]
-	[XmlInclude(typeof(ActivityVM))]
 	public class ActivityVM : ShapeBaseViewModel {
 
 		/// <summary>

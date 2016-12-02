@@ -17,6 +17,24 @@
 		</Canvas>
 	</DataTemplate>
 
+	<DataTemplate DataType="{x:Type vm:EndingPointVM}">
+		<Canvas>
+			<v:EndingPointUC/>
+		</Canvas>
+	</DataTemplate>
+
+	<DataTemplate DataType="{x:Type vm:ForkVM}">
+		<Canvas>
+			<v:ForkUC/>
+		</Canvas>
+	</DataTemplate>
+
+	<DataTemplate DataType="{x:Type vm:JoinVM}">
+		<Canvas>
+			<v:JoinUC/>
+		</Canvas>
+	</DataTemplate>
+
 	<DataTemplate DataType="{x:Type vm:TrustedConnectionVM}">
 		<v:TrustedConnectionUC/>
 	</DataTemplate>
@@ -28,6 +46,7 @@
 	<DataTemplate DataType="{x:Type vm:QuickPanelVM}">
 		<v:TrustedQuickPanelUC/>
 	</DataTemplate>
+
 
 
 

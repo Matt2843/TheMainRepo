@@ -90,9 +90,15 @@ namespace TrustedActivityCreator.GUI {
 
 			Description.MouseDown += Shape_MouseDown; ;
 			Description.MouseUp += Shape_MouseUp;
-			Description.MouseMove += Shape_MouseMove;
+			Description.MouseMove += Shape_MouseMove;			
+		}
 
-			
+		public void tryHandles(Ellipse s) {
+			s.MouseEnter += Shape_MouseEnter;
+			s.MouseLeave += Shape_MouseLeave;
+			s.MouseDown += Shape_MouseDown;
+			s.MouseUp += Shape_MouseUp;
+			s.MouseMove += Shape_MouseMove;
 		}
 
 		protected override void OnRender(DrawingContext drawingContext) {

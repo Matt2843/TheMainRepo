@@ -85,6 +85,9 @@
     <Compile Include=".GUI\Connector.cs" />
     <Compile Include=".GUI\ConnectorBase.cs" />
     <Compile Include=".GUI\ConnectorEnds.cs" />
+    <Compile Include=".GUI\EndingPoint.cs" />
+    <Compile Include=".GUI\Fork.cs" />
+    <Compile Include=".GUI\Join.cs" />
     <Compile Include=".GUI\PolyConnector.cs" />
     <Compile Include=".GUI\ShapeBase.cs" />
     <Compile Include=".GUI\TrustedCanvas.cs" />
@@ -96,9 +99,15 @@
     <Compile Include="Model\CanvasM.cs" />
     <Compile Include="Model\ConditionM.cs" />
     <Compile Include="Model\Connections.cs" />
+    <Compile Include="Model\EndingPointM.cs" />
+    <Compile Include="Model\ForkM.cs" />
+    <Compile Include="Model\JoinM.cs" />
     <Compile Include="Model\Shape.cs" />
     <Compile Include="Model\TrustedCollection.cs" />
     <Compile Include="ViewModel\CanvasVM.cs" />
+    <Compile Include="ViewModel\EndingPointVM.cs" />
+    <Compile Include="ViewModel\ForkVM.cs" />
+    <Compile Include="ViewModel\JoinVM.cs" />
     <Compile Include="ViewModel\QuickPanelVM.cs" />
     <Compile Include="ViewModel\ShapeBaseViewModel.cs" />
     <Compile Include="ViewModel\TrustedConditionVM.cs" />
@@ -114,6 +123,15 @@
     </Compile>
     <Compile Include="View\ConsoleUC.xaml.cs">
       <DependentUpon>ConsoleUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EndingPointUC.xaml.cs">
+      <DependentUpon>EndingPointUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ForkUC.xaml.cs">
+      <DependentUpon>ForkUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\JoinUC.xaml.cs">
+      <DependentUpon>JoinUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -144,6 +162,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ConsoleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EndingPointUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ForkUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\JoinUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

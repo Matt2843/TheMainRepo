@@ -15,10 +15,16 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public ICommand AddActivityCommand { get; }
 		public ICommand AddConditionCommand { get; }
+		public ICommand AddEndPointCommand { get; }
+		public ICommand AddForkCommand { get; }
+		public ICommand AddJoinCommand { get; }
 
 		public QuickPanelVM() {
 			AddActivityCommand = new RelayCommand(AddActivity);
 			AddConditionCommand = new RelayCommand(AddCondition);
+			AddEndPointCommand = new RelayCommand(AddEndPoint);
+			AddForkCommand = new RelayCommand(AddFork);
+			AddJoinCommand = new RelayCommand(AddJoin);
 
 			selectedShapeController.PropertyChanged += SelectedShapePropertyChanged;
 		}
@@ -85,6 +91,21 @@ namespace TrustedActivityCreator.ViewModel {
 		private void AddCondition() {
 			TrustedConditionVM condition = new TrustedConditionVM();
 			AddShape(condition);
+		}
+
+		private void AddEndPoint() {
+			EndingPointVM ending = new EndingPointVM();
+			AddShape(ending);
+		}
+
+		private void AddFork() {
+			ForkVM fork = new ForkVM();
+			AddShape(fork);
+		}
+
+		private void AddJoin() {
+			JoinVM join = new JoinVM();
+			AddShape(join);
 		}
 
 		private void AddShape(ShapeBaseViewModel vm) {

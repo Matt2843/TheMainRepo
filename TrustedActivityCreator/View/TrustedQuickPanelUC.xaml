@@ -22,6 +22,9 @@
 		<StackPanel Grid.Row ="0" Panel.ZIndex="1000" Background="#343638">
 			<Button Background="White" Content="Add Activity" Command="{Binding AddActivityCommand}"/>
 			<Button Background="White" Content="Add Condition" Command="{Binding AddConditionCommand}"/>
+			<Button Background="White" Content="Add End Point" Command="{Binding AddEndPointCommand}" />
+			<Button Background="White" Content="Add Fork" Command="{Binding AddForkCommand}" />
+			<Button Background="White" Content="Add Join" Command="{Binding AddJoinCommand}" />
 		</StackPanel>
 
 		<Grid Name="Table" Grid.Row="1" Margin="20" Background="#202123">
