@@ -30,8 +30,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public int Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
 		public string Description { get { return Shape.Description; } set { Shape.Description = value; RaisePropertyChanged(); } }
 
-		public object[] Properties { get { return Shape.properties; } }
-
 		public int XMiddle { get { return Shape.XMiddle; } }
 		public int YMiddle { get { return Shape.YMiddle; } }
 
@@ -69,14 +67,13 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
-			TrustedCollection.SelectedShape = Shape;
-			Console.WriteLine("Selected Shape most likely set.");
-
 			var shape = Shape;
 			var mousePosition = RelativeMousePosition(e);
 			initialMousePosition = mousePosition;
 			initialShapePosition = new Point(shape.X, shape.Y);
 			e.MouseDevice.Target.CaptureMouse();
+
+			TrustedCollection.SelectedShape = shape;
 		}
 
 		private void MouseMoveShape(MouseEventArgs e) {

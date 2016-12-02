@@ -24,6 +24,26 @@
 			<Button Background="White" Content="Add Condition" Command="{Binding AddConditionCommand}"/>
 		</StackPanel>
 
-		<HeaderedContentControl Grid.Row="1" Background="White" Header="Header" Content="Hello"/>
+		<Grid Name="Table" Grid.Row="1" Margin="20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			
+			<DockPanel Grid.Column="0">
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource EvenRow}">Description</TextBlock>
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource UnevenRow}"></TextBlock>
+				<TextBlock Style="{StaticResource Std}" />
+				</DockPanel>
+
+
+			<DockPanel Grid.Column="1" >
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource EvenRow}" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource UnevenRow}"></TextBlock>
+				<TextBlock Style="{StaticResource Std}" />
+			</DockPanel>
+
+		</Grid>
+
 	</Grid>
 </UserControl>

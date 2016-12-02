@@ -3,7 +3,8 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using TrustedActivityCreator.Command;
 using System.Windows;
-using System.Xml.Linq;
+using TrustedActivityCreator.Model;
+using System;
 
 namespace TrustedActivityCreator.ViewModel {
 	class QuickPanelVM : ObservableObject {
@@ -12,6 +13,18 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public ICommand AddActivityCommand { get; }
 		public ICommand AddConditionCommand { get; }
+
+		public string Description {
+			get {
+				if(TrustedCollection.SelectedShape != null) {
+					Console.WriteLine("Success");
+					return TrustedCollection.SelectedShape.Description;
+				} else {
+					Console.WriteLine("Fail");
+					return "aa";
+				}		
+			}
+		}
 
 		private FrameworkElement canvas;
 

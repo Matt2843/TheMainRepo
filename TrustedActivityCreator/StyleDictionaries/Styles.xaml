@@ -23,4 +23,20 @@
 		</Style.Setters>
 	</Style>
 
+	<Style x:Key="EvenRow" TargetType="TextBlock">
+		<Style.Setters>
+			<Setter Property="Background" Value="White"/>
+			<Setter Property="Foreground" Value="Black"/>
+			<Setter Property="FontSize" Value="12"/>
+		</Style.Setters>
+	</Style>
+
+	<Style x:Key="UnevenRow" TargetType="TextBlock">
+		<Style.Setters>
+			<Setter Property="Background" Value="Gray"/>
+			<Setter Property="Foreground" Value="Black"/>
+			<Setter Property="FontSize" Value="12"/>
+		</Style.Setters>
+	</Style>
+
 </ResourceDictionary>
