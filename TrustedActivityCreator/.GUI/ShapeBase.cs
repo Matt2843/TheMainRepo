@@ -93,6 +93,11 @@ namespace TrustedActivityCreator.GUI {
 			Description.MouseMove += Shape_MouseMove;
 		}
 
+		protected override void OnRender(DrawingContext drawingContext) {
+			base.OnRender(drawingContext);
+			((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
+		}
+
 		private Brush enteredBrush;
 
 		private void Shape_MouseEnter(object sender, MouseEventArgs e) {
@@ -158,7 +163,6 @@ namespace TrustedActivityCreator.GUI {
 
 			if (!isRed) {
 				senderEllipse.Stroke = Brushes.Red;
-				((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
 				if(Connecter.From != null) {
 					Connecter.ToAnchor = senderEllipse.Name;
 				} else {
