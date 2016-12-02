@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TrustedActivityCreator.Command;
 
 namespace TrustedActivityCreator.View {
 
@@ -21,11 +22,11 @@ namespace TrustedActivityCreator.View {
     /// </summary>
     public partial class CanvasUC : UserControl {
 
-        public CanvasUC() {
+		private GetTrustedCanvas Instance = GetTrustedCanvas.Instance;
+
+		public CanvasUC() {
             InitializeComponent();
-        }
-
-        
-
+			Instance.Canvas = TrustedCanvas;
+		}
     }
 }

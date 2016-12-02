@@ -42,6 +42,7 @@ namespace TrustedActivityCreator.GUI {
 			SetBinding(HeightProperty, HeightBind);
 
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
+			String[] names = { "LeftAnchor", "RightAnchor", "TopAnchor", "BottomAnchor" };
 
 			for (int i = 0; i < ellipses.Length; i++) {
 				ellipses[i].MouseDown += Ellipse_MouseDown;
@@ -53,6 +54,7 @@ namespace TrustedActivityCreator.GUI {
 				ellipses[i].Fill = Brushes.White;
 				ellipses[i].Stroke = Brushes.Black;
 				ellipses[i].StrokeThickness = 1;
+				ellipses[i].Name = names[i];
 				Panel.SetZIndex(ellipses[i], 3000);
 			}
 			rootGrid = new Grid();
@@ -156,7 +158,12 @@ namespace TrustedActivityCreator.GUI {
 
 			if (!isRed) {
 				senderEllipse.Stroke = Brushes.Red;
-				((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor, (FrameworkElement) Application.Current.MainWindow.FindName("TrustedCanvas"));
+				((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
+				if(Connecter.From != null) {
+					Connecter.ToAnchor = senderEllipse.Name;
+				} else {
+					Connecter.FromAnchor = senderEllipse.Name;
+				}
 				Connecter.From = (ShapeBaseViewModel)DataContext;
 			} else {
 				Connecter.From = null;

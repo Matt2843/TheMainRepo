@@ -90,6 +90,7 @@
     <Compile Include=".GUI\TrustedCanvas.cs" />
     <Compile Include="Command\AddConnectionCommand.cs" />
     <Compile Include="Command\ConnectionController.cs" />
+    <Compile Include="Command\GetTrustedCanvas.cs" />
     <Compile Include="Command\MoveShapeCommand.cs" />
     <Compile Include="Command\SelectedShapeController.cs" />
     <Compile Include="Model\CanvasM.cs" />
