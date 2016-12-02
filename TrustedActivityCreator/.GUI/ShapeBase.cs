@@ -28,7 +28,7 @@ namespace TrustedActivityCreator.GUI {
 				ellipses[i].Width = 8;
 				ellipses[i].Height = 8;
 				ellipses[i].Visibility = Visibility.Hidden;
-				ellipses[i].Fill = Brushes.NavajoWhite;
+				ellipses[i].Fill = Brushes.White;
 				ellipses[i].Stroke = Brushes.Black;
 				ellipses[i].StrokeThickness = 1;
 				Panel.SetZIndex(ellipses[i], 3000);
@@ -46,7 +46,7 @@ namespace TrustedActivityCreator.GUI {
 
 			ShapeGeometry.Stroke = Brushes.Black;
 			ShapeGeometry.StrokeThickness = 1;
-			ShapeGeometry.Fill = Brushes.NavajoWhite;
+			ShapeGeometry.Fill = Brushes.White;
 			Panel.SetZIndex(ShapeGeometry, 1000);
 
 			// Condition Handlers

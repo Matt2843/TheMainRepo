@@ -11,7 +11,6 @@ namespace TrustedActivityCreator.GUI {
 		private Grid RotatedGrid;
 
 		public Condition() {
-
 			Binding XBind = new Binding("X");
 			Binding YBind = new Binding("Y");
 			Binding WidthBind = new Binding("Width");
@@ -38,8 +37,6 @@ namespace TrustedActivityCreator.GUI {
 			// Rotated grid for Rectangle and anchorpoints
 			RotatedGrid.RenderTransformOrigin = new Point(0.5, 0.5);
 			RotatedGrid.RenderTransform = new RotateTransform(45);
-
-			Console.WriteLine(ShapeGeometry.Width);
 
 			BottomAnchor.VerticalAlignment = VerticalAlignment.Bottom;
 			BottomAnchor.HorizontalAlignment = HorizontalAlignment.Right;
