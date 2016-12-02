@@ -12,8 +12,6 @@ using System.Windows.Shapes;
 namespace TrustedActivityCreator.ViewModel {
 	public class ShapeBaseViewModel : ObservableObject {
 
-		public ShapeBaseViewModel() { }
-
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 		private SelectedShapeController selectedShapeController = SelectedShapeController.Instance;
 
@@ -41,6 +39,13 @@ namespace TrustedActivityCreator.ViewModel {
 			return Id + "," + Width + "," + Height + "," + X + "," + Y + "," + Description;
 		}
 
+		public ShapeBaseViewModel() {
+			leftAnchor = new Ellipse();
+			rightAnchor = new Ellipse();
+			topAnchor = new Ellipse();
+			bottomAnchor = new Ellipse();
+		}
+
 		public ShapeBaseViewModel(int Id, int Width, int Height, int X, int Y, string Description) {
 			this.Id = Id; this.Width = Width; this.Height = Height; this.X = X; this.Y = Y; this.Description = Description;
 		}
@@ -55,8 +60,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public Point RightAnchor { get { return rightAnchor.TranslatePoint(new Point(rightAnchor.Width / 2, rightAnchor.Height / 2), Instance.Canvas); } }
 		public Point TopAnchor { get { return topAnchor.TranslatePoint(new Point(topAnchor.Width / 2, topAnchor.Height / 2), Instance.Canvas); } }
 		public Point BottomAnchor { get { return bottomAnchor.TranslatePoint(new Point(bottomAnchor.Width / 2, bottomAnchor.Height / 2), Instance.Canvas); } }
-
-
 
 		//public ICommand SelectShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(SelectShape); } }
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }

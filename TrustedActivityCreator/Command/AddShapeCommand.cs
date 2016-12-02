@@ -11,6 +11,7 @@ namespace TrustedActivityCreator.Command {
 
         public AddShapeCommand(ShapeBaseViewModel shape) {
             this.shape = shape;
+			this.shape.Id = TrustedCollection.idCounter++;
         }
 
         public void Execute() {

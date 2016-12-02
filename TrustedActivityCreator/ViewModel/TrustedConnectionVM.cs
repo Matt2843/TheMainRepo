@@ -18,14 +18,20 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private Connection connection;
 
-		public String FromAnchor { get; set; }
-		public String ToAnchor { get; set; }
-
+		public string FromAnchor { get; set; }
+		public string ToAnchor { get; set; }
 
 		private PointCollection path = new PointCollection();
 
 		public TrustedConnectionVM() {
 			connection = new Connection();
+		}
+
+		public TrustedConnectionVM(string FromAnchor, string ToAnchor, ShapeBaseViewModel From, ShapeBaseViewModel To) {
+			connection = new Connection();
+			this.FromAnchor = FromAnchor;
+			this.ToAnchor = ToAnchor;
+			Connect(From, To);
 		}
 
 		public void raise(object sender, PropertyChangedEventArgs e){
@@ -44,6 +50,10 @@ namespace TrustedActivityCreator.ViewModel {
 			From.PropertyChanged += new PropertyChangedEventHandler(raise);
 			To.PropertyChanged += new PropertyChangedEventHandler(raise);
 			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
+		}
+
+		public override string ToString() {
+			return "CNT" + "," + FromAnchor + "," + ToAnchor + "," + connection.From.Id + "," + connection.To.Id;
 		}
 	}
 }

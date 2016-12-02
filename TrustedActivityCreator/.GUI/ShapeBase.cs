@@ -5,9 +5,9 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Data;
 using TrustedActivityCreator.ViewModel;
-using System;
 using TrustedActivityCreator.Command;
 using System.ComponentModel;
+using System;
 
 namespace TrustedActivityCreator.GUI {
 	/// <summary>
@@ -42,7 +42,7 @@ namespace TrustedActivityCreator.GUI {
 			SetBinding(HeightProperty, HeightBind);
 
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			String[] names = { "LeftAnchor", "RightAnchor", "TopAnchor", "BottomAnchor" };
+			string[] names = { "LeftAnchor", "RightAnchor", "TopAnchor", "BottomAnchor" };
 
 			for (int i = 0; i < ellipses.Length; i++) {
 				ellipses[i].MouseDown += Ellipse_MouseDown;
@@ -91,6 +91,13 @@ namespace TrustedActivityCreator.GUI {
 			Description.MouseDown += Shape_MouseDown; ;
 			Description.MouseUp += Shape_MouseUp;
 			Description.MouseMove += Shape_MouseMove;
+
+			
+		}
+
+		protected override void OnInitialized(EventArgs e) {
+			base.OnInitialized(e);
+			((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
 		}
 
 		private Brush enteredBrush;
@@ -155,10 +162,8 @@ namespace TrustedActivityCreator.GUI {
 				if (senderEllipse != ellipsus)
 					ellipsus.Visibility = Visibility.Hidden;
 			}
-
 			if (!isRed) {
 				senderEllipse.Stroke = Brushes.Red;
-				((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
 				if(Connecter.From != null) {
 					Connecter.ToAnchor = senderEllipse.Name;
 				} else {
