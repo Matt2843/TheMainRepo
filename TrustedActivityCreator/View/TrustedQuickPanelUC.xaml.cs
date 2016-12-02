@@ -20,6 +20,8 @@ namespace TrustedActivityCreator.View {
 	public partial class TrustedQuickPanelUC : UserControl {
 		public TrustedQuickPanelUC() {
 			InitializeComponent();
+			Reader.MinZoom = 100;
+			Reader.MaxZoom = 100;
 		}
 	}
 }

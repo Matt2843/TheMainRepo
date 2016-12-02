@@ -24,6 +24,29 @@
 			<Button Background="White" Content="Add Condition" Command="{Binding AddConditionCommand}"/>
 		</StackPanel>
 
-		<HeaderedContentControl Grid.Row="1" Background="White" Header="Header" Content="Hello"/>
+		<Grid Name="Table" Grid.Row="1" Margin="20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			
+			<StackPanel Grid.Column="0" Background="White">
+				<TextBlock>Hello</TextBlock>
+				<TextBlock>Hello</TextBlock>
+				<TextBlock>Hello</TextBlock>
+				<TextBlock>Hello</TextBlock>
+				<TextBlock>Hello</TextBlock>
+			</StackPanel>
+
+			<StackPanel Grid.Column="1" Background="White">
+				<TextBlock>Hello</TextBlock>
+				<TextBlock>Hello</TextBlock>
+				<TextBlock>Hello</TextBlock>
+				<TextBlock>Hello</TextBlock>
+				<TextBlock>Hello</TextBlock>
+			</StackPanel>
+		</Grid>
+		
+
 	</Grid>
 </UserControl>
