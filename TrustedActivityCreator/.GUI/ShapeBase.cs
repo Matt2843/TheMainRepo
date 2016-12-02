@@ -132,6 +132,9 @@ namespace TrustedActivityCreator.GUI {
 			Ellipse enteredEllipse = (Ellipse)sender;
 			enteredEllipse.Width = 8;
 			enteredEllipse.Height = 8;
+			if(enteredEllipse.Stroke != Brushes.Red) {
+				enteredEllipse.Visibility = Visibility.Hidden;
+			}
 		}
 
 		private void Ellipse_MouseDown(object sender, MouseButtonEventArgs e) {

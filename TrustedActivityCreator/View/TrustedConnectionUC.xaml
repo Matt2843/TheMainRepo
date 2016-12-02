@@ -7,5 +7,5 @@
 			 xmlns:gui="clr-namespace:TrustedActivityCreator.GUI"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-	<gui:PolyConnector Stroke="Black" StrokeThickness="5" Points="{Binding Path}"/>
+	<gui:PolyConnector Stroke="Black" StrokeThickness="2" Points="{Binding Path}"/>
 </UserControl>
