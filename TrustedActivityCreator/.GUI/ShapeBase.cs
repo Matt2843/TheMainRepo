@@ -86,9 +86,12 @@ namespace TrustedActivityCreator.GUI {
 			Description.MouseMove += Shape_MouseMove;
 		}
 
+		private Brush enteredBrush;
+
 		private void Shape_MouseEnter(object sender, MouseEventArgs e) {
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			ShapeGeometry.Stroke = Brushes.Blue;
+			enteredBrush = ShapeGeometry.Stroke;
+			ShapeGeometry.Stroke = ShapeGeometry.Stroke == Brushes.Purple ? Brushes.Purple : Brushes.Blue;
 			for (int i = 0; i < ellipses.Length; i++) {
 				ellipses[i].Visibility = Visibility.Visible;
 			}
@@ -99,13 +102,14 @@ namespace TrustedActivityCreator.GUI {
 			for (int i = 0; i < ellipses.Length; i++) {
 				if (ellipses[i].Stroke != Brushes.Red && !ellipses[i].IsMouseOver) {
 					ellipses[i].Visibility = Visibility.Hidden;
-					ShapeGeometry.Stroke = Brushes.Black;
+					ShapeGeometry.Stroke = enteredBrush;
 				}
-
 			}
 		}
 
 		private void Shape_MouseDown(object sender, MouseEventArgs e) {
+			ShapeGeometry.Stroke = ShapeGeometry.Stroke == Brushes.Blue ? Brushes.Purple : Brushes.Black;
+			enteredBrush = ShapeGeometry.Stroke;
 			((ShapeBaseViewModel)DataContext).DownShapeCommand.Execute(e);
 		}
 

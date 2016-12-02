@@ -56,6 +56,9 @@ namespace TrustedActivityCreator.ViewModel {
 		}*/
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
+			TrustedCollection.SelectedShape = Shape;
+			Console.WriteLine("Selected Shape most likely set.");
+
 			var shape = Shape;
 			var mousePosition = RelativeMousePosition(e);
 			initialMousePosition = mousePosition;

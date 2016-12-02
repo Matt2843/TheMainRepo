@@ -24,10 +24,6 @@
 			<Button Background="White" Content="Add Condition" Command="{Binding AddConditionCommand}"/>
 		</StackPanel>
 
-		<Grid Grid.Row="1" Background="#1f2021" Margin="20">
-			<DataGrid ItemsSource="{Binding Properties}">
-				
-			</DataGrid>
-		</Grid>
+		<HeaderedContentControl Grid.Row="1" Background="White" Header="Header" Content="Hello"/>
 	</Grid>
 </UserControl>
