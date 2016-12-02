@@ -104,9 +104,6 @@
     <Compile Include="View\ActivityUC.xaml.cs">
       <DependentUpon>ActivityUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ActivityUC2.xaml.cs">
-      <DependentUpon>ActivityUC2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\CanvasUC.xaml.cs">
       <DependentUpon>CanvasUC.xaml</DependentUpon>
     </Compile>
@@ -136,10 +133,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ActivityUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ActivityUC2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

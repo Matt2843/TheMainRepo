@@ -7,7 +7,7 @@
 
 	<DataTemplate DataType="{x:Type vm:ActivityVM}">
 		<Canvas>
-			<v:ActivityUC2/>
+			<v:ActivityUC/>
 		</Canvas>
 	</DataTemplate>
 	
