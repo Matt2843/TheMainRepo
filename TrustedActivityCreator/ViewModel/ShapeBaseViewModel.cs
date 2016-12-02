@@ -36,6 +36,11 @@ namespace TrustedActivityCreator.ViewModel {
 		public int YMiddle { get { return Shape.YMiddle; } }
 
 
+		/*public Point LeftAnchor { get { return leftAnchor.TranslatePoint(new Point(leftAnchor.Width / 2, leftAnchor.Height / 2), Canvas); } }
+		public Point RightAnchor { get { return rightAnchor.TranslatePoint(new Point(rightAnchor.Width / 2, rightAnchor.Height / 2), Canvas); } }
+		public Point TopAnchor { get { return topAnchor.TranslatePoint(new Point(topAnchor.Width / 2, topAnchor.Height / 2), Canvas); } }
+		public Point BottomAnchor { get { return bottomAnchor.TranslatePoint(new Point(bottomAnchor.Width / 2, bottomAnchor.Height / 2), Canvas); } }*/
+
 		public Point LeftAnchor { get { return leftAnchor.TranslatePoint(new Point(leftAnchor.Width / 2, leftAnchor.Height / 2), Canvas); } }
 		public Point RightAnchor { get { return rightAnchor.TranslatePoint(new Point(rightAnchor.Width / 2, rightAnchor.Height / 2), Canvas); } }
 		public Point TopAnchor { get { return topAnchor.TranslatePoint(new Point(topAnchor.Width / 2, topAnchor.Height / 2), Canvas); } }
@@ -60,6 +65,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public void SetAnchors(Ellipse LeftAnchor, Ellipse RightAnchor, Ellipse TopAnchor, Ellipse BottomAnchor, FrameworkElement Canvas) {
 			this.leftAnchor = LeftAnchor; this.rightAnchor = RightAnchor; this.topAnchor = TopAnchor; this.bottomAnchor = BottomAnchor; this.Canvas = Canvas;
+			Console.WriteLine(this.Canvas.Name);
 		}
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
