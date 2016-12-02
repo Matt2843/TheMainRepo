@@ -80,6 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include=".GUI\Activity.cs" />
     <Compile Include=".GUI\Condition.cs" />
     <Compile Include=".GUI\Connector.cs" />
     <Compile Include=".GUI\ConnectorBase.cs" />
@@ -90,8 +91,8 @@
     <Compile Include="Command\AddConnectionCommand.cs" />
     <Compile Include="Command\ConnectionController.cs" />
     <Compile Include="Command\MoveShapeCommand.cs" />
-    <Compile Include="Model\Canvas.cs" />
-    <Compile Include="Model\Condition.cs" />
+    <Compile Include="Model\CanvasM.cs" />
+    <Compile Include="Model\ConditionM.cs" />
     <Compile Include="Model\Connections.cs" />
     <Compile Include="Model\Shape.cs" />
     <Compile Include="Model\TrustedCollection.cs" />
@@ -102,6 +103,9 @@
     <Compile Include="ViewModel\TrustedConnectionVM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">
       <DependentUpon>ActivityUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ActivityUC2.xaml.cs">
+      <DependentUpon>ActivityUC2.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CanvasUC.xaml.cs">
       <DependentUpon>CanvasUC.xaml</DependentUpon>
@@ -135,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ActivityUC2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CanvasUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,7 +163,7 @@
     <Compile Include="Command\IUndoRedoCommand.cs" />
     <Compile Include="Command\RemoveShapesCommand.cs" />
     <Compile Include="Command\UndoRedoController.cs" />
-    <Compile Include="Model\Activity.cs" />
+    <Compile Include="Model\ActivityM.cs" />
     <Compile Include="ViewModel\ActivityVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\App.xaml.cs">

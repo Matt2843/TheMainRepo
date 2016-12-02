@@ -7,7 +7,6 @@ using System.Collections.ObjectModel;
 using TrustedActivityCreator.Model;
 using System.Windows.Controls;
 using TrustedActivityCreator.Command;
-using TrustedActivityCreator.GUI;
 using TrustedActivityCreator.View;
 
 namespace TrustedActivityCreator.ViewModel {
@@ -17,7 +16,7 @@ namespace TrustedActivityCreator.ViewModel {
 		/// The command properties
 		/// </summary>
 		public ActivityVM() {
-			Shape = new Activity();
+			Shape = new ActivityM();
 		}
 
 

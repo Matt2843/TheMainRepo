@@ -1,7 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Media;
 
 namespace TrustedActivityCreator.GUI {
@@ -11,10 +9,6 @@ namespace TrustedActivityCreator.GUI {
 		private Grid RotatedGrid;
 
 		public Condition() {
-			placeComponents();
-		}
-
-		private void placeComponents() {
 			RotatedGrid = new Grid();
 			Description.Margin = new Thickness(10, 10, 10, 10);
 			ShapeGeometry.Margin = new Thickness(3, 3, 3, 3);
@@ -46,5 +40,6 @@ namespace TrustedActivityCreator.GUI {
 			rootGrid.Children.Add(RotatedGrid);
 			rootGrid.Children.Add(Description);
 		}
+
 	}
 }
