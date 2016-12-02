@@ -35,7 +35,7 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		public void raise(object sender, PropertyChangedEventArgs e){
-			Console.WriteLine(Path.ToString());
+			//Console.WriteLine(Path.ToString());
 			RaisePropertyChanged("Path");
 		}
 
