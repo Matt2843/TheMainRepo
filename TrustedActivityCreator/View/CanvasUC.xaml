@@ -19,7 +19,13 @@
 		</Grid.ColumnDefinitions>
 		<gui:TrustedCanvas x:Name="TrustedCanvas" Grid.Row="0" Grid.Column="0" Background="White">
 			<ItemsControl Panel.ZIndex="1000" ItemsSource="{Binding Shapes}" />
-			<ItemsControl Panel.ZIndex="500" ItemsSource="{Binding Connections}" />
+			<ItemsControl Panel.ZIndex="500" ItemsSource="{Binding Connections}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<Grid/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
 		</gui:TrustedCanvas>
     </Grid>
 </UserControl>
