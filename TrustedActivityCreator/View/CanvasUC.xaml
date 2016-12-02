@@ -17,7 +17,7 @@
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<gui:TrustedCanvas x:Name="TrustedCanvas" Grid.Row="0" Grid.Column="0" Background="White">
+		<gui:FrameworkElement x:Name="TrustedCanvas" Grid.Row="0" Grid.Column="0" Background="White">
 			<ItemsControl Panel.ZIndex="1000" ItemsSource="{Binding Shapes}" />
 			<ItemsControl Panel.ZIndex="500" ItemsSource="{Binding Connections}">
 				<ItemsControl.ItemsPanel>
@@ -26,6 +26,6 @@
 					</ItemsPanelTemplate>
 				</ItemsControl.ItemsPanel>
 			</ItemsControl>
-		</gui:TrustedCanvas>
+		</gui:FrameworkElement>
     </Grid>
 </UserControl>

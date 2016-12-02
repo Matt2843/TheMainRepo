@@ -4,11 +4,11 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace TrustedActivityCreator.GUI {
-	public class TrustedCanvas : Canvas {
+	public class FrameworkElement : Canvas {
 
-		public static readonly DependencyProperty numOfVerticalLines = DependencyProperty.Register("NumOfVerticalLines", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(24));
-		public static readonly DependencyProperty numOfHorizontalLines = DependencyProperty.Register("NumOfHorizontalLines", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(24));
-		public static readonly DependencyProperty linesThickness = DependencyProperty.Register("LineThickness", typeof(int), typeof(TrustedCanvas), new PropertyMetadata(1));
+		public static readonly DependencyProperty numOfVerticalLines = DependencyProperty.Register("NumOfVerticalLines", typeof(int), typeof(FrameworkElement), new PropertyMetadata(24));
+		public static readonly DependencyProperty numOfHorizontalLines = DependencyProperty.Register("NumOfHorizontalLines", typeof(int), typeof(FrameworkElement), new PropertyMetadata(24));
+		public static readonly DependencyProperty linesThickness = DependencyProperty.Register("LineThickness", typeof(int), typeof(FrameworkElement), new PropertyMetadata(1));
 
 		public int LineThickness {
 			get { return (int)GetValue(linesThickness); }
