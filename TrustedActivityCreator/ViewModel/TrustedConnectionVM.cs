@@ -31,7 +31,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ShapeBaseViewModel From { get { return connection.From; } set { connection.From = value; RaisePropertyChanged(); } }
 		public ShapeBaseViewModel To { get { return connection.To; } set { connection.To = value; RaisePropertyChanged(); } }
 
-		public PointCollection Path { get { return new PointCollection() { new Point(connection.From.XMiddle, connection.From.YMiddle), new Point(connection.To.XMiddle, connection.To.YMiddle) }; } set { path = value; RaisePropertyChanged(); } }
+		public PointCollection Path { get { return new PointCollection() { new Point(connection.From.X, connection.From.Y), new Point(connection.To.X, connection.To.Y) }; } set { path = value; RaisePropertyChanged(); } }
 
 
 		public void Connect(ShapeBaseViewModel from, ShapeBaseViewModel to) {
