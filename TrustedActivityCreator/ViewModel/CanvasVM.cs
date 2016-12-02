@@ -21,11 +21,11 @@ namespace TrustedActivityCreator.ViewModel {
 		public double Height { get { return Canvas.Height; } set { Canvas.Height = value; RaisePropertyChanged(); } }
 
 		public CanvasVM() {
-			Canvas = new Canvas();
+			Canvas = new CanvasM();
 		}
 
-		private Canvas canvas;
-		public Canvas Canvas {
+		private CanvasM canvas;
+		public CanvasM Canvas {
 			get { return canvas;  }
 			set {
 				if (value != canvas) {
