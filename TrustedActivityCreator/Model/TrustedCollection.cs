@@ -103,7 +103,7 @@ namespace TrustedActivityCreator.Model {
 				}
 
 				foreach(ShapeBaseViewModel vm in Shapes) {
-					vm.raisemaze("Path");
+					vm.raise("Path");
 				}
 			}
 		}

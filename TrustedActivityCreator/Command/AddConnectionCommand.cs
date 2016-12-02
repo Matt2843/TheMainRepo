@@ -11,14 +11,17 @@ namespace TrustedActivityCreator.Command {
 
 		public AddConnectionCommand(TrustedConnectionVM connection) {
 			this.connection = connection;
+			connection.raise("Path");
 		}
 
 		public void Execute() {
 			Connections.Add(connection);
+			connection.raise("Path");
 		}
 
 		public void UnExecute() {
 			Connections.Remove(connection);
+			connection.raise("Path");
 		}
 	}
 }

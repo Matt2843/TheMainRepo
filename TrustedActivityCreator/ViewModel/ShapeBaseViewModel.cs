@@ -29,10 +29,10 @@ namespace TrustedActivityCreator.ViewModel {
 		public Model.Shape Shape { get { return shape; } set { shape = value; RaisePropertyChanged(); } }
 
 		public int Id { get { return Shape.Id; } set { Shape.Id = value; RaisePropertyChanged(); } }
-		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
-		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
-		public int X { get { return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
-		public int Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
+		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); } }
+		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); } }
+		public int X { get { return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); } }
+		public int Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); } }
 		public string Description { get { return Shape.Description; } set { Shape.Description = value; RaisePropertyChanged(); } }
 
 		public int XMiddle { get { return Shape.XMiddle; } }
@@ -42,7 +42,11 @@ namespace TrustedActivityCreator.ViewModel {
 			return Id + "," + Width + "," + Height + "," + X + "," + Y + "," + Description;
 		}
 
-		public void raisemaze(string s) {
+		public void raise() {
+			RaisePropertyChanged();
+		}
+
+		public void raise(string s) {
 			RaisePropertyChanged(s);
 		}
 
