@@ -25,6 +25,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private Ellipse leftAnchor, rightAnchor, topAnchor, bottomAnchor;
 
+		public Model.Shape Shape { get { return shape; } set { shape = value; RaisePropertyChanged(); } }
+
 		public int Id { get { return Shape.Id; } set { Shape.Id = value; RaisePropertyChanged(); } }
 		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
 		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
@@ -70,16 +72,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
 		public ICommand UpShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
 
-		public Model.Shape Shape {
-			get { return shape; }
-			set {
-				if (value != shape) {
-					shape = value;
-					RaisePropertyChanged();
-				}
-			}
-		}
-
 		public void SetAnchors(Ellipse LeftAnchor, Ellipse RightAnchor, Ellipse TopAnchor, Ellipse BottomAnchor) {
 			this.leftAnchor = LeftAnchor; this.rightAnchor = RightAnchor; this.topAnchor = TopAnchor; this.bottomAnchor = BottomAnchor;
 		}
@@ -96,8 +88,8 @@ namespace TrustedActivityCreator.ViewModel {
 		private void MouseMoveShape(MouseEventArgs e) {
 			if (Mouse.Captured != null) {
 				var mousePosition = RelativeMousePosition(e);
-				X = (int)(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width));
-				Y = (int)(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height));
+				X = (int)(Math.Round(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width) / 5.0) * 5);
+				Y = (int)(Math.Round(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height) / 5.0) * 5);
 			}
 			selectedShapeController.SelectedShape = this;
 		}
