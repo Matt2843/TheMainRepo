@@ -8,6 +8,7 @@ using TrustedActivityCreator.View;
 using System.Windows.Media;
 using System;
 using System.Windows.Shapes;
+using System.Windows.Controls;
 
 namespace TrustedActivityCreator.ViewModel {
 	public class ShapeBaseViewModel : ObservableObject {
@@ -88,8 +89,13 @@ namespace TrustedActivityCreator.ViewModel {
 		private void MouseMoveShape(MouseEventArgs e) {
 			if (Mouse.Captured != null) {
 				var mousePosition = RelativeMousePosition(e);
-				X = (int)(Math.Round(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width) / 5.0) * 5);
-				Y = (int)(Math.Round(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height) / 5.0) * 5);
+				if((bool)((CheckBox)Instance.Canvas.FindName("SnapToGrid")).IsChecked) {
+					X = (int)(Math.Round(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width) / 10.0) * 10);
+					Y = (int)(Math.Round(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height) / 10.0) * 10);
+				} else {
+					X = (int)(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width));
+					Y = (int)(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height));
+				}
 			}
 			selectedShapeController.SelectedShape = this;
 		}
