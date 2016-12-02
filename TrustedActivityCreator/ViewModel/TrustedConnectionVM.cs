@@ -36,7 +36,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public void raise(object sender, PropertyChangedEventArgs e){
 			Console.WriteLine(Path.ToString());
-			this.RaisePropertyChanged("Path");
+			RaisePropertyChanged("Path");
 		}
 
 		public ShapeBaseViewModel From { get { return connection.From; } set { connection.From = value; RaisePropertyChanged(); } }

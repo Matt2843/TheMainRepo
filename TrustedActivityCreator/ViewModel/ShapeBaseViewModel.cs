@@ -39,6 +39,10 @@ namespace TrustedActivityCreator.ViewModel {
 			return Id + "," + Width + "," + Height + "," + X + "," + Y + "," + Description;
 		}
 
+		public void raisemaze(string s) {
+			RaisePropertyChanged(s);
+		}
+
 		public ShapeBaseViewModel() {
 			leftAnchor = new Ellipse();
 			rightAnchor = new Ellipse();
