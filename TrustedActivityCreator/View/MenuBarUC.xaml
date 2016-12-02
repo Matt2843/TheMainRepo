@@ -13,7 +13,7 @@
 		<MenuItem Header="_File">
 			<MenuItem Header="_New" InputGestureText="Ctrl+N" Command="{Binding AddShapeCommand}"/>
 			<MenuItem Header="_Load" InputGestureText="Ctrl+O" Command="{Binding LoadCommand}"/>
-			<MenuItem Header="_Save" InputGestureText="Ctrl+S"/>
+			<MenuItem Header="_Save" InputGestureText="Ctrl+S" Command="{Binding SaveCommand}"/>
 			<MenuItem Header="Save as" InputGestureText="Ctrl+Alt+S" Command="{Binding SaveAsFile}"/>
 			<MenuItem Header="_Close" InputGestureText="Ctrl+W"/>
 			<MenuItem Header="_Export as" InputGestureText="Ctrl+E"/>
