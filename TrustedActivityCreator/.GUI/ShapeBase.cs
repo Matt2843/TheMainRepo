@@ -156,7 +156,7 @@ namespace TrustedActivityCreator.GUI {
 
 			if (!isRed) {
 				senderEllipse.Stroke = Brushes.Red;
-				((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor, (System.Windows.FrameworkElement) Application.Current.MainWindow.FindName("TrustedCanvas"));
+				((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor, (FrameworkElement) Application.Current.MainWindow.FindName("TrustedCanvas"));
 				Connecter.From = (ShapeBaseViewModel)DataContext;
 			} else {
 				Connecter.From = null;
