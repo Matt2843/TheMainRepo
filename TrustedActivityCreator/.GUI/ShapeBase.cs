@@ -6,6 +6,7 @@ using System.Windows.Shapes;
 using System.Windows.Data;
 using TrustedActivityCreator.ViewModel;
 using System;
+using TrustedActivityCreator.Command;
 
 namespace TrustedActivityCreator.GUI {
 	/// <summary>
@@ -13,12 +14,29 @@ namespace TrustedActivityCreator.GUI {
 	/// </summary>
 	public partial class ShapeBase : UserControl {
 
+		private ConnectionController Connecter = ConnectionController.Connecter;
+
 		public Ellipse LeftAnchor = new Ellipse(), RightAnchor = new Ellipse(), TopAnchor = new Ellipse(), BottomAnchor = new Ellipse();
 		public Rectangle ShapeGeometry;
 		public TextBlock Description;
 		public Grid rootGrid;
 
 		public ShapeBase() {
+			Binding XBind = new Binding("X");
+			Binding YBind = new Binding("Y");
+			Binding WidthBind = new Binding("Width");
+			Binding HeightBind = new Binding("Height");
+
+			XBind.Mode = BindingMode.TwoWay;
+			YBind.Mode = BindingMode.TwoWay;
+			WidthBind.Mode = BindingMode.TwoWay;
+			HeightBind.Mode = BindingMode.TwoWay;
+
+			SetBinding(Canvas.LeftProperty, XBind);
+			SetBinding(Canvas.TopProperty, YBind);
+			SetBinding(WidthProperty, WidthBind);
+			SetBinding(HeightProperty, HeightBind);
+
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
 
 			for (int i = 0; i < ellipses.Length; i++) {
@@ -37,12 +55,14 @@ namespace TrustedActivityCreator.GUI {
 			ShapeGeometry = new Rectangle();
 			Description = new TextBlock();
 
+			Content = rootGrid;
+
 			Description.VerticalAlignment = VerticalAlignment.Center;
 			Description.HorizontalAlignment = HorizontalAlignment.Center;
-			Description.TextWrapping = TextWrapping.Wrap;
+			Description.TextWrapping = TextWrapping.Wrap;			
 
 			Binding descriptionBinding = new Binding("Description");
-			descriptionBinding.Source = Description;
+			BindingOperations.SetBinding(Description, TextBlock.TextProperty, descriptionBinding);
 
 			ShapeGeometry.Stroke = Brushes.Black;
 			ShapeGeometry.StrokeThickness = 1;
@@ -124,6 +144,9 @@ namespace TrustedActivityCreator.GUI {
 
 			if (!isRed) {
 				senderEllipse.Stroke = Brushes.Red;
+				Connecter.From = (ShapeBaseViewModel)DataContext;
+			} else {
+				Connecter.From = null;
 			}
 
 		}

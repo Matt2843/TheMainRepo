@@ -11,21 +11,6 @@ namespace TrustedActivityCreator.GUI {
 		private Grid RotatedGrid;
 
 		public Condition() {
-			Binding XBind = new Binding("X");
-			Binding YBind = new Binding("Y");
-			Binding WidthBind = new Binding("Width");
-			Binding HeightBind = new Binding("Height");
-
-			XBind.Mode = BindingMode.TwoWay;
-			YBind.Mode = BindingMode.TwoWay;
-			WidthBind.Mode = BindingMode.TwoWay;
-			HeightBind.Mode = BindingMode.TwoWay;
-
-			SetBinding(Canvas.LeftProperty, XBind);
-			SetBinding(Canvas.TopProperty, YBind);
-			SetBinding(WidthProperty, WidthBind);
-			SetBinding(HeightProperty, HeightBind);
-
 			placeComponents();
 		}
 
