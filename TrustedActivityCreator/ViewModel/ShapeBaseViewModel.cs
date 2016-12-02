@@ -92,8 +92,8 @@ namespace TrustedActivityCreator.ViewModel {
 		private void MouseMoveShape(MouseEventArgs e) {
 			if (Mouse.Captured != null) {
 				var mousePosition = RelativeMousePosition(e);
-				X = (int)(initialShapePosition.X + (mousePosition.X - initialMousePosition.X));
-				Y = (int)(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y));
+				X = (int)(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width));
+				Y = (int)(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height));
 			}
 			selectedShapeController.SelectedShape = this;
 		}
@@ -104,11 +104,20 @@ namespace TrustedActivityCreator.ViewModel {
 			X = (int)initialShapePosition.X;
 			Y = (int)initialShapePosition.Y;
 
-			undoRedoController.AddAndExecute(new MoveShapeCommand(this, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+			undoRedoController.AddAndExecute(new MoveShapeCommand(this, GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width) - initialShapePosition.X, GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height) - initialShapePosition.Y));
 
 			e.MouseDevice.Target.ReleaseMouseCapture();
 		}
 
+		private double GetPointInCanvas(double val, double min, double max) {
+			if(val < min) {
+				return min;
+			}
+			if(val > max) {
+				return max;
+			}
+			return val;
+		}
 
 		private Model.Shape TargetShape(MouseEventArgs e) {
 			var shapeVisualElement = (System.Windows.FrameworkElement)e.MouseDevice.Target;
