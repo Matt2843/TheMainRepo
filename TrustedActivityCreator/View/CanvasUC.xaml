@@ -10,8 +10,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-	<Grid Width="{Binding Path=ActualWidth}" Height="{Binding Path=ActualHeight}">
-		<gui:TrustedCanvas  x:Name="TrustedCanvas" Grid.Row="0" Grid.Column="0" Background="White" ClipToBounds="False">
+	<Grid Width="{Binding ActualWidth}" Height="{Binding ActualHeight}">
+		<gui:TrustedCanvas x:Name="TrustedCanvas" Background="White" ClipToBounds="False">
 			<ItemsControl Panel.ZIndex="1000" ItemsSource="{Binding Shapes}" />
 			<ItemsControl Panel.ZIndex="500" ItemsSource="{Binding Connections}">
 				<ItemsControl.ItemsPanel>

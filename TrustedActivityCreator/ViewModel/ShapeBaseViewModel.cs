@@ -25,6 +25,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private Ellipse leftAnchor, rightAnchor, topAnchor, bottomAnchor;
 
+		public Model.Shape Shape { get { return shape; } set { shape = value; RaisePropertyChanged(); } }
+
 		public int Id { get { return Shape.Id; } set { Shape.Id = value; RaisePropertyChanged(); } }
 		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
 		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
@@ -69,16 +71,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
 		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
 		public ICommand UpShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
-
-		public Model.Shape Shape {
-			get { return shape; }
-			set {
-				if (value != shape) {
-					shape = value;
-					RaisePropertyChanged();
-				}
-			}
-		}
 
 		public void SetAnchors(Ellipse LeftAnchor, Ellipse RightAnchor, Ellipse TopAnchor, Ellipse BottomAnchor) {
 			this.leftAnchor = LeftAnchor; this.rightAnchor = RightAnchor; this.topAnchor = TopAnchor; this.bottomAnchor = BottomAnchor;
