@@ -40,7 +40,5 @@ namespace TrustedActivityCreator.GUI {
 				return base.DefiningGeometry;
 			}
 		}
-
-
 	}
 }
