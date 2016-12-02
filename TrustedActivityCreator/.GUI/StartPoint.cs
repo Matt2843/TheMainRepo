@@ -13,6 +13,9 @@ namespace TrustedActivityCreator.GUI {
 
 			startPoint.Fill = Brushes.Black;
 
+			BottomAnchor.Width = 4;
+			enterWidth = 6;
+			exitWidth = 4;
 			BottomAnchor.HorizontalAlignment = HorizontalAlignment.Center;
 			BottomAnchor.HorizontalAlignment = HorizontalAlignment.Center;
 

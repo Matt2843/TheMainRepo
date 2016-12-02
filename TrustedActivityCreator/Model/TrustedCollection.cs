@@ -11,11 +11,34 @@ namespace TrustedActivityCreator.Model {
 		public static ObservableCollection<TrustedConnectionVM> Connections { get; } = new ObservableCollection<TrustedConnectionVM>();
 
 		public static int idCounter = 0;
+		public static string gotFileName = "";
+
+		public static void save() {
+			if(gotFileName != "") {
+				File.WriteAllText(gotFileName, "");
+				using (StreamWriter writer = new StreamWriter(gotFileName)) {
+					writer.WriteLine("------------SHAPES-----------------");
+					writer.WriteLine("TYPE,ID,WIDTH,HEIGHT,X,Y,DESCRIPTION");
+					foreach (ShapeBaseViewModel s in Shapes) {
+						writer.WriteLine(s.ToString());
+					}
+					writer.WriteLine("----------CONNECTIONS---------------");
+					writer.WriteLine("TYPE,FROMANCHOR,TOANCHOR,FROMID,TOID");
+					foreach (TrustedConnectionVM c in Connections) {
+						writer.WriteLine(c.ToString());
+					}
+					writer.Close();
+				}
+			} else {
+				saveToFile();
+			}
+		}
 
 		public static void saveToFile() {
 			SaveFileDialog saveFileDialog = new SaveFileDialog();
 			saveFileDialog.Filter = "Trusted file (*.trst)|*.trst";
 			if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+				gotFileName = saveFileDialog.FileName;
 				using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName)) {
 
 					writer.WriteLine("------------SHAPES-----------------");
@@ -28,6 +51,7 @@ namespace TrustedActivityCreator.Model {
 					foreach (TrustedConnectionVM c in Connections) {
 						writer.WriteLine(c.ToString());
 					}
+					writer.Close();
 				}
 			}
 		}
@@ -74,7 +98,8 @@ namespace TrustedActivityCreator.Model {
 							default:
 								break;
 						}
-					}				
+					}
+					reader.Close();				
 
 				}
 			}

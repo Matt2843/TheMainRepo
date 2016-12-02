@@ -18,6 +18,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand AddShapeCommand { get; }
 		public ICommand SaveAsFile { get; }
 		public ICommand LoadCommand { get; }
+		public ICommand SaveCommand { get; }
 
 
 		public QuickPanelVM QuickPanel { get; }
@@ -28,7 +29,8 @@ namespace TrustedActivityCreator.ViewModel {
 			RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
 			AddShapeCommand = new RelayCommand(AddShape);
 			SaveAsFile = new RelayCommand(SaveAsFileFunction);
-			LoadCommand = new RelayCommand(LoadFile); 
+			LoadCommand = new RelayCommand(LoadFile);
+			SaveCommand = new RelayCommand(Save);
 			QuickPanel = new QuickPanelVM();
 			TrustedCanvas = new CanvasVM();
 		}
@@ -39,6 +41,10 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void SaveAsFileFunction() {
 			TrustedCollection.saveToFile();
+		}
+
+		private void Save() {
+			TrustedCollection.save();
 		}
 
 		private void AddShape() {

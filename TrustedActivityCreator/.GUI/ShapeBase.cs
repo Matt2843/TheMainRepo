@@ -22,6 +22,9 @@ namespace TrustedActivityCreator.GUI {
 		public TextBlock Description;
 		public Grid rootGrid;
 
+		public int enterWidth { get; set; } = 12;
+		public int exitWidth { get; set; } = 8;
+
 		public ShapeBase() {
 
 			Connecter.PropertyChanged += Ellipse_Reset;
@@ -40,6 +43,7 @@ namespace TrustedActivityCreator.GUI {
 			SetBinding(Canvas.TopProperty, YBind);
 			SetBinding(WidthProperty, WidthBind);
 			SetBinding(HeightProperty, HeightBind);
+
 
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
 			string[] names = { "LeftAnchor", "RightAnchor", "TopAnchor", "BottomAnchor" };
@@ -143,15 +147,15 @@ namespace TrustedActivityCreator.GUI {
 
 		private void Ellipse_MouseEnter(object sender, MouseEventArgs e) {
 			Ellipse enteredEllipse = (Ellipse)sender;
-			enteredEllipse.Width = 12;
-			enteredEllipse.Height = 12;
+			enteredEllipse.Width = enterWidth;
+			enteredEllipse.Height = enterWidth;
 		}
 
 		private void Ellipse_MouseLeave(object sender, MouseEventArgs e) {
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
 			Ellipse enteredEllipse = (Ellipse)sender;
-			enteredEllipse.Width = 8;
-			enteredEllipse.Height = 8;
+			enteredEllipse.Width = exitWidth;
+			enteredEllipse.Height = exitWidth;
 			if(enteredEllipse.Stroke != Brushes.Red) {
 				enteredEllipse.Visibility = Visibility.Hidden;
 			}

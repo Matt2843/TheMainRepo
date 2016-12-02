@@ -40,7 +40,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public string X {
 			get {
 				if (selectedShapeController.SelectedShape != null) {
-					Console.WriteLine(selectedShapeController.SelectedShape.X.ToString());
+					//Console.WriteLine(selectedShapeController.SelectedShape.X.ToString());
 					return selectedShapeController.SelectedShape.X.ToString();
 				}					
 				return "0";
@@ -56,7 +56,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public string Y {
 			get {
 				if (selectedShapeController.SelectedShape != null) {
-					Console.WriteLine(selectedShapeController.SelectedShape.Y.ToString());
+					//Console.WriteLine(selectedShapeController.SelectedShape.Y.ToString());
 					return selectedShapeController.SelectedShape.Y.ToString();
 				}
 				return "0";
