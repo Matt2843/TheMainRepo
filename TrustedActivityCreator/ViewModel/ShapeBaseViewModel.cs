@@ -88,8 +88,8 @@ namespace TrustedActivityCreator.ViewModel {
 		private void MouseMoveShape(MouseEventArgs e) {
 			if (Mouse.Captured != null) {
 				var mousePosition = RelativeMousePosition(e);
-				X = (int)(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width));
-				Y = (int)(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height));
+				X = (int)(Math.Round(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width) / 5.0) * 5);
+				Y = (int)(Math.Round(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height) / 5.0) * 5);
 			}
 			selectedShapeController.SelectedShape = this;
 		}

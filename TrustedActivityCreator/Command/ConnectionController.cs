@@ -22,7 +22,6 @@ namespace TrustedActivityCreator.Command {
 			get { return from; }
 			set {
 				if(from != null && value != null) {
-					Console.WriteLine("something");
 					TrustedConnectionVM connection = new TrustedConnectionVM();
 					connection.FromAnchor = FromAnchor;
 					connection.ToAnchor = ToAnchor;
@@ -30,7 +29,6 @@ namespace TrustedActivityCreator.Command {
 					from = null;
 					RaisePropertyChanged("Inprogress");
 				} else {
-					Console.WriteLine("null");
 					from = value;
 				}; 
 			}

@@ -4,6 +4,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System;
 using System.Windows.Forms;
+using TrustedActivityCreator.Command;
 
 namespace TrustedActivityCreator.Model {
 	public class TrustedCollection {
@@ -91,16 +92,18 @@ namespace TrustedActivityCreator.Model {
 								}
 								Console.WriteLine(splt[1] + " " + splt[2] + " " + from + " " + to);
 
-								TrustedConnectionVM con = new TrustedConnectionVM(splt[1], splt[2], from, to);							
+								TrustedConnectionVM con = new TrustedConnectionVM(splt[1], splt[2], from, to);
 								Connections.Add(con);
-								con.raise(con, new System.ComponentModel.PropertyChangedEventArgs("Path"));
 								break;
 							default:
 								break;
 						}
 					}
-					reader.Close();				
+					reader.Close();
+				}
 
+				foreach(ShapeBaseViewModel vm in Shapes) {
+					vm.raisemaze("Path");
 				}
 			}
 		}
