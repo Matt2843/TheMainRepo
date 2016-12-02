@@ -13,6 +13,8 @@ namespace TrustedActivityCreator.ViewModel {
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 		private SelectedShapeController selectedShapeController = SelectedShapeController.Instance;
 
+		private GetTrustedCanvas Instance = GetTrustedCanvas.Instance;
+
 		public ICommand AddActivityCommand { get; }
 		public ICommand AddConditionCommand { get; }
 		public ICommand AddEndPointCommand { get; }
@@ -119,8 +121,8 @@ namespace TrustedActivityCreator.ViewModel {
 			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
 			Point point = Mouse.GetPosition(canvas);
 
-			vm.X = (int)point.X;
-			vm.Y = (int)point.Y;
+			vm.X = (int)Instance.Canvas.ActualWidth/2; //(int)point.X;
+			vm.Y = (int)Instance.Canvas.ActualHeight / 2; //(int)point.Y;
 			
 			undoRedoController.AddAndExecute(new AddShapeCommand(vm));
 		}

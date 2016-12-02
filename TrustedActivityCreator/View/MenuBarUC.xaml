@@ -15,22 +15,22 @@
 			<MenuItem Header="_Load" InputGestureText="Ctrl+O" Command="{Binding LoadCommand}"/>
 			<MenuItem Header="_Save" InputGestureText="Ctrl+S" Command="{Binding SaveCommand}"/>
 			<MenuItem Header="Save as" InputGestureText="Ctrl+Alt+S" Command="{Binding SaveAsFile}"/>
-			<MenuItem Header="_Close" InputGestureText="Ctrl+W"/>
-			<MenuItem Header="_Export as" InputGestureText="Ctrl+E"/>
+			<MenuItem Header="_Close" InputGestureText="Ctrl+W" IsEnabled="False"/>
+			<MenuItem Header="_Export as" InputGestureText="Ctrl+E" IsEnabled="False"/>
 			<MenuItem Header="Exit" InputGestureText="Alt+F4" Command="{Binding Shutdown}"/>
 		</MenuItem>
 		<MenuItem Header="_Edit">
 			<MenuItem Header="Undo" InputGestureText="Ctrl+Z" Command="{Binding UndoCommand}" />
 			<MenuItem Header="Redo" InputGestureText="Ctrl+Y" Command="{Binding RedoCommand}" />
-			<MenuItem Header="Copy" InputGestureText="Ctrl+C"/>
-			<MenuItem Header="Cut" InputGestureText="Ctrl+X"/>
-			<MenuItem Header="Paste" InputGestureText="Ctrl+V"/>
-			<MenuItem Header="Select All" InputGestureText="Ctrl+A"/>
+			<MenuItem Header="Copy" InputGestureText="Ctrl+C" IsEnabled="False"/>
+			<MenuItem Header="Cut" InputGestureText="Ctrl+X" IsEnabled="False"/>
+			<MenuItem Header="Paste" InputGestureText="Ctrl+V" IsEnabled="False"/>
+			<MenuItem Header="Select All" InputGestureText="Ctrl+A" IsEnabled="False"/>
 		</MenuItem>
 		<MenuItem Header="View">
-			<MenuItem Header="Zoom +" InputGestureText="Ctrl++"/>
-			<MenuItem Header="Zoom _-" InputGestureText="Ctrl+-"/>
-			<MenuItem Header="_Present" InputGestureText="F11"/>
+			<MenuItem Header="Zoom +" InputGestureText="Ctrl++" IsEnabled="False"/>
+			<MenuItem Header="Zoom _-" InputGestureText="Ctrl+-" IsEnabled="False"/>
+			<MenuItem Header="_Present" InputGestureText="F11" IsEnabled="False"/>
 		</MenuItem>
 	</Menu>
 </UserControl>

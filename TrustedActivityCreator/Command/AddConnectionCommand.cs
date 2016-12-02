@@ -11,7 +11,7 @@ namespace TrustedActivityCreator.Command {
 
 		public AddConnectionCommand(TrustedConnectionVM connection) {
 			this.connection = connection;
-			connection.raise("Path");
+			this.connection.raise("Path");
 		}
 
 		public void Execute() {

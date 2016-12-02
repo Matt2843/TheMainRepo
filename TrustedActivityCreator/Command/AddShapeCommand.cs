@@ -12,11 +12,14 @@ namespace TrustedActivityCreator.Command {
         public AddShapeCommand(ShapeBaseViewModel shape) {
             this.shape = shape;
 			this.shape.Id = TrustedCollection.idCounter++;
-        }
+			this.shape.raise();
+
+		}
 
         public void Execute() {
 			Shapes.Add(shape);
-        }
+			this.shape.raise();
+		}
 
         public void UnExecute() {
 			Shapes.Remove(shape);
