@@ -37,7 +37,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public void Connect(ShapeBaseViewModel from, ShapeBaseViewModel to) {
 			From = from;
 			To = to;
-			Console.WriteLine(Path.ToString());
 			From.PropertyChanged += new PropertyChangedEventHandler(raise);
 			To.PropertyChanged += new PropertyChangedEventHandler(raise);
 			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
