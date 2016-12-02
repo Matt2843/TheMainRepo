@@ -24,7 +24,7 @@
 			<Button Background="White" Content="Add Condition" Command="{Binding AddConditionCommand}"/>
 		</StackPanel>
 
-		<Grid Name="Table" Grid.Row="1" Margin="20">
+		<Grid Name="Table" Grid.Row="1" Margin="20" Background="#202123">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>
 				<ColumnDefinition Width="2*"/>

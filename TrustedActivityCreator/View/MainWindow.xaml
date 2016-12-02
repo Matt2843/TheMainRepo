@@ -31,8 +31,7 @@
 	<Grid>
 		<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30*" />
-			<RowDefinition Height="4*" />
+			<RowDefinition Height="30*" />
 		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
@@ -54,7 +53,5 @@
 		<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Background="WhiteSmoke">
 			<ContentControl  Margin="20" Name="TrustedCanvas" Content="{Binding TrustedCanvas}" Background="White"/>
 		</Grid>
-
-		<local:ConsoleUC Grid.Row="2" Grid.ColumnSpan="2" />
 	</Grid>
 </Window>

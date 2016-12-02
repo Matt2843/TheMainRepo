@@ -33,7 +33,7 @@
 
 	<Style x:Key="UnevenRow" TargetType="TextBox">
 		<Style.Setters>
-			<Setter Property="Background" Value="Gray"/>
+			<Setter Property="Background" Value="WhiteSmoke"/>
 			<Setter Property="Foreground" Value="Black"/>
 			<Setter Property="FontSize" Value="12"/>
 		</Style.Setters>

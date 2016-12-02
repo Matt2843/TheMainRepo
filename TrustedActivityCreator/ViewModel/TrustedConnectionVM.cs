@@ -12,7 +12,7 @@ using TrustedActivityCreator.Command;
 using TrustedActivityCreator.Model;
 
 namespace TrustedActivityCreator.ViewModel {
-	class TrustedConnectionVM : ObservableObject {
+	public class TrustedConnectionVM : ObservableObject {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 

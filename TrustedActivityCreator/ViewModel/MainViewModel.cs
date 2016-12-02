@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TrustedActivityCreator.Command;
+using TrustedActivityCreator.Model;
 
 namespace TrustedActivityCreator.ViewModel {
     class MainViewModel {
@@ -15,6 +16,9 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
 		public ICommand AddShapeCommand { get; }
+		public ICommand SaveAsFile { get; }
+		public ICommand LoadCommand { get; }
+
 
 		public QuickPanelVM QuickPanel { get; }
 		public CanvasVM TrustedCanvas { get; }
@@ -23,8 +27,18 @@ namespace TrustedActivityCreator.ViewModel {
 			UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
 			RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
 			AddShapeCommand = new RelayCommand(AddShape);
+			SaveAsFile = new RelayCommand(SaveAsFileFunction);
+			LoadCommand = new RelayCommand(LoadFile); 
 			QuickPanel = new QuickPanelVM();
 			TrustedCanvas = new CanvasVM();
+		}
+
+		private void LoadFile() {
+			TrustedCollection.loadFromFile();
+		}
+
+		private void SaveAsFileFunction() {
+			TrustedCollection.saveToFile();
 		}
 
 		private void AddShape() {

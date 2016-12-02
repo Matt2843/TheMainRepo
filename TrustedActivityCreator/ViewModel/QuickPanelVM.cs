@@ -8,7 +8,7 @@ using System;
 using System.ComponentModel;
 
 namespace TrustedActivityCreator.ViewModel {
-	class QuickPanelVM : ObservableObject {
+	public class QuickPanelVM : ObservableObject {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 		private SelectedShapeController selectedShapeController = SelectedShapeController.Instance;

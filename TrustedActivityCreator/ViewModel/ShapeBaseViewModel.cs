@@ -10,7 +10,9 @@ using System;
 using System.Windows.Shapes;
 
 namespace TrustedActivityCreator.ViewModel {
-	class ShapeBaseViewModel : ObservableObject {
+	public class ShapeBaseViewModel : ObservableObject {
+
+		public ShapeBaseViewModel() { }
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 		private SelectedShapeController selectedShapeController = SelectedShapeController.Instance;
@@ -24,7 +26,7 @@ namespace TrustedActivityCreator.ViewModel {
 		private Ellipse leftAnchor, rightAnchor, topAnchor, bottomAnchor;
 		private FrameworkElement Canvas;
 
-		public int Id { get { return Shape.Id; } }
+		public int Id { get { return Shape.Id; } set { Shape.Id = value; RaisePropertyChanged(); } }
 		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
 		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
 		public int X { get { return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); RaisePropertyChanged("XMiddle"); } }
@@ -33,6 +35,14 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public int XMiddle { get { return Shape.XMiddle; } }
 		public int YMiddle { get { return Shape.YMiddle; } }
+
+		public override string ToString() {
+			return Id + "," + Width + "," + Height + "," + X + "," + Y + "," + Description;
+		}
+
+		public ShapeBaseViewModel(int Id, int Width, int Height, int X, int Y, string Description) {
+			this.Id = Id; this.Width = Width; this.Height = Height; this.X = X; this.Y = Y; this.Description = Description;
+		}
 
 
 		/*public Point LeftAnchor { get { return leftAnchor.TranslatePoint(new Point(leftAnchor.Width / 2, leftAnchor.Height / 2), Canvas); } }

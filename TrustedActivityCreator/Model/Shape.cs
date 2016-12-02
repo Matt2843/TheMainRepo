@@ -12,18 +12,24 @@ namespace TrustedActivityCreator.Model {
 		private String description;
 
 		public Shape() {
+			Id = 0; Width = 0; Height = 0; X = 0; Y = 0; Description = "";
 			setProperties();
 		}
 
 		public Shape(int id, int width, int height, int x, int y) {
 			this.id = id; this.width = width; this.height = height; this.x = x; this.y = y;
-			setProperties();
 		}
 
 		public abstract void setProperties();
 
 		public int Id {
 			get { return id; }
+			set {
+				if(value != id) {
+					id = value;
+					RaisePropertyChanged();
+				}
+			}
 		}
 
 		public int Width {
