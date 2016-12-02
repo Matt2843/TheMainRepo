@@ -7,6 +7,7 @@ using System.Windows.Data;
 using TrustedActivityCreator.ViewModel;
 using System;
 using TrustedActivityCreator.Command;
+using System.ComponentModel;
 
 namespace TrustedActivityCreator.GUI {
 	/// <summary>
@@ -22,6 +23,9 @@ namespace TrustedActivityCreator.GUI {
 		public Grid rootGrid;
 
 		public ShapeBase() {
+
+			Connecter.PropertyChanged += Ellipse_Reset;
+
 			Binding XBind = new Binding("X");
 			Binding YBind = new Binding("Y");
 			Binding WidthBind = new Binding("Width");
@@ -156,6 +160,16 @@ namespace TrustedActivityCreator.GUI {
 				Connecter.From = null;
 			}
 
+		}
+
+		private void Ellipse_Reset(object sender, PropertyChangedEventArgs e) {
+			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
+			foreach(Ellipse ellipsus in ellipses) {
+				ellipsus.Stroke = Brushes.Black;
+				ellipsus.Width = 8;
+				ellipsus.Height = 8;
+				ellipsus.Visibility = Visibility.Hidden;
+			}
 		}
 	}
 }

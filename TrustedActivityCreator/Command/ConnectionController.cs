@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,13 @@ using System.Threading.Tasks;
 using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.Command {
-	class ConnectionController {
+	class ConnectionController : ObservableObject {
 
 		private ShapeBaseViewModel from;
 
 		public static ConnectionController Connecter { get; } = new ConnectionController();
+
+		public bool Inprogress { get { return From != null; } }
 
 		public ShapeBaseViewModel From {
 			get { return from; }
@@ -20,10 +23,11 @@ namespace TrustedActivityCreator.Command {
 					TrustedConnectionVM connection = new TrustedConnectionVM();
 					connection.Connect(from, value);
 					from = null;
+					RaisePropertyChanged("Inprogress");
 				} else {
 					Console.WriteLine("null");
 					from = value;
-				};
+				}; 
 			}
 		}
 	}
