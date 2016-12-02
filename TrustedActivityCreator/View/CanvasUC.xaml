@@ -10,14 +10,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-	<Grid Width="{Binding Width}" Height="{Binding Height}">
+	<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<gui:TrustedCanvas x:Name="TrustedCanvas" Grid.Row="0" Grid.Column="0" Background="White" ClipToBounds="False">
+		<gui:TrustedCanvas Width="{Binding Width}" Height="{Binding Height}" x:Name="TrustedCanvas" Grid.Row="0" Grid.Column="0" Background="White" ClipToBounds="False">
 			<ItemsControl Panel.ZIndex="1000" ItemsSource="{Binding Shapes}" />
 			<ItemsControl Panel.ZIndex="500" ItemsSource="{Binding Connections}">
 				<ItemsControl.ItemsPanel>
