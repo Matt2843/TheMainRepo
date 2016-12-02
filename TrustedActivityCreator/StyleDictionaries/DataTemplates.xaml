@@ -23,6 +23,12 @@
 		</Canvas>
 	</DataTemplate>
 
+	<DataTemplate DataType="{x:Type vm:StartPointVM}">
+		<Canvas>
+			<v:StartPointUC/>
+		</Canvas>
+	</DataTemplate>
+
 	<DataTemplate DataType="{x:Type vm:ForkVM}">
 		<Canvas>
 			<v:ForkUC/>

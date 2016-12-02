@@ -90,6 +90,7 @@
     <Compile Include=".GUI\Join.cs" />
     <Compile Include=".GUI\PolyConnector.cs" />
     <Compile Include=".GUI\ShapeBase.cs" />
+    <Compile Include=".GUI\StartPoint.cs" />
     <Compile Include=".GUI\TrustedCanvas.cs" />
     <Compile Include="Command\AddConnectionCommand.cs" />
     <Compile Include="Command\ConnectionController.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Model\ForkM.cs" />
     <Compile Include="Model\JoinM.cs" />
     <Compile Include="Model\Shape.cs" />
+    <Compile Include="Model\StartPointM.cs" />
     <Compile Include="Model\TrustedCollection.cs" />
     <Compile Include="ViewModel\CanvasVM.cs" />
     <Compile Include="ViewModel\EndingPointVM.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="ViewModel\JoinVM.cs" />
     <Compile Include="ViewModel\QuickPanelVM.cs" />
     <Compile Include="ViewModel\ShapeBaseViewModel.cs" />
+    <Compile Include="ViewModel\StartPointVM.cs" />
     <Compile Include="ViewModel\TrustedConditionVM.cs" />
     <Compile Include="ViewModel\TrustedConnectionVM.cs" />
     <Compile Include="View\ActivityUC.xaml.cs">
@@ -138,6 +141,9 @@
     </Compile>
     <Compile Include="View\MenuBarUC.xaml.cs">
       <DependentUpon>MenuBarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StartPointUC.xaml.cs">
+      <DependentUpon>StartPointUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TrustedConnectionUC.xaml.cs">
       <DependentUpon>TrustedConnectionUC.xaml</DependentUpon>
@@ -197,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StyleDictionaries\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StartPointUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
