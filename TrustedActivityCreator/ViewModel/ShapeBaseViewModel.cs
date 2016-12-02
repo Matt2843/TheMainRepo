@@ -26,8 +26,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public int Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); RaisePropertyChanged("YMiddle"); } }
 		public string Description { get { return Shape.Description; } set { Shape.Description = value; RaisePropertyChanged(); } }
 
-		public object[] Properties { get { return Shape.properties; } }
-
 		public int XMiddle { get { return Shape.XMiddle; } }
 		public int YMiddle { get { return Shape.YMiddle; } }
 

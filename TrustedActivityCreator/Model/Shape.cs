@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using System;
 
 namespace TrustedActivityCreator.Model {
 	public abstract class Shape : ObservableObject {
@@ -8,9 +9,7 @@ namespace TrustedActivityCreator.Model {
 		private int height;
 		private int x;
 		private int y;
-		private string description = "Albert";
-
-		public object[] properties { get { return new object[] { id, width, height, description }; } }
+		private String description;
 
 		public Shape() {
 			setProperties();

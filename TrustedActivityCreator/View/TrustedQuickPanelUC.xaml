@@ -30,23 +30,20 @@
 				<ColumnDefinition Width="3*"/>
 			</Grid.ColumnDefinitions>
 			
-			<StackPanel Grid.Column="0" Background="White">
-				<TextBlock>Hello</TextBlock>
-				<TextBlock>Hello</TextBlock>
-				<TextBlock>Hello</TextBlock>
-				<TextBlock>Hello</TextBlock>
-				<TextBlock>Hello</TextBlock>
-			</StackPanel>
+			<DockPanel Grid.Column="0">
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource EvenRow}">Description</TextBlock>
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource UnevenRow}"></TextBlock>
+				<TextBlock Style="{StaticResource Std}" />
+				</DockPanel>
 
-			<StackPanel Grid.Column="1" Background="White">
-				<TextBlock>Hello</TextBlock>
-				<TextBlock>Hello</TextBlock>
-				<TextBlock>Hello</TextBlock>
-				<TextBlock>Hello</TextBlock>
-				<TextBlock>Hello</TextBlock>
-			</StackPanel>
+
+			<DockPanel Grid.Column="1" >
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource EvenRow}" Text="{Binding Description}"></TextBlock>
+				<TextBlock DockPanel.Dock="Top" Style="{StaticResource UnevenRow}"></TextBlock>
+				<TextBlock Style="{StaticResource Std}" />
+			</DockPanel>
+
 		</Grid>
-		
 
 	</Grid>
 </UserControl>
