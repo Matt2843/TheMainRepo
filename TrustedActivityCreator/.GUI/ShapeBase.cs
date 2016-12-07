@@ -110,6 +110,7 @@ namespace TrustedActivityCreator.GUI {
 		protected override void OnRender(DrawingContext drawingContext) {
 			base.OnRender(drawingContext);
 			((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
+			((ShapeBaseViewModel)DataContext).raise();
 		}
 
 		private void Shape_MouseEnter(object sender, MouseEventArgs e) {
