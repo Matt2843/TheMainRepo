@@ -77,6 +77,15 @@ namespace TrustedActivityCreator.Model {
 							case "EDP":
 								Shapes.Add(new EndingPointVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
 								break;
+							case "STP":
+								Shapes.Add(new StartPointVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+								break;
+							case "JOI":
+								Shapes.Add(new JoinVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+								break;
+							case "FOR":
+								Shapes.Add(new ForkVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+								break;
 							case "TYPE":
 								break;
 							case "CNT":
@@ -100,10 +109,6 @@ namespace TrustedActivityCreator.Model {
 						}
 					}
 					reader.Close();
-				}
-
-				foreach(ShapeBaseViewModel vm in Shapes) {
-					vm.raise("Path");
 				}
 			}
 		}

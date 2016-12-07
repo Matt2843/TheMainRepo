@@ -13,7 +13,7 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		public override string ToString() {
-			return "EDP" + "," + Id.ToString() + "," + Width.ToString() + "," + Height.ToString() + "," + X.ToString() + "," + Y.ToString() + "," + Description;
+			return "STP" + "," + Id.ToString() + "," + Width.ToString() + "," + Height.ToString() + "," + X.ToString() + "," + Y.ToString() + "," + Description;
 		}
 	}
 }

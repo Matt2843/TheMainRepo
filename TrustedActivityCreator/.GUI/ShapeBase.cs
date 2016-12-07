@@ -111,6 +111,7 @@ namespace TrustedActivityCreator.GUI {
 			base.OnRender(drawingContext);
 			((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
 			((ShapeBaseViewModel)DataContext).raise();
+			Console.WriteLine("QQQ");
 		}
 
 		private void Shape_MouseEnter(object sender, MouseEventArgs e) {
