@@ -17,7 +17,7 @@ namespace TrustedActivityCreator.Command {
 			this.shape = shape;
 			this.offsetX = offsetX;
 			this.offsetY = offsetY;
-			shape.raise();
+			this.shape.raise();
 		}
 
 		public void Execute() {

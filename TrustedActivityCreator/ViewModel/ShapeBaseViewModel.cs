@@ -61,12 +61,6 @@ namespace TrustedActivityCreator.ViewModel {
 			this.Id = Id; this.Width = Width; this.Height = Height; this.X = X; this.Y = Y; this.Description = Description;
 		}
 
-
-		/*public Point LeftAnchor { get { return leftAnchor.TranslatePoint(new Point(leftAnchor.Width / 2, leftAnchor.Height / 2), Canvas); } }
-		public Point RightAnchor { get { return rightAnchor.TranslatePoint(new Point(rightAnchor.Width / 2, rightAnchor.Height / 2), Canvas); } }
-		public Point TopAnchor { get { return topAnchor.TranslatePoint(new Point(topAnchor.Width / 2, topAnchor.Height / 2), Canvas); } }
-		public Point BottomAnchor { get { return bottomAnchor.TranslatePoint(new Point(bottomAnchor.Width / 2, bottomAnchor.Height / 2), Canvas); } }*/
-
 		public Point LeftAnchor { get { return leftAnchor.TranslatePoint(new Point(leftAnchor.Width / 2, leftAnchor.Height / 2), Instance.Canvas); } }
 		public Point RightAnchor { get { return rightAnchor.TranslatePoint(new Point(rightAnchor.Width / 2, rightAnchor.Height / 2), Instance.Canvas); } }
 		public Point TopAnchor { get { return topAnchor.TranslatePoint(new Point(topAnchor.Width / 2, topAnchor.Height / 2), Instance.Canvas); } }
