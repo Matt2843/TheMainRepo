@@ -94,7 +94,6 @@ namespace TrustedActivityCreator.ViewModel {
 					Y = (int)(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height));
 				}
 			}
-			selectedShapeController.SelectedShape = this;
 		}
 
 		private void MouseUpShape(MouseButtonEventArgs e) {
