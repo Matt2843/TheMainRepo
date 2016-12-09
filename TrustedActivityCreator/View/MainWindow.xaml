@@ -26,9 +26,10 @@
 	<Window.InputBindings>
 		<KeyBinding Gesture="CTRL+Z" Command="{Binding UndoCommand}"/>
 		<KeyBinding Gesture="CTRL+Y" Command="{Binding RedoCommand}"/>
-		<KeyBinding  Modifiers="Ctrl+Alt" Key="S" Command="{Binding SaveAsFile}" />
+		<KeyBinding Modifiers="Ctrl+Alt" Key="S" Command="{Binding SaveAsFile}" />
 		<KeyBinding Gesture="CTRL+S" Command="{Binding SaveCommand}" />
 		<KeyBinding Gesture="CTRL+O" Command="{Binding LoadCommand}" />
+		<KeyBinding Gesture="DEL" Command="{Binding DeleteCommand}" />
 	</Window.InputBindings>
 		
 	<Grid>

@@ -13,10 +13,12 @@ namespace TrustedActivityCreator.ViewModel {
     class MainViewModel {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
+		private SelectedShapeController selectedShape = SelectedShapeController.Instance;
 
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
 		public ICommand AddShapeCommand { get; }
+		public ICommand DeleteCommand { get; }
 		public ICommand SaveAsFile { get; }
 		public ICommand LoadCommand { get; }
 		public ICommand SaveCommand { get; }
@@ -31,6 +33,7 @@ namespace TrustedActivityCreator.ViewModel {
 			UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
 			RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
 			AddShapeCommand = new RelayCommand(AddShape);
+			DeleteCommand = new RelayCommand(DeleteShape);
 			SaveAsFile = new RelayCommand(SaveAsFileFunction);
 			LoadCommand = new RelayCommand(LoadFile);
 			SaveCommand = new RelayCommand(Save);
@@ -63,6 +66,10 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void AddShape() {
 			undoRedoController.AddAndExecute(new AddShapeCommand(new ActivityVM()));
+		}
+
+		private void DeleteShape() {
+			undoRedoController.AddAndExecute(new RemoveShapesCommand(new List<ShapeBaseViewModel>(){ selectedShape.SelectedShape }));
 		}
 	}
 }

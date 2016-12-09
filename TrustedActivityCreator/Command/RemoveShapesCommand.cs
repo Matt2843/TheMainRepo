@@ -5,28 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using TrustedActivityCreator.Model;
+using TrustedActivityCreator.ViewModel;
 
 namespace TrustedActivityCreator.Command {
     class RemoveShapesCommand : IUndoRedoCommand {
 
-        private ObservableCollection<Shape> shapes;
+		private ObservableCollection<ShapeBaseViewModel> Shapes { get; } = TrustedCollection.Shapes;
+		private ObservableCollection<TrustedConnectionVM> Connections { get; } = TrustedCollection.Connections;
 
-        private List<Shape> shapesToRemove;
+		private List<ShapeBaseViewModel> shapesToRemove;
 
-		private List<Connection> connectionsToRemove;
+		private List<TrustedConnectionVM> connectionsToRemove;
 
-		public RemoveShapesCommand(ObservableCollection<Shape> shapes, ObservableCollection<Connection> connections, List<Shape> shapesToRemove) {
-            this.shapes = shapes;
+		public RemoveShapesCommand(List<ShapeBaseViewModel> shapesToRemove) {
             this.shapesToRemove = shapesToRemove;
-			this.connectionsToRemove = connections.Where(c => shapesToRemove.Any(s => s.Id == c.From.Id || s.Id == c.To.Id)).ToList();
+			this.connectionsToRemove = Connections.Where(c => shapesToRemove.Any(s => s.Id == c.From.Id || s.Id == c.To.Id)).ToList();
 		}
 
         public void Execute() {
-			shapesToRemove.ForEach(x => shapesToRemove.Remove(x));
-        }
+			shapesToRemove.ForEach(x => Shapes.Remove(x));
+			connectionsToRemove.ForEach(x => Connections.Remove(x));
+
+		}
 
         public void UnExecute() {
-			shapesToRemove.ForEach(x => shapesToRemove.Add(x));
-        }
+			shapesToRemove.ForEach(x => Shapes.Add(x));
+			connectionsToRemove.ForEach(x => Connections.Add(x));
+		}
     }
 }
