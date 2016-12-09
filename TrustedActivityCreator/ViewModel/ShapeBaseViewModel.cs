@@ -16,10 +16,8 @@ namespace TrustedActivityCreator.ViewModel {
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 		private SelectedShapeController selectedShapeController = SelectedShapeController.Instance;
 
-		private Point initialMousePosition;
-		private Point initialShapePosition;
+		private Point initialMousePosition, initialShapePosition;
 
-		// --- 
 		private Model.Shape shape;
 
 		private GetTrustedCanvas Instance = GetTrustedCanvas.Instance;
@@ -28,11 +26,12 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public Model.Shape Shape { get { return shape; } set { shape = value; RaisePropertyChanged(); } }
 
-		public int Id { get { return Shape.Id; } set { Shape.Id = value; RaisePropertyChanged(); } }
-		public int Width { get { return Shape.Width; } set { Shape.Width = value; RaisePropertyChanged(); } }
-		public int Height { get { return Shape.Height; } set { Shape.Height = value; RaisePropertyChanged(); } }
-		public int X { get { return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); } }
-		public int Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); } }
+		public int Id		{ get { return Shape.Id; }		set { Shape.Id = value; RaisePropertyChanged(); } }
+		public int Width	{ get { return Shape.Width; }	set { Shape.Width = value; RaisePropertyChanged(); } }
+		public int Height	{ get { return Shape.Height; }	set { Shape.Height = value; RaisePropertyChanged(); } }
+		public int X		{ get { return Shape.X; }		set { Shape.X = value; RaisePropertyChanged(); } }
+		public int Y		{ get { return Shape.Y; }		set { Shape.Y = value; RaisePropertyChanged(); } }
+
 		public string Description { get { return Shape.Description; } set { Shape.Description = value; RaisePropertyChanged(); } }
 
 		public int XMiddle { get { return Shape.XMiddle; } }
@@ -61,15 +60,15 @@ namespace TrustedActivityCreator.ViewModel {
 			this.Id = Id; this.Width = Width; this.Height = Height; this.X = X; this.Y = Y; this.Description = Description;
 		}
 
-		public Point LeftAnchor { get { return leftAnchor.TranslatePoint(new Point(leftAnchor.Width / 2, leftAnchor.Height / 2), Instance.Canvas); } }
-		public Point RightAnchor { get { return rightAnchor.TranslatePoint(new Point(rightAnchor.Width / 2, rightAnchor.Height / 2), Instance.Canvas); } }
-		public Point TopAnchor { get { return topAnchor.TranslatePoint(new Point(topAnchor.Width / 2, topAnchor.Height / 2), Instance.Canvas); } }
-		public Point BottomAnchor { get { return bottomAnchor.TranslatePoint(new Point(bottomAnchor.Width / 2, bottomAnchor.Height / 2), Instance.Canvas); } }
+		public Point LeftAnchor		{ get { return leftAnchor.TranslatePoint(	new Point(leftAnchor.Width / 2,		leftAnchor.Height / 2),		Instance.Canvas); } }
+		public Point RightAnchor	{ get { return rightAnchor.TranslatePoint(	new Point(rightAnchor.Width / 2,	rightAnchor.Height / 2),	Instance.Canvas); } }
+		public Point TopAnchor		{ get { return topAnchor.TranslatePoint(	new Point(topAnchor.Width / 2,		topAnchor.Height / 2),		Instance.Canvas); } }
+		public Point BottomAnchor	{ get { return bottomAnchor.TranslatePoint(	new Point(bottomAnchor.Width / 2,	bottomAnchor.Height / 2),	Instance.Canvas); } }
 
 		//public ICommand SelectShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(SelectShape); } }
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
 		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
-		public ICommand UpShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
+		public ICommand UpShapeCommand	 { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
 
 		public void SetAnchors(Ellipse LeftAnchor, Ellipse RightAnchor, Ellipse TopAnchor, Ellipse BottomAnchor) {
 			this.leftAnchor = LeftAnchor; this.rightAnchor = RightAnchor; this.topAnchor = TopAnchor; this.bottomAnchor = BottomAnchor;
@@ -77,7 +76,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void MouseDownShape(MouseButtonEventArgs e) {
 			var shape = Shape;
-			var mousePosition = RelativeMousePosition(e);
+			var mousePosition = RelativeMousePosition();
 			initialMousePosition = mousePosition;
 			initialShapePosition = new Point(shape.X, shape.Y);
 			e.MouseDevice.Target.CaptureMouse();
@@ -86,7 +85,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void MouseMoveShape(MouseEventArgs e) {
 			if (Mouse.Captured != null) {
-				var mousePosition = RelativeMousePosition(e);
+				var mousePosition = RelativeMousePosition();
 				if((bool)((CheckBox)Instance.Canvas.FindName("SnapToGrid")).IsChecked) {
 					X = (int)(Math.Round(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width) / 10.0) * 10);
 					Y = (int)(Math.Round(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height) / 10.0) * 10);
@@ -99,7 +98,7 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void MouseUpShape(MouseButtonEventArgs e) {
-			var mousePosition = RelativeMousePosition(e);
+			var mousePosition = RelativeMousePosition();
 
 			X = (int)initialShapePosition.X;
 			Y = (int)initialShapePosition.Y;
@@ -124,16 +123,8 @@ namespace TrustedActivityCreator.ViewModel {
 			return (Model.Shape)shapeVisualElement.DataContext;
 		}
 
-		private Point RelativeMousePosition(MouseEventArgs e) {
-			var shapeVisualElement = (System.Windows.FrameworkElement)e.MouseDevice.Target;
-			//var canvas = FindParentOfType<System.Windows.Controls.Canvas>(shapeVisualElement);
-			var canvas = FindParentOfType<CanvasUC>(shapeVisualElement);
-			return Mouse.GetPosition(canvas);
-		}
-
-		private static T FindParentOfType<T>(DependencyObject o) {
-			dynamic parent = VisualTreeHelper.GetParent(o);
-			return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
+		private Point RelativeMousePosition() {
+			return Mouse.GetPosition(Instance.Canvas);
 		}
 	}
 }
