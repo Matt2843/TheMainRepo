@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System;
 using System.Windows.Shapes;
 using System.Windows.Controls;
+using System.Reflection;
 
 namespace TrustedActivityCreator.ViewModel {
 	public class ShapeBaseViewModel : ObservableObject {
@@ -72,6 +73,13 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public void SetAnchors(Ellipse LeftAnchor, Ellipse RightAnchor, Ellipse TopAnchor, Ellipse BottomAnchor) {
 			this.leftAnchor = LeftAnchor; this.rightAnchor = RightAnchor; this.topAnchor = TopAnchor; this.bottomAnchor = BottomAnchor;
+		}
+
+		public ShapeBaseViewModel Clone() {
+			var type = this.GetType();
+			ShapeBaseViewModel clone = (ShapeBaseViewModel) Assembly.GetAssembly(type).CreateInstance(type.FullName);
+			clone.Id = Id; clone.Width = Width; clone.Height = Height; clone.X = X; clone.Y = Y; clone.Description = Description;
+			return clone;
 		}
 
 		private void MouseDownShape(MouseButtonEventArgs e) {

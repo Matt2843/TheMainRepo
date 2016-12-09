@@ -14,11 +14,14 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 		private SelectedShapeController selectedShape = SelectedShapeController.Instance;
+		private ClipboardController clipboardController = ClipboardController.Instance;
 
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
 		public ICommand AddShapeCommand { get; }
 		public ICommand DeleteCommand { get; }
+		public ICommand CopyCommand { get; }
+		public ICommand PasteCommand { get; }
 		public ICommand SaveAsFile { get; }
 		public ICommand LoadCommand { get; }
 		public ICommand SaveCommand { get; }
@@ -34,6 +37,8 @@ namespace TrustedActivityCreator.ViewModel {
 			RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
 			AddShapeCommand = new RelayCommand(AddShape);
 			DeleteCommand = new RelayCommand(DeleteShape);
+			CopyCommand = new RelayCommand(CopyShape);
+			PasteCommand = new RelayCommand(PasteShape);
 			SaveAsFile = new RelayCommand(SaveAsFileFunction);
 			LoadCommand = new RelayCommand(LoadFile);
 			SaveCommand = new RelayCommand(Save);
@@ -70,6 +75,14 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void DeleteShape() {
 			undoRedoController.AddAndExecute(new RemoveShapesCommand(new List<ShapeBaseViewModel>(){ selectedShape.SelectedShape }));
+		}
+
+		private void CopyShape() {
+			clipboardController.Clipboard = selectedShape.SelectedShape.Clone();
+		}
+
+		private void PasteShape() {
+			undoRedoController.AddAndExecute(new AddShapeCommand(clipboardController.Clipboard.Clone()));
 		}
 	}
 }

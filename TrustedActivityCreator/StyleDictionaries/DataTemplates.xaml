@@ -2,8 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:v="clr-namespace:TrustedActivityCreator.View"
 					xmlns:vm="clr-namespace:TrustedActivityCreator.ViewModel"
-					xmlns:m="clr-namespace:TrustedActivityCreator.Model"
-                    xmlns:local="clr-namespace:TrustedActivityCreator.StyleDictionaries">
+					xmlns:m="clr-namespace:TrustedActivityCreator.Model">
 
 	<DataTemplate DataType="{x:Type vm:ActivityVM}">
 		<Canvas>
