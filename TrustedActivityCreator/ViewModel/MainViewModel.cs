@@ -72,6 +72,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void DeleteShape() {
 			undoRedoController.AddAndExecute(new RemoveShapesCommand(new List<ShapeBaseViewModel>(){ selectedShape.SelectedShape }));
+			selectedShape.SelectedShape = null;
 		}
 
 		private void CopyShape() {

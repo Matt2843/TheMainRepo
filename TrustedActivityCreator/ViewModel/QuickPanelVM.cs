@@ -42,46 +42,48 @@ namespace TrustedActivityCreator.ViewModel {
 		public string X {
 			get {
 				if (selectedShapeController.SelectedShape != null) {
-					//Console.WriteLine(selectedShapeController.SelectedShape.X.ToString());
 					return selectedShapeController.SelectedShape.X.ToString();
 				}					
 				return "0";
 			}
 			set {
-				int output;
-				if(Int32.TryParse(value, out output))
-					selectedShapeController.SelectedShape.X = output;
-				else selectedShapeController.SelectedShape.X = 0;
+				if(selectedShapeController.SelectedShape != null) {
+					int output;
+					if(Int32.TryParse(value, out output))
+						selectedShapeController.SelectedShape.X = output;
+					else selectedShapeController.SelectedShape.X = 0;
+				}
 			}
 		}
 
 		public string Y {
 			get {
 				if (selectedShapeController.SelectedShape != null) {
-					//Console.WriteLine(selectedShapeController.SelectedShape.Y.ToString());
 					return selectedShapeController.SelectedShape.Y.ToString();
 				}
 				return "0";
 			}
 			set {
-				int output;
-				if (Int32.TryParse(value, out output))
-					selectedShapeController.SelectedShape.Y = output;
-				else selectedShapeController.SelectedShape.Y = 0;
+				if(selectedShapeController.SelectedShape != null) {
+					int output;
+					if(Int32.TryParse(value, out output))
+						selectedShapeController.SelectedShape.Y = output;
+					else selectedShapeController.SelectedShape.Y = 0;
+				}
 			}
 		}
 
 		public string Description {
 			get {
 				if(selectedShapeController.SelectedShape != null) {
-					
 					return selectedShapeController.SelectedShape.Description;
-				} else {
-					return "-";
-				}		
+				}
+				return "-";	
 			}
 			set {
-				selectedShapeController.SelectedShape.Description = value;
+				if(selectedShapeController.SelectedShape != null) {
+					selectedShapeController.SelectedShape.Description = value;
+				}
 			}
 		}
 
