@@ -101,6 +101,7 @@ namespace TrustedActivityCreator.ViewModel {
 					X = (int)(GetPointInCanvas(initialShapePosition.X + (mousePosition.X - initialMousePosition.X), 0, Instance.Canvas.ActualWidth - Width));
 					Y = (int)(GetPointInCanvas(initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y), 0, Instance.Canvas.ActualHeight - Height));
 				}
+				selectedShapeController.SelectedShape = this;
 			}
 		}
 
@@ -130,7 +131,7 @@ namespace TrustedActivityCreator.ViewModel {
 			return (Model.Shape)shapeVisualElement.DataContext;
 		}
 
-		private Point RelativeMousePosition() {
+		public Point RelativeMousePosition() {
 			return Mouse.GetPosition(Instance.Canvas);
 		}
 	}

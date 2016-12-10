@@ -16,11 +16,9 @@ namespace TrustedActivityCreator.ViewModel {
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 		private SelectedShapeController selectedShape = SelectedShapeController.Instance;
 		private ClipboardController clipboardController = ClipboardController.Instance;
-		private GetTrustedCanvas Canvas = GetTrustedCanvas.Instance;
 
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
-		public ICommand AddShapeCommand { get; }
 		public ICommand DeleteCommand { get; }
 		public ICommand CopyCommand { get; }
 		public ICommand CutCommand { get; }
@@ -38,7 +36,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public MainViewModel() {
 			UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
 			RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
-			AddShapeCommand = new RelayCommand(AddShape);
 			DeleteCommand = new RelayCommand(DeleteShape);
 			CopyCommand = new RelayCommand(CopyShape);
 			CutCommand = new RelayCommand(CutShape);
@@ -73,10 +70,6 @@ namespace TrustedActivityCreator.ViewModel {
 			TrustedCollection.Connections.Clear();
 		}
 
-		private void AddShape() {
-			undoRedoController.AddAndExecute(new AddShapeCommand(new ActivityVM()));
-		}
-
 		private void DeleteShape() {
 			undoRedoController.AddAndExecute(new RemoveShapesCommand(new List<ShapeBaseViewModel>(){ selectedShape.SelectedShape }));
 		}
@@ -92,9 +85,11 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private void PasteShape() {
 			ShapeBaseViewModel shape = clipboardController.Clipboard.Clone();
-			Point pos = Mouse.GetPosition(Canvas.Canvas);
-			shape.X = (int)(pos.X - shape.Width / 2); shape.Y = (int)(pos.Y - shape.Height / 2);
-			undoRedoController.AddAndExecute(new AddShapeCommand(shape));
+			Point pos = shape.RelativeMousePosition();
+			if(pos.X > 0 && pos.Y > 0) {
+				shape.X = (int)(pos.X - shape.Width / 2); shape.Y = (int)(pos.Y - shape.Height / 2);
+				undoRedoController.AddAndExecute(new AddShapeCommand(shape));
+			}
 		}
 	}
 }
