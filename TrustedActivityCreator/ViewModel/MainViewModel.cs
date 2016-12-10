@@ -71,12 +71,16 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void DeleteShape() {
-			undoRedoController.AddAndExecute(new RemoveShapesCommand(new List<ShapeBaseViewModel>(){ selectedShape.SelectedShape }));
+			if(selectedShape.SelectedShape != null) {
+				undoRedoController.AddAndExecute(new RemoveShapesCommand(new List<ShapeBaseViewModel>() { selectedShape.SelectedShape }));
+			}
 			selectedShape.SelectedShape = null;
 		}
 
 		private void CopyShape() {
-			clipboardController.Clipboard = selectedShape.SelectedShape.Clone();
+			if(selectedShape.SelectedShape != null) {
+				clipboardController.Clipboard = selectedShape.SelectedShape.Clone();
+			}
 		}
 
 		private void CutShape() {
@@ -85,11 +89,13 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void PasteShape() {
-			ShapeBaseViewModel shape = clipboardController.Clipboard.Clone();
-			Point pos = shape.RelativeMousePosition();
-			if(pos.X > 0 && pos.Y > 0) {
-				shape.X = (int)(pos.X - shape.Width / 2); shape.Y = (int)(pos.Y - shape.Height / 2);
-				undoRedoController.AddAndExecute(new AddShapeCommand(shape));
+			if(clipboardController.Clipboard != null) {
+				ShapeBaseViewModel shape = clipboardController.Clipboard.Clone();
+				Point pos = shape.RelativeMousePosition();
+				if(pos.X > 0 && pos.Y > 0) {
+					shape.X = (int)(pos.X - shape.Width / 2); shape.Y = (int)(pos.Y - shape.Height / 2);
+					undoRedoController.AddAndExecute(new AddShapeCommand(shape));
+				}
 			}
 		}
 	}
