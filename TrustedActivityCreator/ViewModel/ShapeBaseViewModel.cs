@@ -25,6 +25,8 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private Ellipse leftAnchor, rightAnchor, topAnchor, bottomAnchor;
 
+		private bool selected = false;
+
 		public Model.Shape Shape { get { return shape; } set { shape = value; RaisePropertyChanged(); } }
 
 		public int Id		{ get { return Shape.Id; }		set { Shape.Id = value; RaisePropertyChanged(); } }
@@ -34,6 +36,8 @@ namespace TrustedActivityCreator.ViewModel {
 		public int Y		{ get { return Shape.Y; }		set { Shape.Y = value; RaisePropertyChanged(); } }
 
 		public string Description { get { return Shape.Description; } set { Shape.Description = value; RaisePropertyChanged(); } }
+
+		public bool Selected { get { return selected; } set { selected = value; RaisePropertyChanged(); } }
 
 		public int XMiddle { get { return Shape.XMiddle; } }
 		public int YMiddle { get { return Shape.YMiddle; } }

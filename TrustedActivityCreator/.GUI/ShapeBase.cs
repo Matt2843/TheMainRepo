@@ -26,7 +26,7 @@ namespace TrustedActivityCreator.GUI {
 		public int enterWidth { get; set; } = 12;
 		public int exitWidth { get; set; } = 8;
 
-		public bool selected = false;
+		public bool selected { get; set; } = false;
 
 		public ShapeBase() {
 			Connecter.PropertyChanged += Ellipse_Reset;
@@ -111,7 +111,18 @@ namespace TrustedActivityCreator.GUI {
 			base.OnRender(drawingContext);
 			((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
 			((ShapeBaseViewModel)DataContext).raise();
+			((ShapeBaseViewModel)DataContext).PropertyChanged += SelectionHandler;
 		}
+
+
+		private void SelectionHandler(object sender, PropertyChangedEventArgs e) {
+			if(((ShapeBaseViewModel)DataContext).Selected) {
+				ShapeGeometry.Stroke = Brushes.Blue;
+			} else {
+				ShapeGeometry.Stroke = Brushes.Black;
+			}
+		}
+
 
 		private void Shape_MouseEnter(object sender, MouseEventArgs e) {
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
@@ -123,7 +134,7 @@ namespace TrustedActivityCreator.GUI {
 
 		private void Shape_MouseLeave(object sender, MouseEventArgs e) {
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			if(!selected)
+			if(!((ShapeBaseViewModel)DataContext).Selected)
 				ShapeGeometry.Stroke = Brushes.Black;
 			foreach(Ellipse ellipsus in ellipses) {
 				if(ellipsus.Stroke != Brushes.Red && !ellipsus.IsMouseOver)
@@ -136,12 +147,12 @@ namespace TrustedActivityCreator.GUI {
 		}
 
 		private void Shape_MouseDown(object sender, MouseEventArgs e) {
-			System.Windows.Shapes.Shape senderShape = (System.Windows.Shapes.Shape)sender;
-			bool isBlue = senderShape.Stroke == Brushes.Blue;
-			selected = !selected;
-			if (!isBlue) {
-				senderShape.Stroke = Brushes.Blue;
-			}
+			//System.Windows.Shapes.Shape senderShape = (System.Windows.Shapes.Shape)sender;
+			//bool isBlue = senderShape.Stroke == Brushes.Blue;
+			//selected = !selected;
+			//if (!isBlue) {
+			//	senderShape.Stroke = Brushes.Blue;
+			//}
 
 			((ShapeBaseViewModel)DataContext).DownShapeCommand.Execute(e);
 		}
