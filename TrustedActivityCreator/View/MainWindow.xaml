@@ -32,6 +32,7 @@
 		<KeyBinding Gesture="DEL" Command="{Binding DeleteCommand}" />
 
 		<KeyBinding Gesture="CTRL+C" Command="{Binding CopyCommand}"/>
+		<KeyBinding Gesture="CTRL+X" Command="{Binding CutCommand}"/>
 		<KeyBinding Gesture="CTRL+V" Command="{Binding PasteCommand}"/>
 
 	</Window.InputBindings>

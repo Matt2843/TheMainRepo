@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using TrustedActivityCreator.Command;
 using TrustedActivityCreator.Model;
@@ -15,12 +16,14 @@ namespace TrustedActivityCreator.ViewModel {
 		private UndoRedoController undoRedoController = UndoRedoController.Instance;
 		private SelectedShapeController selectedShape = SelectedShapeController.Instance;
 		private ClipboardController clipboardController = ClipboardController.Instance;
+		private GetTrustedCanvas Canvas = GetTrustedCanvas.Instance;
 
 		public ICommand UndoCommand { get; }
 		public ICommand RedoCommand { get; }
 		public ICommand AddShapeCommand { get; }
 		public ICommand DeleteCommand { get; }
 		public ICommand CopyCommand { get; }
+		public ICommand CutCommand { get; }
 		public ICommand PasteCommand { get; }
 		public ICommand SaveAsFile { get; }
 		public ICommand LoadCommand { get; }
@@ -38,6 +41,7 @@ namespace TrustedActivityCreator.ViewModel {
 			AddShapeCommand = new RelayCommand(AddShape);
 			DeleteCommand = new RelayCommand(DeleteShape);
 			CopyCommand = new RelayCommand(CopyShape);
+			CutCommand = new RelayCommand(CutShape);
 			PasteCommand = new RelayCommand(PasteShape);
 			SaveAsFile = new RelayCommand(SaveAsFileFunction);
 			LoadCommand = new RelayCommand(LoadFile);
@@ -81,8 +85,16 @@ namespace TrustedActivityCreator.ViewModel {
 			clipboardController.Clipboard = selectedShape.SelectedShape.Clone();
 		}
 
+		private void CutShape() {
+			CopyShape();
+			DeleteShape();
+		}
+
 		private void PasteShape() {
-			undoRedoController.AddAndExecute(new AddShapeCommand(clipboardController.Clipboard.Clone()));
+			ShapeBaseViewModel shape = clipboardController.Clipboard.Clone();
+			Point pos = Mouse.GetPosition(Canvas.Canvas);
+			shape.X = (int)(pos.X - shape.Width / 2); shape.Y = (int)(pos.Y - shape.Height / 2);
+			undoRedoController.AddAndExecute(new AddShapeCommand(shape));
 		}
 	}
 }
