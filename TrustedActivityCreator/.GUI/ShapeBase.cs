@@ -150,13 +150,6 @@ namespace TrustedActivityCreator.GUI {
 		}
 
 		private void Shape_MouseDown(object sender, MouseEventArgs e) {
-			//System.Windows.Shapes.Shape senderShape = (System.Windows.Shapes.Shape)sender;
-			//bool isBlue = senderShape.Stroke == Brushes.Blue;
-			//selected = !selected;
-			//if (!isBlue) {
-			//	senderShape.Stroke = Brushes.Blue;
-			//}
-
 			VM.DownShapeCommand.Execute(e);
 		}
 

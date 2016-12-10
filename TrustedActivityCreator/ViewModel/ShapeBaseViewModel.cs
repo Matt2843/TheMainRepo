@@ -92,7 +92,11 @@ namespace TrustedActivityCreator.ViewModel {
 			initialMousePosition = mousePosition;
 			initialShapePosition = new Point(shape.X, shape.Y);
 			e.MouseDevice.Target.CaptureMouse();
-			selectedShapeController.SelectedShape = this;
+			if(!Selected) {
+				selectedShapeController.SelectedShape = this;
+			} else {
+				selectedShapeController.SelectedShape = null;
+			}
 		}
 
 		private void MouseMoveShape(MouseEventArgs e) {

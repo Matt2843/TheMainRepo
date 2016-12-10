@@ -14,11 +14,9 @@ namespace TrustedActivityCreator.Command {
 		public ShapeBaseViewModel SelectedShape {
 			get { return selectedShape; }
 			set {
-				if(selectedShape != null) {
-					selectedShape.Selected = false;
-				}
+				if(selectedShape != null) { selectedShape.Selected = false; }
 				selectedShape = value;
-				selectedShape.Selected = true;
+				if(selectedShape != null) { selectedShape.Selected = true; }
 				RaisePropertyChanged();
 			}
 		}
