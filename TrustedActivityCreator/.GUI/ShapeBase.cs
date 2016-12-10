@@ -28,6 +28,8 @@ namespace TrustedActivityCreator.GUI {
 
 		public bool selected { get; set; } = false;
 
+		private ShapeBaseViewModel VM;
+
 		public ShapeBase() {
 			Connecter.PropertyChanged += Ellipse_Reset;
 
@@ -109,14 +111,15 @@ namespace TrustedActivityCreator.GUI {
 
 		protected override void OnRender(DrawingContext drawingContext) {
 			base.OnRender(drawingContext);
-			((ShapeBaseViewModel)DataContext).SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
-			((ShapeBaseViewModel)DataContext).raise();
-			((ShapeBaseViewModel)DataContext).PropertyChanged += SelectionHandler;
+			VM = (ShapeBaseViewModel)DataContext;
+			VM.SetAnchors(LeftAnchor, RightAnchor, TopAnchor, BottomAnchor);
+			VM.raise();
+			VM.PropertyChanged += SelectionHandler;
 		}
 
 
 		private void SelectionHandler(object sender, PropertyChangedEventArgs e) {
-			if(((ShapeBaseViewModel)DataContext).Selected) {
+			if(VM != null && VM.Selected) {
 				ShapeGeometry.Stroke = Brushes.Blue;
 			} else {
 				ShapeGeometry.Stroke = Brushes.Black;
@@ -134,7 +137,7 @@ namespace TrustedActivityCreator.GUI {
 
 		private void Shape_MouseLeave(object sender, MouseEventArgs e) {
 			Ellipse[] ellipses = { LeftAnchor, RightAnchor, TopAnchor, BottomAnchor };
-			if(!((ShapeBaseViewModel)DataContext).Selected)
+			if(!VM.Selected)
 				ShapeGeometry.Stroke = Brushes.Black;
 			foreach(Ellipse ellipsus in ellipses) {
 				if(ellipsus.Stroke != Brushes.Red && !ellipsus.IsMouseOver)
@@ -143,7 +146,7 @@ namespace TrustedActivityCreator.GUI {
 		}
 
 		private void Description_MouseDown(object sender, MouseButtonEventArgs e) {
-			((ShapeBaseViewModel)DataContext).DownShapeCommand.Execute(e);
+			VM.DownShapeCommand.Execute(e);
 		}
 
 		private void Shape_MouseDown(object sender, MouseEventArgs e) {
@@ -154,16 +157,16 @@ namespace TrustedActivityCreator.GUI {
 			//	senderShape.Stroke = Brushes.Blue;
 			//}
 
-			((ShapeBaseViewModel)DataContext).DownShapeCommand.Execute(e);
+			VM.DownShapeCommand.Execute(e);
 		}
 
 
 		private void Shape_MouseUp(object sender, MouseEventArgs e) {
-			((ShapeBaseViewModel)DataContext).UpShapeCommand.Execute(e);
+			VM.UpShapeCommand.Execute(e);
 		}
 
 		private void Shape_MouseMove(object sender, MouseEventArgs e) {
-			((ShapeBaseViewModel)DataContext).MoveShapeCommand.Execute(e);
+			VM.MoveShapeCommand.Execute(e);
 		}
 
 		private void Ellipse_MouseEnter(object sender, MouseEventArgs e) {
@@ -200,7 +203,7 @@ namespace TrustedActivityCreator.GUI {
 				} else {
 					Connecter.FromAnchor = senderEllipse.Name;
 				}
-				Connecter.From = (ShapeBaseViewModel)DataContext;
+				Connecter.From = VM;
 			} else {
 				Connecter.From = null;
 			}
