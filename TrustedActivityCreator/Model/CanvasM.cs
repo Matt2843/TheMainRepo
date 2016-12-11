@@ -1,12 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Shapes;
-using System.Windows.Media;
-using GalaSoft.MvvmLight;
-using System.Windows.Controls;
-using System;
+﻿using GalaSoft.MvvmLight;
 
 namespace TrustedActivityCreator.Model {
-    class CanvasM : ObservableObject {
+	class CanvasM : ObservableObject {
 
 		private double width;
 		private double height;

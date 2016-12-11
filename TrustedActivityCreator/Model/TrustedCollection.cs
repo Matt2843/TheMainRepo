@@ -1,14 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using TrustedActivityCreator.ViewModel;
 using System.IO;
-using System.Xml.Serialization;
 using System;
 using System.Windows.Forms;
-using TrustedActivityCreator.Command;
-using System.Windows;
-using System.Windows.Data;
-using System.ComponentModel;
-using System.Windows.Threading;
 using System.Threading;
 
 namespace TrustedActivityCreator.Model {
