@@ -32,7 +32,10 @@ namespace TrustedActivityCreator.ViewModel {
 			connection = new Connection();
 			this.FromAnchor = FromAnchor;
 			this.ToAnchor = ToAnchor;
-			Connect(From, To);
+			this.From = From;
+			this.To = To;
+			this.From.PropertyChanged += new PropertyChangedEventHandler(raise);
+			this.To.PropertyChanged += new PropertyChangedEventHandler(raise);
 		}
 
 		public void raise(string s) {
@@ -57,10 +60,6 @@ namespace TrustedActivityCreator.ViewModel {
 			To = to;
 			From.PropertyChanged += new PropertyChangedEventHandler(raise);
 			To.PropertyChanged += new PropertyChangedEventHandler(raise);
-
-			From.bottomAnchor.IsVisibleChanged += new DependencyPropertyChangedEventHandler(raise);
-			To.topAnchor.IsVisibleChanged += new DependencyPropertyChangedEventHandler(raise);
-
 			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
 		}
 

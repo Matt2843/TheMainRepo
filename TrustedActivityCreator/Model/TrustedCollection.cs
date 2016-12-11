@@ -8,6 +8,7 @@ using TrustedActivityCreator.Command;
 using System.Windows;
 using System.Windows.Data;
 using System.ComponentModel;
+using System.Windows.Threading;
 using System.Threading;
 
 namespace TrustedActivityCreator.Model {
@@ -18,10 +19,14 @@ namespace TrustedActivityCreator.Model {
 		public static int idCounter = 0;
 		public static string gotFileName = "";
 
-		public static void Save(){
-			Thread thread = new Thread(save);
+		private static void Run(ThreadStart fun) {
+			Thread thread = new Thread(fun);
 			thread.SetApartmentState(ApartmentState.STA);
 			thread.Start();
+		}
+
+		public static void Save(){
+			Run(save);
 		}
 
 		public static void SaveToFile() {
@@ -29,9 +34,7 @@ namespace TrustedActivityCreator.Model {
 			saveFileDialog.Filter = "Trusted file (*.trst)|*.trst";
 			if(saveFileDialog.ShowDialog() == DialogResult.OK) {
 				gotFileName = saveFileDialog.FileName;
-				Thread thread = new Thread(saveToFile);
-				thread.SetApartmentState(ApartmentState.STA);
-				thread.Start();
+				Run(saveToFile);
 			}
 		}
 
@@ -40,9 +43,10 @@ namespace TrustedActivityCreator.Model {
 			openFileDialog.Filter = "Trusted file (*.trst)|*.trst";
 			if(openFileDialog.ShowDialog() == DialogResult.OK) {
 				gotFileName = openFileDialog.FileName;
-				Thread thread = new Thread(loadFromFile);
-				thread.SetApartmentState(ApartmentState.STA);
-				thread.Start();
+				var context = SynchronizationContext.Current;
+				Action<ShapeBaseViewModel> addShape = (ShapeBaseViewModel st) => context.Send(x => Shapes.Add(st), null);
+				Action<TrustedConnectionVM> addConnection = (TrustedConnectionVM st) => context.Send(x => Connections.Add(st), null);
+				Run(() => loadFromFile(addShape, addConnection));
 			}
 		}
 
@@ -63,7 +67,7 @@ namespace TrustedActivityCreator.Model {
 					writer.Close();
 				}
 			} else {
-				SaveToFile();
+				saveToFile();
 			}
 		}
 
@@ -84,29 +88,29 @@ namespace TrustedActivityCreator.Model {
 			}
 		}
 
-		private static void loadFromFile() {
+		private static void loadFromFile(Action<ShapeBaseViewModel> addShape, Action<TrustedConnectionVM> addConnection) {
 			using (StreamReader reader = new StreamReader(gotFileName)) {
 				string line;
 				while ((line = reader.ReadLine()) != null) {
 					string[] splt = line.Split(',');
 					switch (splt[0]) {
 						case "ACT":
-							Shapes.Add(new ActivityVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+							addShape(new ActivityVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
 							break;
 						case "CON":
-							Shapes.Add(new TrustedConditionVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+							addShape(new TrustedConditionVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
 							break;
 						case "EDP":
-							Shapes.Add(new EndingPointVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+							addShape(new EndingPointVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
 							break;
 						case "STP":
-							Shapes.Add(new StartPointVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+							addShape(new StartPointVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
 							break;
 						case "JOI":
-							Shapes.Add(new JoinVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+							addShape(new JoinVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
 							break;
 						case "FOR":
-							Shapes.Add(new ForkVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
+							addShape(new ForkVM(Int32.Parse(splt[1]), Int32.Parse(splt[2]), Int32.Parse(splt[3]), Int32.Parse(splt[4]), Int32.Parse(splt[5]), splt[6]));
 							break;
 						case "TYPE":
 							break;
@@ -124,7 +128,7 @@ namespace TrustedActivityCreator.Model {
 							Console.WriteLine(splt[1] + " " + splt[2] + " " + from + " " + to);
 
 							TrustedConnectionVM con = new TrustedConnectionVM(splt[1], splt[2], from, to);
-							Connections.Add(con);
+							addConnection(con);
 							break;
 						default:
 							break;
