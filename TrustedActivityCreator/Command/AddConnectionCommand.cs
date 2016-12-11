@@ -16,12 +16,10 @@ namespace TrustedActivityCreator.Command {
 
 		public void Execute() {
 			Connections.Add(connection);
-			connection.raise("Path");
 		}
 
 		public void UnExecute() {
 			Connections.Remove(connection);
-			connection.raise("Path");
 		}
 	}
 }

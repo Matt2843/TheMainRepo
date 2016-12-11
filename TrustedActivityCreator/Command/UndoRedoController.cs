@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -6,7 +7,7 @@ using System.Windows.Data;
 using TrustedActivityCreator.Model;
 
 namespace TrustedActivityCreator.Command {
-	class UndoRedoController {
+	class UndoRedoController : ObservableObject {
 
 		private readonly Stack<IUndoRedoCommand> undoStack = new Stack<IUndoRedoCommand>();
 		private readonly Stack<IUndoRedoCommand> redoStack = new Stack<IUndoRedoCommand>();
@@ -19,6 +20,7 @@ namespace TrustedActivityCreator.Command {
 			undoStack.Push(command);
 			redoStack.Clear();
 			command.Execute();
+			RaisePropertyChanged();
 		}
 
 		public bool CanUndo() => undoStack.Any();
@@ -28,6 +30,7 @@ namespace TrustedActivityCreator.Command {
 			var command = undoStack.Pop();
 			redoStack.Push(command);
 			command.UnExecute();
+			RaisePropertyChanged();
 		}
 
 		public bool CanRedo() => redoStack.Any();
@@ -37,6 +40,7 @@ namespace TrustedActivityCreator.Command {
 			var command = redoStack.Pop();
 			undoStack.Push(command);
 			command.Execute();
+			RaisePropertyChanged();
 		}
 	}
 }

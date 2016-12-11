@@ -120,8 +120,6 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		private void AddShape(ShapeBaseViewModel vm) {
-			canvas = (FrameworkElement)Application.Current.MainWindow.FindName("TrustedCanvas");
-			Point point = Mouse.GetPosition(canvas);
 
 			vm.X = (int)Instance.Canvas.ActualWidth / 2; //(int)point.X;
 			vm.Y = (int)Instance.Canvas.ActualHeight / 2; //(int)point.Y;

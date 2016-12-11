@@ -42,6 +42,8 @@ namespace TrustedActivityCreator.Model {
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			openFileDialog.Filter = "Trusted file (*.trst)|*.trst";
 			if(openFileDialog.ShowDialog() == DialogResult.OK) {
+				Shapes.Clear();
+				Connections.Clear();
 				gotFileName = openFileDialog.FileName;
 				var context = SynchronizationContext.Current;
 				Action<ShapeBaseViewModel> addShape = (ShapeBaseViewModel st) => context.Send(x => Shapes.Add(st), null);

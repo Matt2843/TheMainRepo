@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand Shutdown { get; }
 		public ICommand NewDocument { get; }
 
-
 		public QuickPanelVM QuickPanel { get; }
 		public CanvasVM TrustedCanvas { get; }
 
@@ -49,6 +49,9 @@ namespace TrustedActivityCreator.ViewModel {
 			NewDocument = new RelayCommand(NewDocumentF);
 			QuickPanel = new QuickPanelVM();
 			TrustedCanvas = new CanvasVM();
+
+			undoRedoController.PropertyChanged += new PropertyChangedEventHandler(CanUnRedo);
+
 		}
 
 		private void Undo() {
@@ -121,5 +124,9 @@ namespace TrustedActivityCreator.ViewModel {
 			}
 		}
 
+		private void CanUnRedo(object sender, PropertyChangedEventArgs e) {
+			((RelayCommand)UndoCommand).RaiseCanExecuteChanged();
+			((RelayCommand)RedoCommand).RaiseCanExecuteChanged();
+		}
 	}
 }
