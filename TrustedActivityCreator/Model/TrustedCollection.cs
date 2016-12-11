@@ -8,24 +8,20 @@ using TrustedActivityCreator.Command;
 using System.Windows;
 using System.Windows.Data;
 using System.ComponentModel;
+using System.Threading;
 
 namespace TrustedActivityCreator.Model {
 	public class TrustedCollection {
 		public static ObservableCollection<ShapeBaseViewModel> Shapes { get; } = new ObservableCollection<ShapeBaseViewModel>();
 		public static ObservableCollection<TrustedConnectionVM> Connections { get; } = new ObservableCollection<TrustedConnectionVM>();
 
-		public static readonly BackgroundWorker worker = new BackgroundWorker();
-
 		public static int idCounter = 0;
 		public static string gotFileName = "";
 
-		public static void init() {
-			worker.DoWork += worker_DoWork;
-			worker.RunWorkerCompleted += worker_RunWorkerCompleted;
-		}
-
 		public static void Save(){
-			worker.RunWorkerAsync("Save");
+			Thread thread = new Thread(save);
+			thread.SetApartmentState(ApartmentState.STA);
+			thread.Start();
 		}
 
 		public static void SaveToFile() {
@@ -33,7 +29,9 @@ namespace TrustedActivityCreator.Model {
 			saveFileDialog.Filter = "Trusted file (*.trst)|*.trst";
 			if(saveFileDialog.ShowDialog() == DialogResult.OK) {
 				gotFileName = saveFileDialog.FileName;
-				worker.RunWorkerAsync("SaveToFile");
+				Thread thread = new Thread(saveToFile);
+				thread.SetApartmentState(ApartmentState.STA);
+				thread.Start();
 			}
 		}
 
@@ -42,26 +40,10 @@ namespace TrustedActivityCreator.Model {
 			openFileDialog.Filter = "Trusted file (*.trst)|*.trst";
 			if(openFileDialog.ShowDialog() == DialogResult.OK) {
 				gotFileName = openFileDialog.FileName;
-				worker.RunWorkerAsync("Load");
+				Thread thread = new Thread(loadFromFile);
+				thread.SetApartmentState(ApartmentState.STA);
+				thread.Start();
 			}
-		}
-
-		private static void worker_DoWork(object sender, DoWorkEventArgs e) {
-			switch((string)e.Argument) {
-				case "Save":
-					save();
-					break;
-				case "SaveToFile":
-					saveToFile();
-					break;
-				case "Load":
-					loadFromFile();
-					break;
-			}
-		}
-
-		private static void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
-
 		}
 
 		private static void save() {
@@ -81,7 +63,7 @@ namespace TrustedActivityCreator.Model {
 					writer.Close();
 				}
 			} else {
-				saveToFile();
+				SaveToFile();
 			}
 		}
 

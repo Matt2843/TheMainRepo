@@ -35,7 +35,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public CanvasVM TrustedCanvas { get; }
 
 		public MainViewModel() {
-			TrustedCollection.init();
 			UndoCommand = new RelayCommand(Undo, undoRedoController.CanUndo);
 			RedoCommand = new RelayCommand(Redo, undoRedoController.CanRedo);
 			DeleteCommand = new RelayCommand(DeleteShape);
