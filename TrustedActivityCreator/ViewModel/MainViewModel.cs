@@ -23,6 +23,7 @@ namespace TrustedActivityCreator.ViewModel {
 		public ICommand CopyCommand { get; }
 		public ICommand CutCommand { get; }
 		public ICommand PasteCommand { get; }
+		public ICommand PasteMenuCommand { get; }
 		public ICommand SaveAsFile { get; }
 		public ICommand LoadCommand { get; }
 		public ICommand SaveCommand { get; }
@@ -34,12 +35,13 @@ namespace TrustedActivityCreator.ViewModel {
 		public CanvasVM TrustedCanvas { get; }
 
 		public MainViewModel() {
-			UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
-			RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
+			UndoCommand = new RelayCommand(Undo, undoRedoController.CanUndo);
+			RedoCommand = new RelayCommand(Redo, undoRedoController.CanRedo);
 			DeleteCommand = new RelayCommand(DeleteShape);
 			CopyCommand = new RelayCommand(CopyShape);
 			CutCommand = new RelayCommand(CutShape);
 			PasteCommand = new RelayCommand(PasteShape);
+			PasteMenuCommand = new RelayCommand(PasteMenuShape);
 			SaveAsFile = new RelayCommand(SaveAsFileFunction);
 			LoadCommand = new RelayCommand(LoadFile);
 			SaveCommand = new RelayCommand(Save);
@@ -48,6 +50,17 @@ namespace TrustedActivityCreator.ViewModel {
 			QuickPanel = new QuickPanelVM();
 			TrustedCanvas = new CanvasVM();
 		}
+
+		private void Undo() {
+			undoRedoController.Undo();
+			selectedShape.raise();
+		}
+
+		private void Redo() {
+			undoRedoController.Redo();
+			selectedShape.raise();
+		}
+
 
 		private void LoadFile() {
 			TrustedCollection.loadFromFile();
@@ -98,5 +111,15 @@ namespace TrustedActivityCreator.ViewModel {
 				}
 			}
 		}
+
+		private void PasteMenuShape() {
+			if(clipboardController.Clipboard != null) {
+				ShapeBaseViewModel shape = clipboardController.Clipboard.Clone();
+				Point pos = shape.CanvasMiddle();
+				shape.X = (int)(pos.X - shape.Width / 2); shape.Y = (int)(pos.Y - shape.Height / 2);
+				undoRedoController.AddAndExecute(new AddShapeCommand(shape));
+			}
+		}
+
 	}
 }

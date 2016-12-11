@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Data;
+using TrustedActivityCreator.Model;
 
 namespace TrustedActivityCreator.Command {
 	class UndoRedoController {
@@ -35,6 +38,5 @@ namespace TrustedActivityCreator.Command {
 			undoStack.Push(command);
 			command.Execute();
 		}
-
 	}
 }

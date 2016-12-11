@@ -11,10 +11,6 @@ namespace TrustedActivityCreator.GUI {
 			set { SetValue(PointsProperty, value); }
 		}
 
-		//public PolyConnector() {
-		//	Points = new PointCollection();
-		//}
-
 		protected override Geometry DefiningGeometry {
 			get {
 				pg.Figures.Clear();

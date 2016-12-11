@@ -5,14 +5,26 @@ using System.Xml.Serialization;
 using System;
 using System.Windows.Forms;
 using TrustedActivityCreator.Command;
+using System.Windows;
+using System.Windows.Data;
 
 namespace TrustedActivityCreator.Model {
 	public class TrustedCollection {
 		public static ObservableCollection<ShapeBaseViewModel> Shapes { get; } = new ObservableCollection<ShapeBaseViewModel>();
 		public static ObservableCollection<TrustedConnectionVM> Connections { get; } = new ObservableCollection<TrustedConnectionVM>();
 
+		private static GetTrustedCanvas canvas = GetTrustedCanvas.Instance;
+
 		public static int idCounter = 0;
 		public static string gotFileName = "";
+
+		public static void raise(object sender, RoutedEventArgs e) {
+			foreach(TrustedConnectionVM c in Connections) {
+				c.From.raise();
+			}
+			//canvas.Canvas.Loaded -= new RoutedEventHandler(TrustedCollection.raise);
+			canvas.Canvas.TargetUpdated += new EventHandler<DataTransferEventArgs>(TrustedCollection.raise);
+		}
 
 		public static void save() {
 			if(gotFileName != "") {

@@ -23,7 +23,7 @@ namespace TrustedActivityCreator.ViewModel {
 
 		private GetTrustedCanvas Instance = GetTrustedCanvas.Instance;
 
-		private Ellipse leftAnchor, rightAnchor, topAnchor, bottomAnchor;
+		public Ellipse leftAnchor, rightAnchor, topAnchor, bottomAnchor;
 
 		private bool selected = false;
 
@@ -70,7 +70,6 @@ namespace TrustedActivityCreator.ViewModel {
 		public Point TopAnchor		{ get { return topAnchor.TranslatePoint(	new Point(topAnchor.Width / 2,		topAnchor.Height / 2),		Instance.Canvas); } }
 		public Point BottomAnchor	{ get { return bottomAnchor.TranslatePoint(	new Point(bottomAnchor.Width / 2,	bottomAnchor.Height / 2),	Instance.Canvas); } }
 
-		//public ICommand SelectShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(SelectShape); } }
 		public ICommand DownShapeCommand { get { return new RelayCommand<MouseButtonEventArgs>(MouseDownShape); } }
 		public ICommand MoveShapeCommand { get { return new RelayCommand<MouseEventArgs>(MouseMoveShape); } }
 		public ICommand UpShapeCommand	 { get { return new RelayCommand<MouseButtonEventArgs>(MouseUpShape); } }
@@ -141,6 +140,10 @@ namespace TrustedActivityCreator.ViewModel {
 
 		public Point RelativeMousePosition() {
 			return Mouse.GetPosition(Instance.Canvas);
+		}
+
+		public Point CanvasMiddle() {
+			return new Point(Instance.Canvas.ActualWidth / 2, Instance.Canvas.ActualHeight / 2);
 		}
 	}
 }

@@ -25,7 +25,6 @@ namespace TrustedActivityCreator.Command {
         public void Execute() {
 			shapesToRemove.ForEach(x => Shapes.Remove(x));
 			connectionsToRemove.ForEach(x => Connections.Remove(x));
-
 		}
 
         public void UnExecute() {

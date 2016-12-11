@@ -20,11 +20,11 @@
 			<MenuItem Header="Exit" InputGestureText="Alt+F4" Command="{Binding Shutdown}"/>
 		</MenuItem>
 		<MenuItem Header="_Edit">
-			<MenuItem Header="Undo" InputGestureText="Ctrl+Z" Command="{Binding UndoCommand}" />
-			<MenuItem Header="Redo" InputGestureText="Ctrl+Y" Command="{Binding RedoCommand}" />
-			<MenuItem Header="Copy" InputGestureText="Ctrl+C" IsEnabled="False"/>
-			<MenuItem Header="Cut" InputGestureText="Ctrl+X" IsEnabled="False"/>
-			<MenuItem Header="Paste" InputGestureText="Ctrl+V" IsEnabled="False"/>
+			<MenuItem Header="Undo"  InputGestureText="Ctrl+Z" Command="{Binding UndoCommand}" />
+			<MenuItem Header="Redo"  InputGestureText="Ctrl+Y" Command="{Binding RedoCommand}" />
+			<MenuItem Header="Copy"  InputGestureText="Ctrl+C" Command="{Binding CopyCommand}" />
+			<MenuItem Header="Cut"   InputGestureText="Ctrl+X" Command="{Binding CutCommand}" />
+			<MenuItem Header="Paste" InputGestureText="Ctrl+V" Command="{Binding PasteMenuCommand}" />
 			<MenuItem Header="Select All" InputGestureText="Ctrl+A" IsEnabled="False"/>
 		</MenuItem>
 		<MenuItem Header="View">

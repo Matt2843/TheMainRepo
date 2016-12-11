@@ -7,6 +7,10 @@ namespace TrustedActivityCreator.Command {
 
 		public static SelectedShapeController Instance { get; } = new SelectedShapeController();
 
+		public void raise() {
+			RaisePropertyChanged();
+		}
+
 		private SelectedShapeController() { }
 
 		private ShapeBaseViewModel selectedShape;

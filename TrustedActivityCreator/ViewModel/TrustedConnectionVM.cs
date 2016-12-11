@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using TrustedActivityCreator.Command;
@@ -39,7 +40,10 @@ namespace TrustedActivityCreator.ViewModel {
 		}
 
 		public void raise(object sender, PropertyChangedEventArgs e){
-			//Console.WriteLine(Path.ToString());
+			RaisePropertyChanged("Path");
+		}
+
+		public void raise(object sender, DependencyPropertyChangedEventArgs e) {
 			RaisePropertyChanged("Path");
 		}
 
@@ -53,6 +57,10 @@ namespace TrustedActivityCreator.ViewModel {
 			To = to;
 			From.PropertyChanged += new PropertyChangedEventHandler(raise);
 			To.PropertyChanged += new PropertyChangedEventHandler(raise);
+
+			From.bottomAnchor.IsVisibleChanged += new DependencyPropertyChangedEventHandler(raise);
+			To.topAnchor.IsVisibleChanged += new DependencyPropertyChangedEventHandler(raise);
+
 			undoRedoController.AddAndExecute(new AddConnectionCommand(this));
 		}
 
